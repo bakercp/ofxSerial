@@ -60,6 +60,8 @@ SerialConfigImpl::SerialConfigImpl(SerialConfigImpl::BPSRateImpl bpsRate,
 	int bufferSize,
 	int timeout)
 {
+    std::cout  << "SerialConfigImpl: " << std::endl;
+
 	std::memset(&_termios, 0, sizeof(_termios)) ;
 
 	setBPSRateImpl(bpsRate);
@@ -79,6 +81,7 @@ SerialConfigImpl::~SerialConfigImpl()
 
 void SerialConfigImpl::setBPSRateImpl(SerialConfigImpl::BPSRateImpl bpsRate)
 {
+    std::cout << "setting bpsRate = " << bpsRate << std::endl;
 	if (0 != cfsetospeed(&_termios, bpsRate) ||
 		0 != cfsetispeed(&_termios, bpsRate))
 		throw SystemException("Can not set baud rate");

@@ -42,6 +42,7 @@
 
 #include "Poco/DeviceIO/DeviceIO.h"
 #include "Poco/RefCountedObject.h"
+#include <iostream>
 
 
 namespace Poco {

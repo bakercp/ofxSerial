@@ -127,6 +127,8 @@ inline int SerialChannel::readData(char*& pBuffer)
 
 inline int SerialChannel::writeData(const char* pBuffer, int length)
 {
+    
+    std::cout << "SerialChannel::writeData: " << pBuffer << std::endl;
 	return writeImpl(pBuffer, length);
 }
 

@@ -99,6 +99,7 @@ SerialConfig::SerialConfig(const std::string& name,
 		bufferSize,
 		getTimeout())
 {
+    std::cout << "Inside of SerialConfig: " << name << std::endl;
 }
 
 

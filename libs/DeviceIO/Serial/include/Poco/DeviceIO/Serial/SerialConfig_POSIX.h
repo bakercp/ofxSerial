@@ -44,6 +44,7 @@
 #include "Poco/RefCountedObject.h"
 #include "Poco/Exception.h"
 #include <termios.h>
+#include <iostream>
 
 
 namespace Poco {

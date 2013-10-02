@@ -47,6 +47,7 @@ ChannelConfig::ChannelConfig(const std::string& name, ChannelType type, int time
 	_type(type),
 	_timeoutMS(timeoutMS)
 {
+    std::cout << "Channel config!" << std::endl;
 }
 
 

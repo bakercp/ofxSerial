@@ -59,7 +59,7 @@ SerialChannel::SerialChannel(SerialConfig* pConfig):
 {
     std::cout << "HERE!" << pConfig->name() << std::endl;
 
-	//open();
+	open();
 }
 
 

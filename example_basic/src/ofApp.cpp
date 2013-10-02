@@ -4,6 +4,9 @@
 //------------------------------------------------------------------------------
 void ofApp::setup()
 {
+
+    ofSerial serial;
+
     SerialConfig config("/dev/tty.PL2303-00002014",SerialConfig::BPS_38400);
 
     cout << "XXX: " << config.getName() << endl;
@@ -11,15 +14,28 @@ void ofApp::setup()
     try
     {
     SerialChannel channel(&config);
+        channel.setBlocking();
 
 //    channel.open();
 
-    channel.write("Hello world!\n");
-    channel.write("Hello world!\n");
-    channel.write("Hello world!\n");
-    channel.write("Hello world!\n");
-    channel.write("Hello world!\n");
-    channel.write("Hello world!\n");
+//    channel.write(1);
+        for(int i = 0; i < 100; i++) {
+        channel.write("Hello world!\n");
+//        channel.write("Hello world!\n");
+//        channel.write("Hello world!\n");
+//        channel.write("Hello world!\n");
+//        channel.write("Hello world!\n");
+//        channel.write("Hello world!\n");
+//        channel.write("Hello world!\n");
+//        channel.write("Hello world!\n");
+//        channel.write("Hello world!\n");
+//        channel.write("Hello world!\n");
+//        channel.write("Hello world!\n");
+//        channel.write("Hello world!\n");
+//        channel.write("Hello world!\n");
+//        channel.write("Hello world!\n");
+//        channel.write("Hello world!\n");
+        }
 
 
 //    channel.close();

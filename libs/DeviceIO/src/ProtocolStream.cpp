@@ -37,7 +37,7 @@
 #include "Poco/DeviceIO/ProtocolStream.h"
 #include "Poco/DeviceIO/Protocol.h"
 #include "Poco/BufferedBidirectionalStreamBuf.h"
-
+#include <cstring>
 
 using Poco::BufferedBidirectionalStreamBuf;
 

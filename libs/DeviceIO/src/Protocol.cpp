@@ -40,7 +40,7 @@
 #include "Poco/Mutex.h"
 #include "Poco/Exception.h"
 #include "Poco/Format.h"
-
+#include <cstring>
 
 using Poco::SharedPtr;
 using Poco::Mutex;

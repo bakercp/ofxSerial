@@ -37,7 +37,7 @@
 #include "Poco/DeviceIO/Socket/SocketChannel.h"
 #include "Poco/Exception.h"
 #include "Poco/Net/SocketImpl.h"
-
+#include <cstring>
 
 using Poco::InvalidArgumentException;
 using Poco::Net::SocketImpl;

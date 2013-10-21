@@ -7,9 +7,9 @@ void ofApp::setup()
 
     ofSerial serial;
 
-    // SerialConfig config("/dev/tty.PL2303-00002014",SerialConfig::BPS_38400);
+ SerialConfig config("/dev/tty.PL2303-00001014",SerialConfig::BPS_38400);
 
-    SerialConfig config("/dev/ttyUSB0",SerialConfig::BPS_38400);
+//    SerialConfig config("/dev/ttyUSB0",SerialConfig::BPS_38400);
 
     cout << "XXX: " << config.getName() << endl;
 

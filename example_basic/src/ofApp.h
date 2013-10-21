@@ -27,4 +27,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+
+    std::shared_ptr<SerialChannel> channel;
+
 };

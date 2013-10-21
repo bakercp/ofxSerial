@@ -7,20 +7,22 @@ void ofApp::setup()
 
     ofSerial serial;
 
-    SerialConfig config("/dev/tty.PL2303-00002014",SerialConfig::BPS_38400);
+    // SerialConfig config("/dev/tty.PL2303-00002014",SerialConfig::BPS_38400);
+
+    SerialConfig config("/dev/ttyUSB0",SerialConfig::BPS_38400);
 
     cout << "XXX: " << config.getName() << endl;
 
     try
     {
-    SerialChannel channel(&config);
-        channel.setBlocking();
+        channel = std::shared_ptr<SerialChannel>(new SerialChannel(&config));
+        channel->setBlocking();
 
 //    channel.open();
 
 //    channel.write(1);
-        for(int i = 0; i < 100; i++) {
-        channel.write("Hello world!\n");
+        for(int i = 0; i < 1; i++) {
+        channel->write("Hello world!\n");
 //        channel.write("Hello world!\n");
 //        channel.write("Hello world!\n");
 //        channel.write("Hello world!\n");
@@ -62,6 +64,7 @@ void ofApp::draw()
 //------------------------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
+    channel->write("Key Pressed!\n");
 }
 
 //------------------------------------------------------------------------------

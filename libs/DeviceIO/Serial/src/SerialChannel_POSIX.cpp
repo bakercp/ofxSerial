@@ -57,14 +57,14 @@ SerialChannelImpl::SerialChannelImpl(SerialConfigImpl* pConfig):
 	_pConfig(pConfig, true)
 {
     std::cout << _pConfig->name() << std::endl;
-//	openImpl();
+	openImpl();
 }
 
 
 SerialChannelImpl::~SerialChannelImpl()
 {
     std::cout << "Destroying SerialChannelImpl_POSIX " << std::endl;
-//	closeImpl();
+	closeImpl();
 }
 
 
@@ -76,8 +76,8 @@ void SerialChannelImpl::initImpl()
 
 
 
-    cfsetispeed(&_pConfig->getTermios(),B38400);
-    cfsetospeed(&_pConfig->getTermios(),B38400);
+//    cfsetispeed(&_pConfig->getTermios(),B38400);
+//    cfsetospeed(&_pConfig->getTermios(),B38400);
 
     _pConfig->getTermios().c_cflag |= (CLOCAL | CREAD);
     _pConfig->getTermios().c_cflag &= ~PARENB;
@@ -94,9 +94,9 @@ void SerialChannelImpl::openImpl()
 //	initImpl();
     std::cout << "===== getting handle for >" << _pConfig->name().c_str() << "< handle=>" << _handle << std::endl;
 
-    _handle = open(_pConfig->name().c_str(), O_RDWR | O_NOCTTY | O_NDELAY);
+//    _handle = open(_pConfig->name().c_str(), O_RDWR | O_NOCTTY | O_NDELAY);
 
-//    _handle = open(_pConfig->name().c_str(), O_RDWR | O_NOCTTY | O_NONBLOCK);
+    _handle = open(_pConfig->name().c_str(), O_RDWR | O_NOCTTY | O_NONBLOCK);
 
     std::cout << "===== handle ==" << _handle << std::endl;
 

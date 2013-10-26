@@ -52,8 +52,6 @@ Channel::Channel(ChannelConfig* pConfig, const std::string& name):
 	_name(name),	
 	_pConfig(pConfig, true)
 {
-    std::cout << "CHANNEL::HERE!" << _pConfig->getName() << std::endl;
-
 }
 
 
@@ -64,6 +62,9 @@ Channel::~Channel()
 
 char Channel::read()
 {
+    std::cout << "Channel::read" << std::endl;
+
+
 	char readBuf = 0;
 	char* pReadBuf = &readBuf;
 	readData(pReadBuf, 1);

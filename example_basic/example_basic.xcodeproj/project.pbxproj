@@ -7,16 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		37D49A47BBBAE637E5CD98C5 /* AsyncSocketChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 983BFC4B2512FB0DE90497C7 /* AsyncSocketChannel.cpp */; };
-		40D76A460D5F113DE2884D3B /* Protocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A155D08AC55E0BE7B52193AB /* Protocol.cpp */; };
-		46D358E3E6A8CEDFCD11A2AC /* AsyncStreamChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F9865FE9A6C6CB01CAC37D0 /* AsyncStreamChannel.cpp */; };
-		508D33CAD87062A51490B462 /* AsyncChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1634C34090CCE436D61CB01C /* AsyncChannel.cpp */; };
-		67C4AE52AF8E7E6CE9667B4C /* ChannelConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB69F46FAC279008739A93D1 /* ChannelConfig.cpp */; };
-		AD6654C63B9D0EE5B0C5FED7 /* AsyncCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1E9825CEDDE6D768E3EE824 /* AsyncCommand.cpp */; };
-		B5FA74F0832C3C43CE8BEC1A /* ChannelStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB257086AEC1951DC88E05FB /* ChannelStream.cpp */; };
+		0808364573a7f95ab4794baa49e9ba00 /* SerialConfig_POSIX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57a27040a5bf445b2142de6120cf9986 /* SerialConfig_POSIX.cpp */; };
+		28d1e746700ae6b9f7f6230a19195ad9 /* SerialConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ea7bcb5e9c2ce6646875294a0b02a086 /* SerialConfig.cpp */; };
+		2aca8750d04225c9263d1b99f1647b96 /* AsyncCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5a0b422c138b4957c033fd848083fdac /* AsyncCommand.cpp */; };
+		36a478ef9784f9119af95f86f637f2dd /* ProtocolStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23087d1065f854cc6d316f3bef90930c /* ProtocolStream.cpp */; };
+		378c444aa502490ca7065df29bee9882 /* AsyncEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9b98003ff8f0c36398aa566fb13ab847 /* AsyncEvent.cpp */; };
+		4897eaa6b058e86b87fb1afea779985d /* ChannelStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0903721e9ba3f0fcf4fb554886af7594 /* ChannelStream.cpp */; };
+		4b14cedcc7195a4d1f8e28b4f9635a89 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19c22cd05d10f78b32ff80c6be3a9385 /* ofApp.cpp */; };
+		51667194330cbd16f8345b692ff776f3 /* DirectoryWatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59fffeb1e84f1fce994ef499bf21781e /* DirectoryWatcher.cpp */; };
+		57f3f1f053628ba303ca782142d961d9 /* SerialChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 958ee8642607eae4725ff19fc1ad40b7 /* SerialChannel.cpp */; };
+		5de087c93125f2793e654d3e68733167 /* SocketChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4d0fc65322d6585c3904e38daca287a4 /* SocketChannel.cpp */; };
+		667a6a0d77f8770eb6a2fe414df16376 /* Channel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7b10ebea8e49bb2976e007d67015b13e /* Channel.cpp */; };
+		66a80fd312926deb8c9fe7f6f2faa063 /* ByteBufferUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = fe5b3b19544657b6f9ccca03b257d204 /* ByteBufferUtils.cpp */; };
+		74325163a3ff6a6d415510c80bc6a56e /* SerialConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85ec960a9738a530b4d5c690c4c01ca7 /* SerialConfig.cpp */; };
+		82747970a290d35b108b7b8f76e79203 /* SerialChannel_WIN32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 503ca99d8e2c4bd7d87e6e1a76477b21 /* SerialChannel_WIN32.cpp */; };
+		8cfc7c975d4419a3127a1d196f37931a /* Serial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1d7aabb29b3a49ab69ea3a97aac518ab /* Serial.cpp */; };
+		9adeede5d3b19b6b27aad4a2f6a69c85 /* AsyncStreamChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = bc0b32096a05c626af9ae8f27fdfe4d5 /* AsyncStreamChannel.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
-		D77FB575E196819921169568 /* SocketChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79C3F0F71D28138DD1CC5F33 /* SocketChannel.cpp */; };
-		DE8CCCDC08248C56CA8B669C /* ProtocolStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 742DDF3791D0C1FF0B6B823C /* ProtocolStream.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -35,16 +42,18 @@
 		E7E077E515D3B63C0020DFD4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */; };
 		E7E077E815D3B6510020DFD4 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E715D3B6510020DFD4 /* QTKit.framework */; };
 		E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F985F515E0DE99003869B5 /* Accelerate.framework */; };
-		F7B3E4A42201DC9A80135AE1 /* AsyncEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70F1B96C2BE689EF4464135F /* AsyncEvent.cpp */; };
-		F7CB0C6349D8A8DD7C920955 /* Channel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 67F471612FBA762798DBD62D /* Channel.cpp */; };
-		FD382D0B17FAA917003619C3 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD382D0917FAA917003619C3 /* ofApp.cpp */; };
-		FD5FB1A417FBC38400238496 /* SerialChannel_POSIX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5FB19D17FBC38400238496 /* SerialChannel_POSIX.cpp */; };
-		FD5FB1A517FBC38400238496 /* SerialChannel_WIN32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5FB19E17FBC38400238496 /* SerialChannel_WIN32.cpp */; };
-		FD5FB1A617FBC38400238496 /* SerialChannel_WIN32U.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5FB19F17FBC38400238496 /* SerialChannel_WIN32U.cpp */; };
-		FD5FB1A717FBC38400238496 /* SerialChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5FB1A017FBC38400238496 /* SerialChannel.cpp */; };
-		FD5FB1A817FBC38400238496 /* SerialConfig_POSIX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5FB1A117FBC38400238496 /* SerialConfig_POSIX.cpp */; };
-		FD5FB1A917FBC38400238496 /* SerialConfig_WIN32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5FB1A217FBC38400238496 /* SerialConfig_WIN32.cpp */; };
-		FD5FB1AA17FBC38400238496 /* SerialConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5FB1A317FBC38400238496 /* SerialConfig.cpp */; };
+		a3edfbe6cdad3ca105e752a9e105c9ba /* SerialChannel_POSIX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0bd80a4569bceedc44829ca1b588c3e3 /* SerialChannel_POSIX.cpp */; };
+		aca409378ee124e77d0c623e66830e84 /* Protocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = c8581c66c48b4355484b830f4bf7b0ee /* Protocol.cpp */; };
+		b68efbb76fad3a06e017f541f7770e5a /* ChannelConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = bd13d1ca6bf81db29389697929bd12f9 /* ChannelConfig.cpp */; };
+		be177617474f11f05e9260fc7f73d21c /* DirectoryWatcherManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0b6179498d0110bd2e161373d141a6c9 /* DirectoryWatcherManager.cpp */; };
+		bfb6c2dabb7995e4e5a30dd41b942c7e /* RecursiveDirectoryIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06ed1882d0056fb439aab3e70e86d912 /* RecursiveDirectoryIterator.cpp */; };
+		c077fe996823fb673372b673ab57278f /* SerialConfig_WIN32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313dbdc533cf31ca50b496c6f3a7431f /* SerialConfig_WIN32.cpp */; };
+		c097820203c2ef142a1f6def4e4e17e0 /* AsyncChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = d6b0f2f545c0b8965cf68a44d2bccdb7 /* AsyncChannel.cpp */; };
+		ca92728f8f4d9f34c80adc58ffe32cab /* RecursiveDirectoryIteratorStategies.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8760f716adafe5917959d49831f489ec /* RecursiveDirectoryIteratorStategies.cpp */; };
+		cefd3ccab8b3251dfcaaa0ee9e26c62a /* DirectoryUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9a967d1fafa98a7cbbfa4f5530702894 /* DirectoryUtils.cpp */; };
+		d932a5a24fcf08ae510a265d01807a32 /* ByteBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93384835c77bd4299f8a7f9032e427d9 /* ByteBuffer.cpp */; };
+		dc4635abee4bf555cfa0d80c071dcd65 /* AsyncSocketChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54f2e55794c420a494248a14b473cc68 /* AsyncSocketChannel.cpp */; };
+		eb7b082b767bcead04ec8936ddaa9b83 /* SerialChannel_WIN32U.cpp in Sources */ = {isa = PBXBuildFile; fileRef = e174a93d3d4bf1dc794e4c90a17ecb0b /* SerialChannel_WIN32U.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,37 +87,53 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		01EF6EFDFFE88B1DA30595CF /* SerialConfig.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SerialConfig.h; path = ../../../addons/ofxSerial/libs/DeviceIO/Serial/include/Poco/DeviceIO/Serial/SerialConfig.h; sourceTree = SOURCE_ROOT; };
-		0516F19E05B53E22FFC8FBD7 /* AsyncCommand.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AsyncCommand.h; path = ../../../addons/ofxSerial/libs/DeviceIO/include/Poco/DeviceIO/AsyncCommand.h; sourceTree = SOURCE_ROOT; };
-		0AECBB69DBB501746C9BC14A /* DeviceIO.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DeviceIO.h; path = ../../../addons/ofxSerial/libs/DeviceIO/include/Poco/DeviceIO/DeviceIO.h; sourceTree = SOURCE_ROOT; };
-		14A44858ADC6B3A09FBC9EAD /* SerialConfig_POSIX.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SerialConfig_POSIX.h; path = ../../../addons/ofxSerial/libs/DeviceIO/Serial/include/Poco/DeviceIO/Serial/SerialConfig_POSIX.h; sourceTree = SOURCE_ROOT; };
-		1634C34090CCE436D61CB01C /* AsyncChannel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = AsyncChannel.cpp; path = ../../../addons/ofxSerial/libs/DeviceIO/src/AsyncChannel.cpp; sourceTree = SOURCE_ROOT; };
-		25C44695D1761447050243BC /* AsyncStreamChannel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AsyncStreamChannel.h; path = ../../../addons/ofxSerial/libs/DeviceIO/include/Poco/DeviceIO/AsyncStreamChannel.h; sourceTree = SOURCE_ROOT; };
-		273D154567D4408826724E3A /* SerialChannel_POSIX.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SerialChannel_POSIX.h; path = ../../../addons/ofxSerial/libs/DeviceIO/Serial/include/Poco/DeviceIO/Serial/SerialChannel_POSIX.h; sourceTree = SOURCE_ROOT; };
-		27591D0ADCFD06DE5C712C39 /* Protocol.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Protocol.h; path = ../../../addons/ofxSerial/libs/DeviceIO/include/Poco/DeviceIO/Protocol.h; sourceTree = SOURCE_ROOT; };
-		2C628903730399FB9F250540 /* ActiveChannel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ActiveChannel.h; path = ../../../addons/ofxSerial/libs/DeviceIO/include/Poco/DeviceIO/ActiveChannel.h; sourceTree = SOURCE_ROOT; };
-		4076BD757507CD680542059F /* ChannelStream.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ChannelStream.h; path = ../../../addons/ofxSerial/libs/DeviceIO/include/Poco/DeviceIO/ChannelStream.h; sourceTree = SOURCE_ROOT; };
-		4F9865FE9A6C6CB01CAC37D0 /* AsyncStreamChannel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = AsyncStreamChannel.cpp; path = ../../../addons/ofxSerial/libs/DeviceIO/src/AsyncStreamChannel.cpp; sourceTree = SOURCE_ROOT; };
-		505EA5301B7B53B4E960CD7B /* Channel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Channel.h; path = ../../../addons/ofxSerial/libs/DeviceIO/include/Poco/DeviceIO/Channel.h; sourceTree = SOURCE_ROOT; };
-		53BE3A37AA3D1D8D421AB6FB /* AsyncEvent.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AsyncEvent.h; path = ../../../addons/ofxSerial/libs/DeviceIO/include/Poco/DeviceIO/AsyncEvent.h; sourceTree = SOURCE_ROOT; };
-		5614E06721E6C4CD96503344 /* ProtocolStream.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ProtocolStream.h; path = ../../../addons/ofxSerial/libs/DeviceIO/include/Poco/DeviceIO/ProtocolStream.h; sourceTree = SOURCE_ROOT; };
-		56C0B4847E43E488DFECFDE3 /* MyApp.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MyApp.h; path = ../../../addons/ofxSerial/src/MyApp.h; sourceTree = SOURCE_ROOT; };
-		67F471612FBA762798DBD62D /* Channel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Channel.cpp; path = ../../../addons/ofxSerial/libs/DeviceIO/src/Channel.cpp; sourceTree = SOURCE_ROOT; };
-		70F1B96C2BE689EF4464135F /* AsyncEvent.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = AsyncEvent.cpp; path = ../../../addons/ofxSerial/libs/DeviceIO/src/AsyncEvent.cpp; sourceTree = SOURCE_ROOT; };
-		742DDF3791D0C1FF0B6B823C /* ProtocolStream.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ProtocolStream.cpp; path = ../../../addons/ofxSerial/libs/DeviceIO/src/ProtocolStream.cpp; sourceTree = SOURCE_ROOT; };
-		762C1CFED89054BDB5F106C7 /* SocketChannel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SocketChannel.h; path = ../../../addons/ofxSerial/libs/DeviceIO/Socket/include/Poco/DeviceIO/Socket/SocketChannel.h; sourceTree = SOURCE_ROOT; };
-		7985638A4789A695B6D22C13 /* Serial.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Serial.h; path = ../../../addons/ofxSerial/libs/DeviceIO/Serial/include/Poco/DeviceIO/Serial/Serial.h; sourceTree = SOURCE_ROOT; };
-		79C3F0F71D28138DD1CC5F33 /* SocketChannel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = SocketChannel.cpp; path = ../../../addons/ofxSerial/libs/DeviceIO/Socket/src/SocketChannel.cpp; sourceTree = SOURCE_ROOT; };
-		7D7FCFA04E4ABBCEE6A7DDDD /* SerialConfig_WIN32.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SerialConfig_WIN32.h; path = ../../../addons/ofxSerial/libs/DeviceIO/Serial/include/Poco/DeviceIO/Serial/SerialConfig_WIN32.h; sourceTree = SOURCE_ROOT; };
-		85E7FA88A35AF09089600149 /* SerialChannel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SerialChannel.h; path = ../../../addons/ofxSerial/libs/DeviceIO/Serial/include/Poco/DeviceIO/Serial/SerialChannel.h; sourceTree = SOURCE_ROOT; };
-		87C42326CBCCF14608091C8D /* AsyncSocketChannel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AsyncSocketChannel.h; path = ../../../addons/ofxSerial/libs/DeviceIO/Socket/include/Poco/DeviceIO/Socket/AsyncSocketChannel.h; sourceTree = SOURCE_ROOT; };
-		983BFC4B2512FB0DE90497C7 /* AsyncSocketChannel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = AsyncSocketChannel.cpp; path = ../../../addons/ofxSerial/libs/DeviceIO/Socket/src/AsyncSocketChannel.cpp; sourceTree = SOURCE_ROOT; };
-		A155D08AC55E0BE7B52193AB /* Protocol.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Protocol.cpp; path = ../../../addons/ofxSerial/libs/DeviceIO/src/Protocol.cpp; sourceTree = SOURCE_ROOT; };
-		B778BBF26D71A1BE9112056C /* AsyncChannel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AsyncChannel.h; path = ../../../addons/ofxSerial/libs/DeviceIO/include/Poco/DeviceIO/AsyncChannel.h; sourceTree = SOURCE_ROOT; };
+		01d9b67f09fff4073bbaba6b162fe59c /* SerialChannel_POSIX.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SerialChannel_POSIX.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include/Poco/DeviceIO/Serial/SerialChannel_POSIX.h; sourceTree = SOURCE_ROOT; };
+		06ed1882d0056fb439aab3e70e86d912 /* RecursiveDirectoryIterator.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = RecursiveDirectoryIterator.cpp; path = ../../../addons/ofxIO/libs/Poco/src/RecursiveDirectoryIterator.cpp; sourceTree = SOURCE_ROOT; };
+		0903721e9ba3f0fcf4fb554886af7594 /* ChannelStream.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ChannelStream.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/src/ChannelStream.cpp; sourceTree = SOURCE_ROOT; };
+		0b6179498d0110bd2e161373d141a6c9 /* DirectoryWatcherManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = DirectoryWatcherManager.cpp; path = ../../../addons/ofxIO/libs/ofxIO/src/DirectoryWatcherManager.cpp; sourceTree = SOURCE_ROOT; };
+		0bd80a4569bceedc44829ca1b588c3e3 /* SerialChannel_POSIX.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = SerialChannel_POSIX.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/src/SerialChannel_POSIX.cpp; sourceTree = SOURCE_ROOT; };
+		0e100a7fd2c9b918a85cb73d649e9a45 /* Channel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Channel.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/include/Poco/DeviceIO/Channel.h; sourceTree = SOURCE_ROOT; };
+		120db29f900e26b84d1a44c860f7b354 /* RecursiveDirectoryIterator.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = RecursiveDirectoryIterator.h; path = ../../../addons/ofxIO/libs/Poco/Foundation/include/Poco/RecursiveDirectoryIterator.h; sourceTree = SOURCE_ROOT; };
+		184acba20564b1bc2eb03f445d54d709 /* SerialChannel_WIN32U.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SerialChannel_WIN32U.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include/Poco/DeviceIO/Serial/SerialChannel_WIN32U.h; sourceTree = SOURCE_ROOT; };
+		19c22cd05d10f78b32ff80c6be3a9385 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
+		1d7aabb29b3a49ab69ea3a97aac518ab /* Serial.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Serial.cpp; path = ../../../addons/ofxSerial/libs/ofxSerial/src/Serial.cpp; sourceTree = SOURCE_ROOT; };
+		23087d1065f854cc6d316f3bef90930c /* ProtocolStream.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ProtocolStream.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/src/ProtocolStream.cpp; sourceTree = SOURCE_ROOT; };
+		2c2d12235060a79bf42c24f0efc09f0f /* DeviceIO.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DeviceIO.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/include/Poco/DeviceIO/DeviceIO.h; sourceTree = SOURCE_ROOT; };
+		2d170f102215cf0511959d79928d8bcb /* ByteBuffer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ByteBuffer.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/ByteBuffer.h; sourceTree = SOURCE_ROOT; };
+		313dbdc533cf31ca50b496c6f3a7431f /* SerialConfig_WIN32.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = SerialConfig_WIN32.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/src/SerialConfig_WIN32.cpp; sourceTree = SOURCE_ROOT; };
+		3687e94cdde6eb104ff639bcc8b9c5bf /* SerialConfig_WIN32.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SerialConfig_WIN32.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include/Poco/DeviceIO/Serial/SerialConfig_WIN32.h; sourceTree = SOURCE_ROOT; };
+		386bcb2ce568099e7878b5617c7d43c4 /* ChannelConfig.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ChannelConfig.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/include/Poco/DeviceIO/ChannelConfig.h; sourceTree = SOURCE_ROOT; };
+		45209b7c6d2457f183eac96e51bfd61e /* SocketChannel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SocketChannel.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket/include/Poco/DeviceIO/Socket/SocketChannel.h; sourceTree = SOURCE_ROOT; };
+		4593838c4b4bce40284aae073af1a51f /* ofxIO.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxIO.h; path = ../../../addons/ofxIO/src/ofxIO.h; sourceTree = SOURCE_ROOT; };
+		4d0fc65322d6585c3904e38daca287a4 /* SocketChannel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = SocketChannel.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket/src/SocketChannel.cpp; sourceTree = SOURCE_ROOT; };
+		4d38898647bbfeebb89c1569bf8791b4 /* alphanum.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = alphanum.hpp; path = ../../../addons/ofxIO/libs/alphanum/include/alphanum.hpp; sourceTree = SOURCE_ROOT; };
+		503ca99d8e2c4bd7d87e6e1a76477b21 /* SerialChannel_WIN32.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = SerialChannel_WIN32.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/src/SerialChannel_WIN32.cpp; sourceTree = SOURCE_ROOT; };
+		54f2e55794c420a494248a14b473cc68 /* AsyncSocketChannel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = AsyncSocketChannel.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket/src/AsyncSocketChannel.cpp; sourceTree = SOURCE_ROOT; };
+		57a27040a5bf445b2142de6120cf9986 /* SerialConfig_POSIX.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = SerialConfig_POSIX.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/src/SerialConfig_POSIX.cpp; sourceTree = SOURCE_ROOT; };
+		589f6414574f9885fadf61cc4c6deb0d /* Serial.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Serial.h; path = ../../../addons/ofxSerial/libs/ofxSerial/include/ofx/IO/Serial/Serial.h; sourceTree = SOURCE_ROOT; };
+		59fffeb1e84f1fce994ef499bf21781e /* DirectoryWatcher.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = DirectoryWatcher.cpp; path = ../../../addons/ofxIO/libs/Poco/src/DirectoryWatcher.cpp; sourceTree = SOURCE_ROOT; };
+		5a0b422c138b4957c033fd848083fdac /* AsyncCommand.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = AsyncCommand.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/src/AsyncCommand.cpp; sourceTree = SOURCE_ROOT; };
+		5ab04d386059d3c4ab2c0bf03650a723 /* SerialChannel_WIN32.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SerialChannel_WIN32.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include/Poco/DeviceIO/Serial/SerialChannel_WIN32.h; sourceTree = SOURCE_ROOT; };
+		5c1865536f5a04c28572a12452a77547 /* RecursiveDirectoryIteratorImpl.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = RecursiveDirectoryIteratorImpl.h; path = ../../../addons/ofxIO/libs/Poco/Foundation/include/Poco/RecursiveDirectoryIteratorImpl.h; sourceTree = SOURCE_ROOT; };
+		5d4c9d17e0c3f84ddb8885440dd67cb9 /* ByteBufferUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ByteBufferUtils.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/ByteBufferUtils.h; sourceTree = SOURCE_ROOT; };
+		5fae5816e7f6ea3d52486c637df2b3e4 /* Protocol.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Protocol.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/include/Poco/DeviceIO/Protocol.h; sourceTree = SOURCE_ROOT; };
+		72ed7aff4da7c09320c753bd1fbdc9e5 /* AsyncEvent.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AsyncEvent.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/include/Poco/DeviceIO/AsyncEvent.h; sourceTree = SOURCE_ROOT; };
+		7b10ebea8e49bb2976e007d67015b13e /* Channel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Channel.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/src/Channel.cpp; sourceTree = SOURCE_ROOT; };
+		7cd95a5b8ad70640863288820bb9b879 /* SerialConfig.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SerialConfig.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include/Poco/DeviceIO/Serial/SerialConfig.h; sourceTree = SOURCE_ROOT; };
+		7ffca81c2d3bd2086fb4bd0131ae458f /* ChannelStream.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ChannelStream.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/include/Poco/DeviceIO/ChannelStream.h; sourceTree = SOURCE_ROOT; };
+		800d9cca0f0b3d70cf25c2ffe490e1cf /* ofxSerial.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSerial.h; path = ../../../addons/ofxSerial/src/ofxSerial.h; sourceTree = SOURCE_ROOT; };
+		84f6287fa54b66c746947875f6690182 /* ofApp.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
+		8582abfd166b52e6de5c3be4244304da /* AsyncSocketChannel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AsyncSocketChannel.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket/include/Poco/DeviceIO/Socket/AsyncSocketChannel.h; sourceTree = SOURCE_ROOT; };
+		85ec960a9738a530b4d5c690c4c01ca7 /* SerialConfig.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = SerialConfig.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/src/SerialConfig.cpp; sourceTree = SOURCE_ROOT; };
+		8760f716adafe5917959d49831f489ec /* RecursiveDirectoryIteratorStategies.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = RecursiveDirectoryIteratorStategies.cpp; path = ../../../addons/ofxIO/libs/Poco/src/RecursiveDirectoryIteratorStategies.cpp; sourceTree = SOURCE_ROOT; };
+		89b60fb247e1f64013c716dc5bc27ed6 /* AbstractTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AbstractTypes.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/AbstractTypes.h; sourceTree = SOURCE_ROOT; };
+		8cb8f3a0d4cbf417777da54e77274fca /* ProtocolStream.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ProtocolStream.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/include/Poco/DeviceIO/ProtocolStream.h; sourceTree = SOURCE_ROOT; };
+		93384835c77bd4299f8a7f9032e427d9 /* ByteBuffer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ByteBuffer.cpp; path = ../../../addons/ofxIO/libs/ofxIO/src/ByteBuffer.cpp; sourceTree = SOURCE_ROOT; };
+		958ee8642607eae4725ff19fc1ad40b7 /* SerialChannel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = SerialChannel.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/src/SerialChannel.cpp; sourceTree = SOURCE_ROOT; };
+		9a967d1fafa98a7cbbfa4f5530702894 /* DirectoryUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = DirectoryUtils.cpp; path = ../../../addons/ofxIO/libs/ofxIO/src/DirectoryUtils.cpp; sourceTree = SOURCE_ROOT; };
+		9b98003ff8f0c36398aa566fb13ab847 /* AsyncEvent.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = AsyncEvent.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/src/AsyncEvent.cpp; sourceTree = SOURCE_ROOT; };
+		9ef95bb1b9e92753aaa87805f55412ed /* RecursiveDirectoryIteratorStategies.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = RecursiveDirectoryIteratorStategies.h; path = ../../../addons/ofxIO/libs/Poco/Foundation/include/Poco/RecursiveDirectoryIteratorStategies.h; sourceTree = SOURCE_ROOT; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
-		C1E9825CEDDE6D768E3EE824 /* AsyncCommand.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = AsyncCommand.cpp; path = ../../../addons/ofxSerial/libs/DeviceIO/src/AsyncCommand.cpp; sourceTree = SOURCE_ROOT; };
-		CE4C1019F4E20B099E0003DC /* ChannelConfig.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ChannelConfig.h; path = ../../../addons/ofxSerial/libs/DeviceIO/include/Poco/DeviceIO/ChannelConfig.h; sourceTree = SOURCE_ROOT; };
-		DC5511A6DF9B1FE0F3109C05 /* SerialChannel_WIN32.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SerialChannel_WIN32.h; path = ../../../addons/ofxSerial/libs/DeviceIO/Serial/include/Poco/DeviceIO/Serial/SerialChannel_WIN32.h; sourceTree = SOURCE_ROOT; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -130,19 +155,28 @@
 		E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		E7E077E715D3B6510020DFD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		E7F985F515E0DE99003869B5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
-		EC51949F3B548DB885CD5792 /* Socket.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Socket.h; path = ../../../addons/ofxSerial/libs/DeviceIO/Socket/include/Poco/DeviceIO/Socket/Socket.h; sourceTree = SOURCE_ROOT; };
-		F01603CAA79C2E48E6BC5591 /* SerialChannel_WIN32U.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SerialChannel_WIN32U.h; path = ../../../addons/ofxSerial/libs/DeviceIO/Serial/include/Poco/DeviceIO/Serial/SerialChannel_WIN32U.h; sourceTree = SOURCE_ROOT; };
-		FB257086AEC1951DC88E05FB /* ChannelStream.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ChannelStream.cpp; path = ../../../addons/ofxSerial/libs/DeviceIO/src/ChannelStream.cpp; sourceTree = SOURCE_ROOT; };
-		FB69F46FAC279008739A93D1 /* ChannelConfig.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ChannelConfig.cpp; path = ../../../addons/ofxSerial/libs/DeviceIO/src/ChannelConfig.cpp; sourceTree = SOURCE_ROOT; };
-		FD382D0917FAA917003619C3 /* ofApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofApp.cpp; sourceTree = "<group>"; };
-		FD382D0A17FAA917003619C3 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofApp.h; sourceTree = "<group>"; };
-		FD5FB19D17FBC38400238496 /* SerialChannel_POSIX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SerialChannel_POSIX.cpp; path = ../libs/DeviceIO/Serial/src/SerialChannel_POSIX.cpp; sourceTree = "<group>"; };
-		FD5FB19E17FBC38400238496 /* SerialChannel_WIN32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SerialChannel_WIN32.cpp; path = ../libs/DeviceIO/Serial/src/SerialChannel_WIN32.cpp; sourceTree = "<group>"; };
-		FD5FB19F17FBC38400238496 /* SerialChannel_WIN32U.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SerialChannel_WIN32U.cpp; path = ../libs/DeviceIO/Serial/src/SerialChannel_WIN32U.cpp; sourceTree = "<group>"; };
-		FD5FB1A017FBC38400238496 /* SerialChannel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SerialChannel.cpp; path = ../libs/DeviceIO/Serial/src/SerialChannel.cpp; sourceTree = "<group>"; };
-		FD5FB1A117FBC38400238496 /* SerialConfig_POSIX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SerialConfig_POSIX.cpp; path = ../libs/DeviceIO/Serial/src/SerialConfig_POSIX.cpp; sourceTree = "<group>"; };
-		FD5FB1A217FBC38400238496 /* SerialConfig_WIN32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SerialConfig_WIN32.cpp; path = ../libs/DeviceIO/Serial/src/SerialConfig_WIN32.cpp; sourceTree = "<group>"; };
-		FD5FB1A317FBC38400238496 /* SerialConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SerialConfig.cpp; path = ../libs/DeviceIO/Serial/src/SerialConfig.cpp; sourceTree = "<group>"; };
+		FD577A58181C56A200F1FC9D /* DeviceInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeviceInfo.h; path = ../libs/ofxSerial/include/ofx/IO/Serial/DeviceInfo.h; sourceTree = "<group>"; };
+		a27952e0f2be4dbe86e1e8277287b148 /* SerialChannel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SerialChannel.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include/Poco/DeviceIO/Serial/SerialChannel.h; sourceTree = SOURCE_ROOT; };
+		a8efc4d68ca5fa3eaf2593f803bc5f68 /* ActiveChannel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ActiveChannel.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/include/Poco/DeviceIO/ActiveChannel.h; sourceTree = SOURCE_ROOT; };
+		b220d1d75a12092adf53e17b11525c18 /* AsyncStreamChannel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AsyncStreamChannel.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/include/Poco/DeviceIO/AsyncStreamChannel.h; sourceTree = SOURCE_ROOT; };
+		b4d6d77219f0b1ead98a25d3ada12de0 /* AsyncChannel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AsyncChannel.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/include/Poco/DeviceIO/AsyncChannel.h; sourceTree = SOURCE_ROOT; };
+		bc0b32096a05c626af9ae8f27fdfe4d5 /* AsyncStreamChannel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = AsyncStreamChannel.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/src/AsyncStreamChannel.cpp; sourceTree = SOURCE_ROOT; };
+		bd13d1ca6bf81db29389697929bd12f9 /* ChannelConfig.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ChannelConfig.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/src/ChannelConfig.cpp; sourceTree = SOURCE_ROOT; };
+		beffaa5b8275e0ae066fc2e31330dd5f /* DirectoryWatcherManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DirectoryWatcherManager.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/DirectoryWatcherManager.h; sourceTree = SOURCE_ROOT; };
+		c7ea4cbf8caba441003fc47fc5e80e7e /* Socket.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Socket.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket/include/Poco/DeviceIO/Socket/Socket.h; sourceTree = SOURCE_ROOT; };
+		c8581c66c48b4355484b830f4bf7b0ee /* Protocol.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Protocol.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/src/Protocol.cpp; sourceTree = SOURCE_ROOT; };
+		d1f82a94bd80bdc78e0b1922d8660de6 /* DirectoryUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DirectoryUtils.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/DirectoryUtils.h; sourceTree = SOURCE_ROOT; };
+		d6b0f2f545c0b8965cf68a44d2bccdb7 /* AsyncChannel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = AsyncChannel.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/src/AsyncChannel.cpp; sourceTree = SOURCE_ROOT; };
+		e174a93d3d4bf1dc794e4c90a17ecb0b /* SerialChannel_WIN32U.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = SerialChannel_WIN32U.cpp; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/src/SerialChannel_WIN32U.cpp; sourceTree = SOURCE_ROOT; };
+		e1917701bdf06e45e5821b1ebdebdeff /* Config.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Config.h; path = ../../../addons/ofxSerial/libs/ofxSerial/include/ofx/IO/Serial/Config.h; sourceTree = SOURCE_ROOT; };
+		e3d39f2080ca052e606ea84e7d169675 /* DirectoryWatcher.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DirectoryWatcher.h; path = ../../../addons/ofxIO/libs/Poco/Foundation/include/Poco/DirectoryWatcher.h; sourceTree = SOURCE_ROOT; };
+		e53efd22eb841d9ed550d0c02a8c501d /* SerialConfig_POSIX.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SerialConfig_POSIX.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include/Poco/DeviceIO/Serial/SerialConfig_POSIX.h; sourceTree = SOURCE_ROOT; };
+		ea7bcb5e9c2ce6646875294a0b02a086 /* SerialConfig.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = SerialConfig.cpp; path = ../../../addons/ofxSerial/libs/ofxSerial/src/SerialConfig.cpp; sourceTree = SOURCE_ROOT; };
+		f5d390b0d1c028a03d0cea3af44fb3eb /* AsyncCommand.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AsyncCommand.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/include/Poco/DeviceIO/AsyncCommand.h; sourceTree = SOURCE_ROOT; };
+		f91843c45134fd7b696e0f136607fda5 /* AbstractDataView.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AbstractDataView.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/AbstractDataView.h; sourceTree = SOURCE_ROOT; };
+		fa01b987a4952ae49bdd09d009442610 /* BasicFileFilters.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BasicFileFilters.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/BasicFileFilters.h; sourceTree = SOURCE_ROOT; };
+		fcdfdf7f7293f6f09b17b29e6b790005 /* Serial.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Serial.h; path = ../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include/Poco/DeviceIO/Serial/Serial.h; sourceTree = SOURCE_ROOT; };
+		fe5b3b19544657b6f9ccca03b257d204 /* ByteBufferUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ByteBufferUtils.cpp; path = ../../../addons/ofxIO/libs/ofxIO/src/ByteBufferUtils.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,137 +207,221 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1C93E455EC509B8E349F2158 /* DeviceIO */ = {
+		0a49e079a22ba1f1675fc5994a6e680f /* DeviceIO */ = {
 			isa = PBXGroup;
 			children = (
-				C3E838E49BA8C36B91E2B0C1 /* Socket */,
+				d50115ff1c133c06210d164a6df52236 /* include */,
+				ff594b09c5fc26e3fef0fe31fcb82e4d /* Serial */,
+				d00668755feb895fe3a4f79526d7f853 /* Socket */,
+				c0795b802027ce6592472f646dacf789 /* src */,
 			);
 			name = DeviceIO;
 			sourceTree = "<group>";
 		};
-		1F6880E8CEE945D322E55DD5 /* DeviceIO */ = {
+		15f500c5d0a99b5f06933a4b054c38cf /* IO */ = {
 			isa = PBXGroup;
 			children = (
-				2C628903730399FB9F250540 /* ActiveChannel.h */,
-				B778BBF26D71A1BE9112056C /* AsyncChannel.h */,
-				0516F19E05B53E22FFC8FBD7 /* AsyncCommand.h */,
-				53BE3A37AA3D1D8D421AB6FB /* AsyncEvent.h */,
-				25C44695D1761447050243BC /* AsyncStreamChannel.h */,
-				505EA5301B7B53B4E960CD7B /* Channel.h */,
-				CE4C1019F4E20B099E0003DC /* ChannelConfig.h */,
-				4076BD757507CD680542059F /* ChannelStream.h */,
-				0AECBB69DBB501746C9BC14A /* DeviceIO.h */,
-				27591D0ADCFD06DE5C712C39 /* Protocol.h */,
-				5614E06721E6C4CD96503344 /* ProtocolStream.h */,
+				1ec951dbf5a9e725215f69694fdb6f4e /* Serial */,
 			);
-			name = DeviceIO;
+			name = IO;
 			sourceTree = "<group>";
 		};
-		23A53CA3340653AD018698FC /* DeviceIO */ = {
+		1ebc67cfadabeec8c91003ff1818632d /* include */ = {
 			isa = PBXGroup;
 			children = (
-				F9CFFA9A882CAD9157B5472B /* include */,
-				88F71D47E625A09FAF4C6C6E /* Serial */,
-				2A1B1C0ED6955E28285E4395 /* Socket */,
-				C44B48D9808D167D982C2930 /* src */,
+				e4b01744fc660e945675c6c662f66612 /* Poco */,
 			);
-			name = DeviceIO;
+			name = include;
 			sourceTree = "<group>";
 		};
-		2A1B1C0ED6955E28285E4395 /* Socket */ = {
+		1ec951dbf5a9e725215f69694fdb6f4e /* Serial */ = {
 			isa = PBXGroup;
 			children = (
-				A9D5BEC40036C1A9A3E677E7 /* include */,
-				A7ABB160A337188199D67910 /* src */,
-			);
-			name = Socket;
-			sourceTree = "<group>";
-		};
-		496B4EE1BC1DD880DF6C4050 /* Serial */ = {
-			isa = PBXGroup;
-			children = (
-				7985638A4789A695B6D22C13 /* Serial.h */,
-				85E7FA88A35AF09089600149 /* SerialChannel.h */,
-				273D154567D4408826724E3A /* SerialChannel_POSIX.h */,
-				DC5511A6DF9B1FE0F3109C05 /* SerialChannel_WIN32.h */,
-				F01603CAA79C2E48E6BC5591 /* SerialChannel_WIN32U.h */,
-				01EF6EFDFFE88B1DA30595CF /* SerialConfig.h */,
-				14A44858ADC6B3A09FBC9EAD /* SerialConfig_POSIX.h */,
-				7D7FCFA04E4ABBCEE6A7DDDD /* SerialConfig_WIN32.h */,
+				589f6414574f9885fadf61cc4c6deb0d /* Serial.h */,
+				e1917701bdf06e45e5821b1ebdebdeff /* Config.h */,
+				FD577A58181C56A200F1FC9D /* DeviceInfo.h */,
 			);
 			name = Serial;
 			sourceTree = "<group>";
 		};
-		6B4528F898B3032BB3689FFD /* libs */ = {
+		1fe55f3fcbd156ac7d591f6956cc3f19 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				23A53CA3340653AD018698FC /* DeviceIO */,
+				b40d93e4e6198327d6da7bfa3cdb2462 /* alphanum */,
+				92cf4367af54e202bcf9e084b4179b68 /* ofxIO */,
+				8fb24c0f711982136a83b4f2bc096d30 /* Poco */,
 			);
 			name = libs;
 			sourceTree = "<group>";
 		};
-		86EBF0D86442339AC5CA91A9 /* Poco */ = {
+		21a62c7e92fac42b3bcf5c1669f7c543 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				1C93E455EC509B8E349F2158 /* DeviceIO */,
-			);
-			name = Poco;
-			sourceTree = "<group>";
-		};
-		88F71D47E625A09FAF4C6C6E /* Serial */ = {
-			isa = PBXGroup;
-			children = (
-				AE8381D84BBD6C2D8CC10A88 /* include */,
-				D9F8661B0EE9734D7D8DF611 /* src */,
-			);
-			name = Serial;
-			sourceTree = "<group>";
-		};
-		A762212F4EFFC4FC9E3E8A51 /* Poco */ = {
-			isa = PBXGroup;
-			children = (
-				1F6880E8CEE945D322E55DD5 /* DeviceIO */,
-			);
-			name = Poco;
-			sourceTree = "<group>";
-		};
-		A7ABB160A337188199D67910 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				983BFC4B2512FB0DE90497C7 /* AsyncSocketChannel.cpp */,
-				79C3F0F71D28138DD1CC5F33 /* SocketChannel.cpp */,
+				958ee8642607eae4725ff19fc1ad40b7 /* SerialChannel.cpp */,
+				0bd80a4569bceedc44829ca1b588c3e3 /* SerialChannel_POSIX.cpp */,
+				503ca99d8e2c4bd7d87e6e1a76477b21 /* SerialChannel_WIN32.cpp */,
+				e174a93d3d4bf1dc794e4c90a17ecb0b /* SerialChannel_WIN32U.cpp */,
+				85ec960a9738a530b4d5c690c4c01ca7 /* SerialConfig.cpp */,
+				57a27040a5bf445b2142de6120cf9986 /* SerialConfig_POSIX.cpp */,
+				313dbdc533cf31ca50b496c6f3a7431f /* SerialConfig_WIN32.cpp */,
 			);
 			name = src;
 			sourceTree = "<group>";
 		};
-		A9D5BEC40036C1A9A3E677E7 /* include */ = {
+		3f13bf933566839ed4c7ccedeea89880 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				86EBF0D86442339AC5CA91A9 /* Poco */,
+				d1c382a37ee661f51aa773cc780a6144 /* ofx */,
 			);
 			name = include;
 			sourceTree = "<group>";
 		};
-		AE8381D84BBD6C2D8CC10A88 /* include */ = {
+		43b234786a687236c6fd1e9fbc6c7e39 /* Poco */ = {
 			isa = PBXGroup;
 			children = (
-				CAE50356DCAB845E11DFB447 /* Poco */,
+				0a49e079a22ba1f1675fc5994a6e680f /* DeviceIO */,
+			);
+			name = Poco;
+			sourceTree = "<group>";
+		};
+		57cc27cf60ede1c9a52b66f3f8128939 /* Poco */ = {
+			isa = PBXGroup;
+			children = (
+				e3d39f2080ca052e606ea84e7d169675 /* DirectoryWatcher.h */,
+				120db29f900e26b84d1a44c860f7b354 /* RecursiveDirectoryIterator.h */,
+				5c1865536f5a04c28572a12452a77547 /* RecursiveDirectoryIteratorImpl.h */,
+				9ef95bb1b9e92753aaa87805f55412ed /* RecursiveDirectoryIteratorStategies.h */,
+			);
+			name = Poco;
+			sourceTree = "<group>";
+		};
+		671923ec06f4340d8255da228e504077 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				4d38898647bbfeebb89c1569bf8791b4 /* alphanum.hpp */,
 			);
 			name = include;
 			sourceTree = "<group>";
 		};
-		B16E53E5AEA300DCFF17A302 /* DeviceIO */ = {
+		6b4528f898b3032bb3689ffdb09e6577 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				496B4EE1BC1DD880DF6C4050 /* Serial */,
+				6f72ecc5b858ccfd7bb7730d154a4991 /* ofxSerial */,
+				43b234786a687236c6fd1e9fbc6c7e39 /* Poco */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		6c589d7c4c1dbd62621d78229eb4740b /* Poco */ = {
+			isa = PBXGroup;
+			children = (
+				813a776632dc24111633e39cbfcdf580 /* DeviceIO */,
+			);
+			name = Poco;
+			sourceTree = "<group>";
+		};
+		6cb7e490dd2c7480ef0af17df14588cf /* DeviceIO */ = {
+			isa = PBXGroup;
+			children = (
+				f96b3361ba2de882e8e2dd2d76ec0cd3 /* Serial */,
 			);
 			name = DeviceIO;
+			sourceTree = "<group>";
+		};
+		6f72ecc5b858ccfd7bb7730d154a4991 /* ofxSerial */ = {
+			isa = PBXGroup;
+			children = (
+				ead170a2cc62c03ae884c98bff8ee5da /* include */,
+				972457a92053e129b1c252d5dbfbb254 /* src */,
+			);
+			name = ofxSerial;
+			sourceTree = "<group>";
+		};
+		813a776632dc24111633e39cbfcdf580 /* DeviceIO */ = {
+			isa = PBXGroup;
+			children = (
+				a8efc4d68ca5fa3eaf2593f803bc5f68 /* ActiveChannel.h */,
+				b4d6d77219f0b1ead98a25d3ada12de0 /* AsyncChannel.h */,
+				f5d390b0d1c028a03d0cea3af44fb3eb /* AsyncCommand.h */,
+				72ed7aff4da7c09320c753bd1fbdc9e5 /* AsyncEvent.h */,
+				b220d1d75a12092adf53e17b11525c18 /* AsyncStreamChannel.h */,
+				0e100a7fd2c9b918a85cb73d649e9a45 /* Channel.h */,
+				386bcb2ce568099e7878b5617c7d43c4 /* ChannelConfig.h */,
+				7ffca81c2d3bd2086fb4bd0131ae458f /* ChannelStream.h */,
+				2c2d12235060a79bf42c24f0efc09f0f /* DeviceIO.h */,
+				5fae5816e7f6ea3d52486c637df2b3e4 /* Protocol.h */,
+				8cb8f3a0d4cbf417777da54e77274fca /* ProtocolStream.h */,
+			);
+			name = DeviceIO;
+			sourceTree = "<group>";
+		};
+		81b9e335116a816ea1d2a2fa5313a664 /* IO */ = {
+			isa = PBXGroup;
+			children = (
+				f91843c45134fd7b696e0f136607fda5 /* AbstractDataView.h */,
+				89b60fb247e1f64013c716dc5bc27ed6 /* AbstractTypes.h */,
+				fa01b987a4952ae49bdd09d009442610 /* BasicFileFilters.h */,
+				2d170f102215cf0511959d79928d8bcb /* ByteBuffer.h */,
+				5d4c9d17e0c3f84ddb8885440dd67cb9 /* ByteBufferUtils.h */,
+				d1f82a94bd80bdc78e0b1922d8660de6 /* DirectoryUtils.h */,
+				beffaa5b8275e0ae066fc2e31330dd5f /* DirectoryWatcherManager.h */,
+			);
+			name = IO;
+			sourceTree = "<group>";
+		};
+		827e879af9ec79a81a74cc6fcb42d0a0 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				93384835c77bd4299f8a7f9032e427d9 /* ByteBuffer.cpp */,
+				fe5b3b19544657b6f9ccca03b257d204 /* ByteBufferUtils.cpp */,
+				9a967d1fafa98a7cbbfa4f5530702894 /* DirectoryUtils.cpp */,
+				0b6179498d0110bd2e161373d141a6c9 /* DirectoryWatcherManager.cpp */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		8863e4609a0299cbae56bb7ae62bc283 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				59fffeb1e84f1fce994ef499bf21781e /* DirectoryWatcher.cpp */,
+				06ed1882d0056fb439aab3e70e86d912 /* RecursiveDirectoryIterator.cpp */,
+				8760f716adafe5917959d49831f489ec /* RecursiveDirectoryIteratorStategies.cpp */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		8fb24c0f711982136a83b4f2bc096d30 /* Poco */ = {
+			isa = PBXGroup;
+			children = (
+				c867b239e4a488d82df8644078da624e /* Foundation */,
+				8863e4609a0299cbae56bb7ae62bc283 /* src */,
+			);
+			name = Poco;
+			sourceTree = "<group>";
+		};
+		92cf4367af54e202bcf9e084b4179b68 /* ofxIO */ = {
+			isa = PBXGroup;
+			children = (
+				3f13bf933566839ed4c7ccedeea89880 /* include */,
+				827e879af9ec79a81a74cc6fcb42d0a0 /* src */,
+			);
+			name = ofxIO;
+			sourceTree = "<group>";
+		};
+		972457a92053e129b1c252d5dbfbb254 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				1d7aabb29b3a49ab69ea3a97aac518ab /* Serial.cpp */,
+				ea7bcb5e9c2ce6646875294a0b02a086 /* SerialConfig.cpp */,
+			);
+			name = src;
 			sourceTree = "<group>";
 		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				BDBA4E6BCE9C79945EF60873 /* ofxSerial */,
+				a8792b4b23b2f70e1065d67f4b1ee534 /* ofxIO */,
+				bdba4e6bce9c79945ef60873ec0b8f95 /* ofxSerial */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -336,63 +454,6 @@
 				BBAB23BE13894E4700AA2426 /* GLUT.framework */,
 			);
 			name = "3rd party frameworks";
-			sourceTree = "<group>";
-		};
-		BDBA4E6BCE9C79945EF60873 /* ofxSerial */ = {
-			isa = PBXGroup;
-			children = (
-				FF8468D5B2307E18FA22FAD0 /* src */,
-				6B4528F898B3032BB3689FFD /* libs */,
-			);
-			name = ofxSerial;
-			sourceTree = "<group>";
-		};
-		C3E838E49BA8C36B91E2B0C1 /* Socket */ = {
-			isa = PBXGroup;
-			children = (
-				87C42326CBCCF14608091C8D /* AsyncSocketChannel.h */,
-				EC51949F3B548DB885CD5792 /* Socket.h */,
-				762C1CFED89054BDB5F106C7 /* SocketChannel.h */,
-			);
-			name = Socket;
-			sourceTree = "<group>";
-		};
-		C44B48D9808D167D982C2930 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				1634C34090CCE436D61CB01C /* AsyncChannel.cpp */,
-				C1E9825CEDDE6D768E3EE824 /* AsyncCommand.cpp */,
-				70F1B96C2BE689EF4464135F /* AsyncEvent.cpp */,
-				4F9865FE9A6C6CB01CAC37D0 /* AsyncStreamChannel.cpp */,
-				67F471612FBA762798DBD62D /* Channel.cpp */,
-				FB69F46FAC279008739A93D1 /* ChannelConfig.cpp */,
-				FB257086AEC1951DC88E05FB /* ChannelStream.cpp */,
-				A155D08AC55E0BE7B52193AB /* Protocol.cpp */,
-				742DDF3791D0C1FF0B6B823C /* ProtocolStream.cpp */,
-			);
-			name = src;
-			sourceTree = "<group>";
-		};
-		CAE50356DCAB845E11DFB447 /* Poco */ = {
-			isa = PBXGroup;
-			children = (
-				B16E53E5AEA300DCFF17A302 /* DeviceIO */,
-			);
-			name = Poco;
-			sourceTree = "<group>";
-		};
-		D9F8661B0EE9734D7D8DF611 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				FD5FB19D17FBC38400238496 /* SerialChannel_POSIX.cpp */,
-				FD5FB19E17FBC38400238496 /* SerialChannel_WIN32.cpp */,
-				FD5FB19F17FBC38400238496 /* SerialChannel_WIN32U.cpp */,
-				FD5FB1A017FBC38400238496 /* SerialChannel.cpp */,
-				FD5FB1A117FBC38400238496 /* SerialConfig_POSIX.cpp */,
-				FD5FB1A217FBC38400238496 /* SerialConfig_WIN32.cpp */,
-				FD5FB1A317FBC38400238496 /* SerialConfig.cpp */,
-			);
-			name = src;
 			sourceTree = "<group>";
 		};
 		E4328144138ABC890047C5CB /* Products */ = {
@@ -428,9 +489,9 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				FD382D0917FAA917003619C3 /* ofApp.cpp */,
-				FD382D0A17FAA917003619C3 /* ofApp.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
+				19c22cd05d10f78b32ff80c6be3a9385 /* ofApp.cpp */,
+				84f6287fa54b66c746947875f6690182 /* ofApp.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -444,18 +505,192 @@
 			name = openFrameworks;
 			sourceTree = "<group>";
 		};
-		F9CFFA9A882CAD9157B5472B /* include */ = {
+		a8792b4b23b2f70e1065d67f4b1ee534 /* ofxIO */ = {
 			isa = PBXGroup;
 			children = (
-				A762212F4EFFC4FC9E3E8A51 /* Poco */,
+				d86c6322cf7554a9be5eb8bfd00920b2 /* src */,
+				1fe55f3fcbd156ac7d591f6956cc3f19 /* libs */,
+			);
+			name = ofxIO;
+			sourceTree = "<group>";
+		};
+		aa24935388d450f0915fb614b21ed515 /* ofx */ = {
+			isa = PBXGroup;
+			children = (
+				15f500c5d0a99b5f06933a4b054c38cf /* IO */,
+			);
+			name = ofx;
+			sourceTree = "<group>";
+		};
+		b40d93e4e6198327d6da7bfa3cdb2462 /* alphanum */ = {
+			isa = PBXGroup;
+			children = (
+				671923ec06f4340d8255da228e504077 /* include */,
+			);
+			name = alphanum;
+			sourceTree = "<group>";
+		};
+		bdba4e6bce9c79945ef60873ec0b8f95 /* ofxSerial */ = {
+			isa = PBXGroup;
+			children = (
+				ff8468d5b2307e18fa22fad046afb83f /* src */,
+				6b4528f898b3032bb3689ffdb09e6577 /* libs */,
+			);
+			name = ofxSerial;
+			sourceTree = "<group>";
+		};
+		c0795b802027ce6592472f646dacf789 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				d6b0f2f545c0b8965cf68a44d2bccdb7 /* AsyncChannel.cpp */,
+				5a0b422c138b4957c033fd848083fdac /* AsyncCommand.cpp */,
+				9b98003ff8f0c36398aa566fb13ab847 /* AsyncEvent.cpp */,
+				bc0b32096a05c626af9ae8f27fdfe4d5 /* AsyncStreamChannel.cpp */,
+				7b10ebea8e49bb2976e007d67015b13e /* Channel.cpp */,
+				bd13d1ca6bf81db29389697929bd12f9 /* ChannelConfig.cpp */,
+				0903721e9ba3f0fcf4fb554886af7594 /* ChannelStream.cpp */,
+				c8581c66c48b4355484b830f4bf7b0ee /* Protocol.cpp */,
+				23087d1065f854cc6d316f3bef90930c /* ProtocolStream.cpp */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		c176e81b12981bb0c19b3eebf0454738 /* Poco */ = {
+			isa = PBXGroup;
+			children = (
+				6cb7e490dd2c7480ef0af17df14588cf /* DeviceIO */,
+			);
+			name = Poco;
+			sourceTree = "<group>";
+		};
+		c867b239e4a488d82df8644078da624e /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				eae4e5e416e004691334a630a1b1cf7e /* include */,
+			);
+			name = Foundation;
+			sourceTree = "<group>";
+		};
+		cc18bd24a722cbfb281bbea96aea6fcf /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				8582abfd166b52e6de5c3be4244304da /* AsyncSocketChannel.h */,
+				c7ea4cbf8caba441003fc47fc5e80e7e /* Socket.h */,
+				45209b7c6d2457f183eac96e51bfd61e /* SocketChannel.h */,
+			);
+			name = Socket;
+			sourceTree = "<group>";
+		};
+		d00668755feb895fe3a4f79526d7f853 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				1ebc67cfadabeec8c91003ff1818632d /* include */,
+				fda7bedd9b8fc5cd12dfa93416b860f2 /* src */,
+			);
+			name = Socket;
+			sourceTree = "<group>";
+		};
+		d1c382a37ee661f51aa773cc780a6144 /* ofx */ = {
+			isa = PBXGroup;
+			children = (
+				81b9e335116a816ea1d2a2fa5313a664 /* IO */,
+			);
+			name = ofx;
+			sourceTree = "<group>";
+		};
+		d50115ff1c133c06210d164a6df52236 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				6c589d7c4c1dbd62621d78229eb4740b /* Poco */,
 			);
 			name = include;
 			sourceTree = "<group>";
 		};
-		FF8468D5B2307E18FA22FAD0 /* src */ = {
+		d86c6322cf7554a9be5eb8bfd00920b2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				56C0B4847E43E488DFECFDE3 /* MyApp.h */,
+				4593838c4b4bce40284aae073af1a51f /* ofxIO.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		e1bc59360bf4ef205933461e411cda3d /* DeviceIO */ = {
+			isa = PBXGroup;
+			children = (
+				cc18bd24a722cbfb281bbea96aea6fcf /* Socket */,
+			);
+			name = DeviceIO;
+			sourceTree = "<group>";
+		};
+		e4b01744fc660e945675c6c662f66612 /* Poco */ = {
+			isa = PBXGroup;
+			children = (
+				e1bc59360bf4ef205933461e411cda3d /* DeviceIO */,
+			);
+			name = Poco;
+			sourceTree = "<group>";
+		};
+		ead170a2cc62c03ae884c98bff8ee5da /* include */ = {
+			isa = PBXGroup;
+			children = (
+				aa24935388d450f0915fb614b21ed515 /* ofx */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		eae4e5e416e004691334a630a1b1cf7e /* include */ = {
+			isa = PBXGroup;
+			children = (
+				57cc27cf60ede1c9a52b66f3f8128939 /* Poco */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		f45c27f27f950ff084c21bf87acf4477 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				c176e81b12981bb0c19b3eebf0454738 /* Poco */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		f96b3361ba2de882e8e2dd2d76ec0cd3 /* Serial */ = {
+			isa = PBXGroup;
+			children = (
+				fcdfdf7f7293f6f09b17b29e6b790005 /* Serial.h */,
+				a27952e0f2be4dbe86e1e8277287b148 /* SerialChannel.h */,
+				01d9b67f09fff4073bbaba6b162fe59c /* SerialChannel_POSIX.h */,
+				5ab04d386059d3c4ab2c0bf03650a723 /* SerialChannel_WIN32.h */,
+				184acba20564b1bc2eb03f445d54d709 /* SerialChannel_WIN32U.h */,
+				7cd95a5b8ad70640863288820bb9b879 /* SerialConfig.h */,
+				e53efd22eb841d9ed550d0c02a8c501d /* SerialConfig_POSIX.h */,
+				3687e94cdde6eb104ff639bcc8b9c5bf /* SerialConfig_WIN32.h */,
+			);
+			name = Serial;
+			sourceTree = "<group>";
+		};
+		fda7bedd9b8fc5cd12dfa93416b860f2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				54f2e55794c420a494248a14b473cc68 /* AsyncSocketChannel.cpp */,
+				4d0fc65322d6585c3904e38daca287a4 /* SocketChannel.cpp */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		ff594b09c5fc26e3fef0fe31fcb82e4d /* Serial */ = {
+			isa = PBXGroup;
+			children = (
+				f45c27f27f950ff084c21bf87acf4477 /* include */,
+				21a62c7e92fac42b3bcf5c1669f7c543 /* src */,
+			);
+			name = Serial;
+			sourceTree = "<group>";
+		};
+		ff8468d5b2307e18fa22fad046afb83f /* src */ = {
+			isa = PBXGroup;
+			children = (
+				800d9cca0f0b3d70cf25c2ffe490e1cf /* ofxSerial.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -548,25 +783,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
-				37D49A47BBBAE637E5CD98C5 /* AsyncSocketChannel.cpp in Sources */,
-				D77FB575E196819921169568 /* SocketChannel.cpp in Sources */,
-				FD5FB1A917FBC38400238496 /* SerialConfig_WIN32.cpp in Sources */,
-				508D33CAD87062A51490B462 /* AsyncChannel.cpp in Sources */,
-				AD6654C63B9D0EE5B0C5FED7 /* AsyncCommand.cpp in Sources */,
-				F7B3E4A42201DC9A80135AE1 /* AsyncEvent.cpp in Sources */,
-				46D358E3E6A8CEDFCD11A2AC /* AsyncStreamChannel.cpp in Sources */,
-				FD5FB1A817FBC38400238496 /* SerialConfig_POSIX.cpp in Sources */,
-				F7CB0C6349D8A8DD7C920955 /* Channel.cpp in Sources */,
-				FD5FB1A517FBC38400238496 /* SerialChannel_WIN32.cpp in Sources */,
-				FD5FB1AA17FBC38400238496 /* SerialConfig.cpp in Sources */,
-				FD5FB1A617FBC38400238496 /* SerialChannel_WIN32U.cpp in Sources */,
-				67C4AE52AF8E7E6CE9667B4C /* ChannelConfig.cpp in Sources */,
-				FD5FB1A417FBC38400238496 /* SerialChannel_POSIX.cpp in Sources */,
-				FD382D0B17FAA917003619C3 /* ofApp.cpp in Sources */,
-				FD5FB1A717FBC38400238496 /* SerialChannel.cpp in Sources */,
-				B5FA74F0832C3C43CE8BEC1A /* ChannelStream.cpp in Sources */,
-				40D76A460D5F113DE2884D3B /* Protocol.cpp in Sources */,
-				DE8CCCDC08248C56CA8B669C /* ProtocolStream.cpp in Sources */,
+				4b14cedcc7195a4d1f8e28b4f9635a89 /* ofApp.cpp in Sources */,
+				d932a5a24fcf08ae510a265d01807a32 /* ByteBuffer.cpp in Sources */,
+				66a80fd312926deb8c9fe7f6f2faa063 /* ByteBufferUtils.cpp in Sources */,
+				cefd3ccab8b3251dfcaaa0ee9e26c62a /* DirectoryUtils.cpp in Sources */,
+				be177617474f11f05e9260fc7f73d21c /* DirectoryWatcherManager.cpp in Sources */,
+				51667194330cbd16f8345b692ff776f3 /* DirectoryWatcher.cpp in Sources */,
+				bfb6c2dabb7995e4e5a30dd41b942c7e /* RecursiveDirectoryIterator.cpp in Sources */,
+				ca92728f8f4d9f34c80adc58ffe32cab /* RecursiveDirectoryIteratorStategies.cpp in Sources */,
+				8cfc7c975d4419a3127a1d196f37931a /* Serial.cpp in Sources */,
+				28d1e746700ae6b9f7f6230a19195ad9 /* SerialConfig.cpp in Sources */,
+				57f3f1f053628ba303ca782142d961d9 /* SerialChannel.cpp in Sources */,
+				a3edfbe6cdad3ca105e752a9e105c9ba /* SerialChannel_POSIX.cpp in Sources */,
+				82747970a290d35b108b7b8f76e79203 /* SerialChannel_WIN32.cpp in Sources */,
+				eb7b082b767bcead04ec8936ddaa9b83 /* SerialChannel_WIN32U.cpp in Sources */,
+				74325163a3ff6a6d415510c80bc6a56e /* SerialConfig.cpp in Sources */,
+				0808364573a7f95ab4794baa49e9ba00 /* SerialConfig_POSIX.cpp in Sources */,
+				c077fe996823fb673372b673ab57278f /* SerialConfig_WIN32.cpp in Sources */,
+				dc4635abee4bf555cfa0d80c071dcd65 /* AsyncSocketChannel.cpp in Sources */,
+				5de087c93125f2793e654d3e68733167 /* SocketChannel.cpp in Sources */,
+				c097820203c2ef142a1f6def4e4e17e0 /* AsyncChannel.cpp in Sources */,
+				2aca8750d04225c9263d1b99f1647b96 /* AsyncCommand.cpp in Sources */,
+				378c444aa502490ca7065df29bee9882 /* AsyncEvent.cpp in Sources */,
+				9adeede5d3b19b6b27aad4a2f6a69c85 /* AsyncStreamChannel.cpp in Sources */,
+				667a6a0d77f8770eb6a2fe414df16376 /* Channel.cpp in Sources */,
+				b68efbb76fad3a06e017f541f7770e5a /* ChannelConfig.cpp in Sources */,
+				4897eaa6b058e86b87fb1afea779985d /* ChannelStream.cpp in Sources */,
+				aca409378ee124e77d0c623e66830e84 /* Protocol.cpp in Sources */,
+				36a478ef9784f9119af95f86f637f2dd /* ProtocolStream.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,24 +847,46 @@
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
+					src,
+					../../../addons/ofxIO/libs,
+					../../../addons/ofxIO/libs/Poco,
+					../../../addons/ofxIO/libs/Poco/Foundation,
+					../../../addons/ofxIO/libs/Poco/Foundation/include,
+					../../../addons/ofxIO/libs/Poco/Foundation/include/Poco,
+					../../../addons/ofxIO/libs/Poco/src,
+					../../../addons/ofxIO/libs/alphanum,
+					../../../addons/ofxIO/libs/alphanum/include,
+					../../../addons/ofxIO/libs/ofxIO,
+					../../../addons/ofxIO/libs/ofxIO/include,
+					../../../addons/ofxIO/libs/ofxIO/include/ofx,
+					../../../addons/ofxIO/libs/ofxIO/include/ofx/IO,
+					../../../addons/ofxIO/libs/ofxIO/src,
+					../../../addons/ofxIO/src,
 					../../../addons/ofxSerial/libs,
-					../../../addons/ofxSerial/libs/DeviceIO,
-					../../../addons/ofxSerial/libs/DeviceIO/Serial,
-					../../../addons/ofxSerial/libs/DeviceIO/Serial/include,
-					../../../addons/ofxSerial/libs/DeviceIO/Serial/include/Poco,
-					../../../addons/ofxSerial/libs/DeviceIO/Serial/include/Poco/DeviceIO,
-					../../../addons/ofxSerial/libs/DeviceIO/Serial/include/Poco/DeviceIO/Serial,
-					../../../addons/ofxSerial/libs/DeviceIO/Serial/src,
-					../../../addons/ofxSerial/libs/DeviceIO/Socket,
-					../../../addons/ofxSerial/libs/DeviceIO/Socket/include,
-					../../../addons/ofxSerial/libs/DeviceIO/Socket/include/Poco,
-					../../../addons/ofxSerial/libs/DeviceIO/Socket/include/Poco/DeviceIO,
-					../../../addons/ofxSerial/libs/DeviceIO/Socket/include/Poco/DeviceIO/Socket,
-					../../../addons/ofxSerial/libs/DeviceIO/Socket/src,
-					../../../addons/ofxSerial/libs/DeviceIO/include,
-					../../../addons/ofxSerial/libs/DeviceIO/include/Poco,
-					../../../addons/ofxSerial/libs/DeviceIO/include/Poco/DeviceIO,
-					../../../addons/ofxSerial/libs/DeviceIO/src,
+					../../../addons/ofxSerial/libs/Poco,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include/Poco,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include/Poco/DeviceIO,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include/Poco/DeviceIO/Serial,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/src,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket/include,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket/include/Poco,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket/include/Poco/DeviceIO,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket/include/Poco/DeviceIO/Socket,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket/src,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/include,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/include/Poco,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/include/Poco/DeviceIO,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/src,
+					../../../addons/ofxSerial/libs/ofxSerial,
+					../../../addons/ofxSerial/libs/ofxSerial/include,
+					../../../addons/ofxSerial/libs/ofxSerial/include/ofx,
+					../../../addons/ofxSerial/libs/ofxSerial/include/ofx/IO,
+					../../../addons/ofxSerial/libs/ofxSerial/include/ofx/IO/Serial,
+					../../../addons/ofxSerial/libs/ofxSerial/src,
 					../../../addons/ofxSerial/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
@@ -656,24 +922,46 @@
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
+					src,
+					../../../addons/ofxIO/libs,
+					../../../addons/ofxIO/libs/Poco,
+					../../../addons/ofxIO/libs/Poco/Foundation,
+					../../../addons/ofxIO/libs/Poco/Foundation/include,
+					../../../addons/ofxIO/libs/Poco/Foundation/include/Poco,
+					../../../addons/ofxIO/libs/Poco/src,
+					../../../addons/ofxIO/libs/alphanum,
+					../../../addons/ofxIO/libs/alphanum/include,
+					../../../addons/ofxIO/libs/ofxIO,
+					../../../addons/ofxIO/libs/ofxIO/include,
+					../../../addons/ofxIO/libs/ofxIO/include/ofx,
+					../../../addons/ofxIO/libs/ofxIO/include/ofx/IO,
+					../../../addons/ofxIO/libs/ofxIO/src,
+					../../../addons/ofxIO/src,
 					../../../addons/ofxSerial/libs,
-					../../../addons/ofxSerial/libs/DeviceIO,
-					../../../addons/ofxSerial/libs/DeviceIO/Serial,
-					../../../addons/ofxSerial/libs/DeviceIO/Serial/include,
-					../../../addons/ofxSerial/libs/DeviceIO/Serial/include/Poco,
-					../../../addons/ofxSerial/libs/DeviceIO/Serial/include/Poco/DeviceIO,
-					../../../addons/ofxSerial/libs/DeviceIO/Serial/include/Poco/DeviceIO/Serial,
-					../../../addons/ofxSerial/libs/DeviceIO/Serial/src,
-					../../../addons/ofxSerial/libs/DeviceIO/Socket,
-					../../../addons/ofxSerial/libs/DeviceIO/Socket/include,
-					../../../addons/ofxSerial/libs/DeviceIO/Socket/include/Poco,
-					../../../addons/ofxSerial/libs/DeviceIO/Socket/include/Poco/DeviceIO,
-					../../../addons/ofxSerial/libs/DeviceIO/Socket/include/Poco/DeviceIO/Socket,
-					../../../addons/ofxSerial/libs/DeviceIO/Socket/src,
-					../../../addons/ofxSerial/libs/DeviceIO/include,
-					../../../addons/ofxSerial/libs/DeviceIO/include/Poco,
-					../../../addons/ofxSerial/libs/DeviceIO/include/Poco/DeviceIO,
-					../../../addons/ofxSerial/libs/DeviceIO/src,
+					../../../addons/ofxSerial/libs/Poco,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include/Poco,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include/Poco/DeviceIO,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/include/Poco/DeviceIO/Serial,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Serial/src,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket/include,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket/include/Poco,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket/include/Poco/DeviceIO,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket/include/Poco/DeviceIO/Socket,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/Socket/src,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/include,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/include/Poco,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/include/Poco/DeviceIO,
+					../../../addons/ofxSerial/libs/Poco/DeviceIO/src,
+					../../../addons/ofxSerial/libs/ofxSerial,
+					../../../addons/ofxSerial/libs/ofxSerial/include,
+					../../../addons/ofxSerial/libs/ofxSerial/include/ofx,
+					../../../addons/ofxSerial/libs/ofxSerial/include/ofx/IO,
+					../../../addons/ofxSerial/libs/ofxSerial/include/ofx/IO/Serial,
+					../../../addons/ofxSerial/libs/ofxSerial/src,
 					../../../addons/ofxSerial/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
@@ -768,6 +1056,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_52)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
+				SDKROOT = macosx10.6;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -853,6 +1142,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.6;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

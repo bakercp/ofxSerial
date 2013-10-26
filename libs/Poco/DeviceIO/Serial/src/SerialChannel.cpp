@@ -1,13 +1,13 @@
 //
-// SerialConfig.cpp
+// SerialChannel.cpp
 //
-// $Id: //poco/Main/DeviceIO/src/ChannelConfig.cpp#1 $
+// $Id: //poco/Main/DeviceIO/Serial/src/SerialChannel.cpp#1 $
 //
-// Library: Foundation
-// Package: DeviceIO
-// Module:  ChannelConfig
+// Library: Serial
+// Package: Serial
+// Module:  SerialChannel
 //
-// Copyright (c) 2006, Applied Informatics Software Engineering GmbH.
+// Copyright (c) 2008, Applied Informatics Software Engineering GmbH.
 // and Contributors.
 //
 // Permission is hereby granted, free of charge, to any person or organization
@@ -34,36 +34,39 @@
 //
 
 
-#include "Poco/DeviceIO/ChannelConfig.h"
-#include "Poco/Exception.h"
+#include "Poco/DeviceIO/Serial/SerialChannel.h"
+
+
+//#if defined(POCO_OS_FAMILY_WINDOWS)
+//	#if defined(POCO_WIN32_UTF8)
+//		#include "SerialChannel_WIN32U.cpp"
+//	#else
+//		#include "SerialChannel_WIN32.cpp"
+//	#endif
+//#elif defined(POCO_OS_FAMILY_UNIX)
+//	#include "SerialChannel_POSIX.cpp"
+//#endif
 
 
 namespace Poco {
 namespace DeviceIO {
+namespace Serial {
 
 
-ChannelConfig::ChannelConfig(const std::string& name, ChannelType type, int timeoutMS):
-	_name(name),
-	_type(type),
-	_timeoutMS(timeoutMS)
+SerialChannel::SerialChannel(SerialConfig* pConfig):
+	Channel(pConfig),
+	SerialChannelImpl(static_cast<SerialConfigImpl*>(pConfig))
 {
-    std::cout << "Channel config!" << std::endl;
+	open();
 }
 
 
-ChannelConfig::~ChannelConfig()
+SerialChannel::~SerialChannel()
 {
+	close();
+
+    
 }
 
 
-
-void ChannelConfig::setTimeout(int timeoutMS)
-{
-	if (timeoutMS < 0 && INFINITE_TIMEOUT != timeoutMS)
-		throw InvalidArgumentException("Invalid timeout value");
-
-	_timeoutMS = timeoutMS;
-}
-
-
-} } // namespace Poco::DeviceIO
+} } } // namespace Poco::DeviceIO::Serial

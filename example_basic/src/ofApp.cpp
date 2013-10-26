@@ -29,58 +29,26 @@
 //------------------------------------------------------------------------------
 void ofApp::setup()
 {
+    ofSetFrameRate(1);
 
-   // ofSerial serial;
-
-    pConfig = new SerialConfig("/dev/tty.PL2303-00001014",
-                               SerialConfig::BPS_38400);
-
-
-//    SerialConfig config("/dev/ttyUSB0",SerialConfig::BPS_38400);
-
-    cout << "XXX: " << pConfig->getName() << endl;
-
-    try
-    {
-        pChannel = new SerialChannel(pConfig);
-        pChannel->setBlocking();
-
-//    channel.open();
-
-//    channel.write(1);
-        for(int i = 0; i < 1; i++) {
-        pChannel->write("Hello world!\n");
-//        channel.write("Hello world!\n");
-//        channel.write("Hello world!\n");
-//        channel.write("Hello world!\n");
-//        channel.write("Hello world!\n");
-//        channel.write("Hello world!\n");
-//        channel.write("Hello world!\n");
-//        channel.write("Hello world!\n");
-//        channel.write("Hello world!\n");
-//        channel.write("Hello world!\n");
-//        channel.write("Hello world!\n");
-//        channel.write("Hello world!\n");
-//        channel.write("Hello world!\n");
-//        channel.write("Hello world!\n");
-//        channel.write("Hello world!\n");
-        }
-
-
-//    channel.close();
-    }
-    catch (Poco::Exception& ex)
-    {
-        cout << ex.what() << endl;
-
-    }
-
-
+    serial.setup("/dev/tty.PL2303-0030121A",SerialConfig::BPS_9600);
 }
 
 //------------------------------------------------------------------------------
 void ofApp::update()
 {
+    while(serial.available() > 0)
+    {
+
+    }
+
+    uint8_t data;
+
+    std::size_t n = serial.readByte(data);
+
+    if(n > 0)
+        cout << data << endl;
+
 }
 
 //------------------------------------------------------------------------------
@@ -91,7 +59,17 @@ void ofApp::draw()
 //------------------------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
-    pChannel->write("Key Pressed!\n");
+
+    serial.writeByte('a');
+    serial.writeByte('\n');
+
+    if(key == 'a')
+    {
+        serial.writeByte(29);
+        serial.writeByte(73);
+        serial.writeByte(66);
+    }
+
 }
 
 //------------------------------------------------------------------------------

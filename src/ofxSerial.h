@@ -25,33 +25,7 @@
 
 #pragma once
 
+#include "ofx/IO/Serial/Serial.h"
+#include "ofx/IO/Serial/Config.h"
 
-#include "ofMain.h"
-#include "Poco/Platform.h"
-#include "Poco/AutoPtr.h"
-#include "ofxSerial.h"
-
-
-using ofx::IO::Serial::Serial;
-
-
-class ofApp: public ofBaseApp
-{
-public:
-    void setup();
-    void update();
-    void draw();
-
-    void keyPressed(int key);
-    void keyReleased(int key);
-    void mouseMoved(int x, int y);
-    void mouseDragged(int x, int y, int button);
-    void mousePressed(int x, int y, int button);
-    void mouseReleased(int x, int y, int button);
-    void windowResized(int w, int h);
-    void dragEvent(ofDragInfo dragInfo);
-    void gotMessage(ofMessage msg);
-
-    Serial serial;
-
-};
+// http://taper.alienbase.nl/mirrors/slackware/slackware-3.9/docs/mini/Serial-Port-Programming

@@ -26,32 +26,49 @@
 #pragma once
 
 
-#include "ofMain.h"
-#include "Poco/Platform.h"
-#include "Poco/AutoPtr.h"
-#include "ofxSerial.h"
+#include <string>
+#include "Poco/Path.h"
 
 
-using ofx::IO::Serial::Serial;
+namespace ofx {
+namespace IO {
+namespace Serial {
 
 
-class ofApp: public ofBaseApp
+class DeviceInfo
 {
 public:
-    void setup();
-    void update();
-    void draw();
+    DeviceInfo(std::string path):
+        _path(path),
+        _name(getNameFromPath(path))
+    {
+    }
 
-    void keyPressed(int key);
-    void keyReleased(int key);
-    void mouseMoved(int x, int y);
-    void mouseDragged(int x, int y, int button);
-    void mousePressed(int x, int y, int button);
-    void mouseReleased(int x, int y, int button);
-    void windowResized(int w, int h);
-    void dragEvent(ofDragInfo dragInfo);
-    void gotMessage(ofMessage msg);
+    virtual ~DeviceInfo()
+    {
+    }
 
-    Serial serial;
+    std::string path()
+    {
+        return _path;
+    }
+
+    std::string name()
+    {
+        return getNameFromPath(_path);
+    }
+
+    static std::string getNameFromPath(const std::string& path)
+    {
+        Poco::Path p(path);
+
+    }
+
+protected:
+    std::string _path;
+    std::string _name;
 
 };
+
+
+} } } // namespace ofx::IO::Serial

@@ -111,7 +111,7 @@ std::size_t Serial::readByte(uint8_t& data)
 {
     if (isChannelClosed())
     {
-        return 0;   1
+        return 0;
     }
     else
     {

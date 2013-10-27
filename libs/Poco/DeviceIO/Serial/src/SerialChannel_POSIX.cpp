@@ -39,6 +39,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <termios.h>
+#include <stdint.h>
 #include <cstring>
 #include "Poco/Exception.h"
 

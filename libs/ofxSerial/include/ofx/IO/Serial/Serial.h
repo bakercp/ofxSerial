@@ -26,6 +26,7 @@
 #pragma once
 
 
+#include <stdint.h>
 #include "Poco/Platform.h"
 #include "Poco/AutoPtr.h"
 #include "Poco/DeviceIO/Serial/SerialChannel.h"

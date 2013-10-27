@@ -23,7 +23,7 @@
 // =============================================================================
 
 
-#include "Serial.h"
+#include "ofx/IO/Serial/Serial.h"
 
 
 namespace ofx {

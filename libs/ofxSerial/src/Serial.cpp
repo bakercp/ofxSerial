@@ -178,9 +178,35 @@ std::size_t Serial::writeBytes(const uint8_t* buffer, std::size_t size)
     if(isChannelClosed())
         return 0;
     else
-        return pChannel->write(reinterpret_cast<const char*>(buffer),static_cast<int>(size));
+    {
+        std::size_t actual = pChannel->write(reinterpret_cast<const char*>(buffer),static_cast<int>(size));
+
+        if(size != actual)
+        {
+            ofLogError("Serial::writeBytes") << actual << " / " << size << " were written.";
+        }
+
+        return actual;
+    }
+
+
 }
 
+std::size_t Serial::writeBytes(const std::vector<uint8_t>& buffer)
+{
+    if(isChannelClosed())
+        return 0;
+    else
+        return pChannel->write(reinterpret_cast<const char*>(&buffer[0]),static_cast<int>(buffer.size()));
+}
+
+std::size_t Serial::writeBytes(const std::string& buffer)
+{
+    if(isChannelClosed())
+        return 0;
+    else
+        return pChannel->write(buffer);
+}
 
 std::string Serial::name() const
 {

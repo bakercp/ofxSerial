@@ -43,7 +43,7 @@ namespace IO {
 namespace Serial {
 
 
-class Serial: public AbstractBufferedByteSource, public AbstractByteSink
+class Serial: public virtual AbstractBufferedByteSource, public virtual AbstractByteSink
 {
 public:
     Serial();
@@ -69,6 +69,10 @@ public:
 
     virtual std::size_t writeByte(uint8_t data);
     virtual std::size_t writeBytes(const uint8_t* buffer, std::size_t size);
+    virtual std::size_t writeBytes(const std::vector<uint8_t>& buffer);
+    virtual std::size_t writeBytes(const std::string& buffer);
+
+
 
     std::string name() const;
 	void setTimeout(unsigned long long timeoutMillis);

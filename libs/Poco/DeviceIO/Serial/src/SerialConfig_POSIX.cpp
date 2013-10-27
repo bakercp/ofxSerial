@@ -37,6 +37,7 @@
 #include "Poco/DeviceIO/Serial/SerialConfig_POSIX.h"
 #include "Poco/Exception.h"
 #include <sstream>
+#include <cstring>
 
 
 using Poco::InvalidArgumentException;

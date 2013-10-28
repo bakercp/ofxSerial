@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>6ECA90C9-FD1F-4666-8AA7-B6948FC0120C</string>
+	<string>AE41B9D0-0FB5-4E61-8153-E9BA004B2AD6</string>
 	<key>IDESourceControlProjectName</key>
 	<string>example_serial</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,6 +14,8 @@
 		<string>ssh://github.com/bakercp/openFrameworks.git</string>
 		<key>A0AC1125-9F94-4191-A4CF-5DA17EC74D67</key>
 		<string>ssh://github.com/bakercp/ofxSerial.git</string>
+		<key>EE697087-E1D0-4308-8BB1-A584901F6D3A</key>
+		<string>ssh://github.com/bakercp/ofxIO.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>addons/ofxSerial/example_serial/example_serial.xcodeproj/project.xcworkspace</string>
@@ -23,6 +25,8 @@
 		<string>../../../../..</string>
 		<key>A0AC1125-9F94-4191-A4CF-5DA17EC74D67</key>
 		<string>../../..</string>
+		<key>EE697087-E1D0-4308-8BB1-A584901F6D3A</key>
+		<string>../../../../ofxIO</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/bakercp/ofxSerial.git</string>
@@ -32,6 +36,14 @@
 	<string>3B34514A-1075-456B-8AF0-DAEFD698200B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EE697087-E1D0-4308-8BB1-A584901F6D3A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxIO</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

@@ -25,7 +25,7 @@
 
 #pragma once
 
-#include "ofx/IO/Serial/Serial.h"
-#include "ofx/IO/Serial/Config.h"
-
-// http://taper.alienbase.nl/mirrors/slackware/slackware-3.9/docs/mini/Serial-Port-Programming
+//#include "ofx/IO/Serial/Serial.h"
+//#include "ofx/IO/Serial/Config.h"
+//
+//// http://taper.alienbase.nl/mirrors/slackware/slackware-3.9/docs/mini/Serial-Port-Programming

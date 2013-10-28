@@ -74,7 +74,7 @@ bool Serial::setup(const std::string& name,
     try
     {
         pChannel = new SerialChannel(pConfig);
-        // pChannel->setBlocking();
+        pChannel->setBlocking();
     }
     catch (Poco::Exception& ex)
     {

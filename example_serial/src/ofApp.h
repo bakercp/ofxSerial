@@ -5,6 +5,9 @@
 #include "ofxSerial.h"
 
 
+using ofx::IO::SerialDevice;
+
+
 class ofApp: public ofBaseApp
 {
 public:
@@ -14,6 +17,6 @@ public:
 
     void keyPressed(int key);
 
-    ofx::IO::SerialDevice device;
+    SerialDevice device;
 
 };

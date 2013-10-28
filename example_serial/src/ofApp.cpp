@@ -6,9 +6,18 @@ void ofApp::setup()
 {
 
 
-    string name = "/dev/tty.PL2303-00002014";
+    string name = "/dev/ttyUSB0";
 
-    device.setup(name, 9600);
+
+    device.setup(name,
+                 9600,
+                 SerialDevice::DATA_BITS_EIGHT,
+                 SerialDevice::PAR_NONE,
+                 SerialDevice::STOP_ONE,
+                 SerialDevice::FLOW_CTRL_HARDWARE
+                 );
+
+
     device.setDataTerminalReady(true);
     device.setRequestToSend(true);
 }
@@ -56,15 +65,11 @@ void ofApp::keyPressed(int key)
     if(' ' == key)
     {
         {
-            cout << "SPB" << endl;
-            uint8_t command[3] = { 29 , 73 , 1 };
+device.setDataTerminalReady(false);            
+uint8_t command[3] = { 0x1d, 0x49, 0x44 };
             std::size_t numBytesWritten = device.writeBytes(command,3);
             cout << "BW = " << numBytesWritten << endl;
-        }
-        {
-            uint8_t command[3] = { 0x1d, 0x49, 0x44 };
-            std::size_t numBytesWritten = device.writeBytes(command,3);
-            cout << "BW = " << numBytesWritten << endl;
-        }
+    device.setDataTerminalReady(true);
+       }
     }
 }

@@ -26,5 +26,5 @@
 #pragma once
 
 
-#include <serial/serial.h>
+#include "serial/serial.h"
 #include "ofx/IO/SerialDevice.h"

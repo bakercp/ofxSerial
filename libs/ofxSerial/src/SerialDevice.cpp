@@ -39,6 +39,25 @@ SerialDevice::~SerialDevice()
 {
 }
 
+
+bool SerialDevice::setup(const SerialDeviceInfo& device,
+                         uint32_t bauds,
+                         DataBits dataBits,
+                         Parity parity,
+                         StopBits stopBits,
+                         FlowControl flowControl,
+                         serial::Timeout timeout)
+{
+    return setup(device.getPath(),
+                 bauds,
+                 dataBits,
+                 parity,
+                 stopBits,
+                 flowControl,
+                 timeout);
+}
+
+
 bool SerialDevice::setup(const std::string& portName,
                          uint32_t bauds,
                          DataBits dataBits,

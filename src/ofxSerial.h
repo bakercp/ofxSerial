@@ -28,3 +28,4 @@
 
 #include "serial/serial.h"
 #include "ofx/IO/SerialDevice.h"
+#include "ofx/IO/SerialDeviceUtils.h"

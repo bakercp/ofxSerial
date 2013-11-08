@@ -31,46 +31,11 @@
 #include "ofLog.h"
 #include "ofx/IO/AbstractTypes.h"
 #include "serial/serial.h"
+#include "ofx/IO/SerialDeviceUtils.h"
 
 
 namespace ofx {
 namespace IO {
-
-
-class DeviceInfo
-{
-public:
-    DeviceInfo(std::string path):
-        _path(path),
-        _name(getNameFromPath(path))
-    {
-    }
-
-    virtual ~DeviceInfo()
-    {
-    }
-
-    std::string path()
-    {
-        return _path;
-    }
-
-    std::string name()
-    {
-        return getNameFromPath(_path);
-    }
-
-    static std::string getNameFromPath(const std::string& path)
-    {
-        Poco::Path p(path);
-        return "s";
-    }
-    
-protected:
-    std::string _path;
-    std::string _name;
-    
-};
 
 
 class SerialDevice:
@@ -116,6 +81,15 @@ public:
     SerialDevice();
     virtual ~SerialDevice();
 
+    bool setup(const SerialDeviceInfo& device,
+               uint32_t bauds = 9600,
+               DataBits dataBits = DATA_BITS_EIGHT,
+               Parity parity = PAR_NONE,
+               StopBits stopBits = STOP_ONE,
+               FlowControl flowControl = FLOW_CTRL_NONE,
+               Timeout timeout = Timeout());
+
+
     bool setup(const std::string& portName,
                uint32_t bauds = 9600,
                DataBits dataBits = DATA_BITS_EIGHT,
@@ -155,13 +129,10 @@ public:
     bool isRingIndicated() const;
     bool isCarrierDetected() const;
 
-    //    static std::vector<DeviceInfo> getDevices();
-
 protected:
     typedef std::shared_ptr<serial::Serial> SharedSerial;
 
     SharedSerial pSerial;
-
 
     bool confirmSetup() const;
 

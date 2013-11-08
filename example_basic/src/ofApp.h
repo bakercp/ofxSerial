@@ -32,7 +32,9 @@
 #include "ofxSerial.h"
 
 
-using ofx::IO::Serial::Serial;
+ofSerial s
+
+using ofx::IO::SerialDevice;
 
 
 class ofApp: public ofBaseApp
@@ -52,6 +54,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
 
-    Serial serial;
+    
+    SerialDevice serial;
 
 };

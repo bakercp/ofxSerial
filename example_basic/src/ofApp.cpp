@@ -31,7 +31,7 @@ void ofApp::setup()
 {
     ofSetFrameRate(1);
 
-    serial.setup("/dev/tty.PL2303-0030121A",SerialConfig::BPS_9600);
+    serial.setup("/dev/tty.PL2303-0030121A",9600);
 }
 
 //------------------------------------------------------------------------------

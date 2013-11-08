@@ -32,6 +32,7 @@
 		E7E077E515D3B63C0020DFD4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */; };
 		E7E077E815D3B6510020DFD4 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E715D3B6510020DFD4 /* QTKit.framework */; };
 		E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F985F515E0DE99003869B5 /* Accelerate.framework */; };
+		FD6FA803182C9543004AF8C4 /* SerialDeviceUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD6FA802182C9543004AF8C4 /* SerialDeviceUtils.cpp */; };
 		be177617474f11f05e9260fc7f73d21c /* DirectoryWatcherManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0b6179498d0110bd2e161373d141a6c9 /* DirectoryWatcherManager.cpp */; };
 		bfb6c2dabb7995e4e5a30dd41b942c7e /* RecursiveDirectoryIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06ed1882d0056fb439aab3e70e86d912 /* RecursiveDirectoryIterator.cpp */; };
 		ca92728f8f4d9f34c80adc58ffe32cab /* RecursiveDirectoryIteratorStategies.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8760f716adafe5917959d49831f489ec /* RecursiveDirectoryIteratorStategies.cpp */; };
@@ -116,6 +117,8 @@
 		E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		E7E077E715D3B6510020DFD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		E7F985F515E0DE99003869B5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
+		FD6FA801182C9532004AF8C4 /* SerialDeviceUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SerialDeviceUtils.h; path = ../libs/ofxSerial/include/ofx/IO/SerialDeviceUtils.h; sourceTree = "<group>"; };
+		FD6FA802182C9543004AF8C4 /* SerialDeviceUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SerialDeviceUtils.cpp; path = ../libs/ofxSerial/src/SerialDeviceUtils.cpp; sourceTree = "<group>"; };
 		beffaa5b8275e0ae066fc2e31330dd5f /* DirectoryWatcherManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DirectoryWatcherManager.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/DirectoryWatcherManager.h; sourceTree = SOURCE_ROOT; };
 		d1b098b33aca6d5ef0de53fb272af238 /* win.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = win.cc; path = ../../../addons/ofxSerial/libs/serial/src/impl/win.cc; sourceTree = SOURCE_ROOT; };
 		d1f82a94bd80bdc78e0b1922d8660de6 /* DirectoryUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DirectoryUtils.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/DirectoryUtils.h; sourceTree = SOURCE_ROOT; };
@@ -168,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				48571c559732e11f71347a54382d3d4b /* SerialDevice.h */,
+				FD6FA801182C9532004AF8C4 /* SerialDeviceUtils.h */,
 			);
 			name = IO;
 			sourceTree = "<group>";
@@ -292,6 +296,7 @@
 		972457a92053e129b1c252d5dbfbb254 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				FD6FA802182C9543004AF8C4 /* SerialDeviceUtils.cpp */,
 				1d7aabb29b3a49ab69ea3a97aac518ab /* SerialDevice.cpp */,
 			);
 			name = src;
@@ -597,6 +602,7 @@
 				cefd3ccab8b3251dfcaaa0ee9e26c62a /* DirectoryUtils.cpp in Sources */,
 				be177617474f11f05e9260fc7f73d21c /* DirectoryWatcherManager.cpp in Sources */,
 				51667194330cbd16f8345b692ff776f3 /* DirectoryWatcher.cpp in Sources */,
+				FD6FA803182C9543004AF8C4 /* SerialDeviceUtils.cpp in Sources */,
 				bfb6c2dabb7995e4e5a30dd41b942c7e /* RecursiveDirectoryIterator.cpp in Sources */,
 				ca92728f8f4d9f34c80adc58ffe32cab /* RecursiveDirectoryIteratorStategies.cpp in Sources */,
 				8cfc7c975d4419a3127a1d196f37931a /* SerialDevice.cpp in Sources */,

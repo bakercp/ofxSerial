@@ -64,7 +64,7 @@ public:
 
 
     friend std::ostream& operator << (std::ostream& os,
-                                      const SerialDeviceInfo& vec);
+                                      const SerialDeviceInfo& deviceInfo);
 
 protected:
     std::string _path;
@@ -81,9 +81,9 @@ protected:
 
 
 inline std::ostream& operator << (std::ostream& os,
-                                  const SerialDeviceInfo& device)
+                                  const SerialDeviceInfo& deviceInfo)
 {
-    os << device._name << ", " << device._path;
+    os << device._name << ", " << deviceInfo._path;
     return os;
 }
 

@@ -9,12 +9,9 @@
 /* Begin PBXBuildFile section */
 		28d1e746700ae6b9f7f6230a19195ad9 /* SerialConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ea7bcb5e9c2ce6646875294a0b02a086 /* SerialConfig.cpp */; };
 		3336758d15fd0710326aac25b5ea3bd8 /* serial.cc in Sources */ = {isa = PBXBuildFile; fileRef = 47b9a234b65d63015c0cfedd20ab8f43 /* serial.cc */; };
-		34c05a9786ca39a86d47f6899825af2f /* tokenizer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9b13627f6145b2d7f04b18a9b02e0e52 /* tokenizer.cc */; };
 		4b14cedcc7195a4d1f8e28b4f9635a89 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19c22cd05d10f78b32ff80c6be3a9385 /* ofApp.cpp */; };
-		4c0a1b42bef6d9b53680d99a2612f865 /* mdc2250.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0c44ca8fd2d90cb611de5e238650156c /* mdc2250.cc */; };
 		51667194330cbd16f8345b692ff776f3 /* DirectoryWatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59fffeb1e84f1fce994ef499bf21781e /* DirectoryWatcher.cpp */; };
 		55de46182f529d5e0d756503bd8c50d7 /* win.cc in Sources */ = {isa = PBXBuildFile; fileRef = d1b098b33aca6d5ef0de53fb272af238 /* win.cc */; };
-		594320e5e79c06f8065b833a6dfe4d56 /* serial_tests.cc in Sources */ = {isa = PBXBuildFile; fileRef = b115dcc25453ade112d0ff1717544155 /* serial_tests.cc */; };
 		66a80fd312926deb8c9fe7f6f2faa063 /* ByteBufferUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = fe5b3b19544657b6f9ccca03b257d204 /* ByteBufferUtils.cpp */; };
 		8cfc7c975d4419a3127a1d196f37931a /* Serial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1d7aabb29b3a49ab69ea3a97aac518ab /* Serial.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
@@ -77,7 +74,6 @@
 /* Begin PBXFileReference section */
 		06ed1882d0056fb439aab3e70e86d912 /* RecursiveDirectoryIterator.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = RecursiveDirectoryIterator.cpp; path = ../../../addons/ofxIO/libs/Poco/src/RecursiveDirectoryIterator.cpp; sourceTree = SOURCE_ROOT; };
 		0b6179498d0110bd2e161373d141a6c9 /* DirectoryWatcherManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = DirectoryWatcherManager.cpp; path = ../../../addons/ofxIO/libs/ofxIO/src/DirectoryWatcherManager.cpp; sourceTree = SOURCE_ROOT; };
-		0c44ca8fd2d90cb611de5e238650156c /* mdc2250.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = mdc2250.cc; path = ../../../addons/ofxSerial/libs/serial/tests/proof_of_concepts/mdc2250.cc; sourceTree = SOURCE_ROOT; };
 		120db29f900e26b84d1a44c860f7b354 /* RecursiveDirectoryIterator.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = RecursiveDirectoryIterator.h; path = ../../../addons/ofxIO/libs/Poco/Foundation/include/Poco/RecursiveDirectoryIterator.h; sourceTree = SOURCE_ROOT; };
 		19c22cd05d10f78b32ff80c6be3a9385 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
 		1d7aabb29b3a49ab69ea3a97aac518ab /* Serial.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Serial.cpp; path = ../../../addons/ofxSerial/libs/ofxSerial/src/Serial.cpp; sourceTree = SOURCE_ROOT; };
@@ -99,7 +95,6 @@
 		89b60fb247e1f64013c716dc5bc27ed6 /* AbstractTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AbstractTypes.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/AbstractTypes.h; sourceTree = SOURCE_ROOT; };
 		93384835c77bd4299f8a7f9032e427d9 /* ByteBuffer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ByteBuffer.cpp; path = ../../../addons/ofxIO/libs/ofxIO/src/ByteBuffer.cpp; sourceTree = SOURCE_ROOT; };
 		9a967d1fafa98a7cbbfa4f5530702894 /* DirectoryUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = DirectoryUtils.cpp; path = ../../../addons/ofxIO/libs/ofxIO/src/DirectoryUtils.cpp; sourceTree = SOURCE_ROOT; };
-		9b13627f6145b2d7f04b18a9b02e0e52 /* tokenizer.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tokenizer.cc; path = ../../../addons/ofxSerial/libs/serial/tests/proof_of_concepts/tokenizer.cc; sourceTree = SOURCE_ROOT; };
 		9ef95bb1b9e92753aaa87805f55412ed /* RecursiveDirectoryIteratorStategies.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = RecursiveDirectoryIteratorStategies.h; path = ../../../addons/ofxIO/libs/Poco/Foundation/include/Poco/RecursiveDirectoryIteratorStategies.h; sourceTree = SOURCE_ROOT; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -124,7 +119,6 @@
 		E7E077E715D3B6510020DFD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		E7F985F515E0DE99003869B5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
 		a84296d6c23d0a9e8132a61b76f92e64 /* Config.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Config.h; path = ../../../addons/ofxSerial/libs/ofxSerial/include/ofx/IO/Serial/Config.h; sourceTree = SOURCE_ROOT; };
-		b115dcc25453ade112d0ff1717544155 /* serial_tests.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = serial_tests.cc; path = ../../../addons/ofxSerial/libs/serial/tests/serial_tests.cc; sourceTree = SOURCE_ROOT; };
 		beffaa5b8275e0ae066fc2e31330dd5f /* DirectoryWatcherManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DirectoryWatcherManager.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/DirectoryWatcherManager.h; sourceTree = SOURCE_ROOT; };
 		d1b098b33aca6d5ef0de53fb272af238 /* win.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = win.cc; path = ../../../addons/ofxSerial/libs/serial/src/impl/win.cc; sourceTree = SOURCE_ROOT; };
 		d1f82a94bd80bdc78e0b1922d8660de6 /* DirectoryUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DirectoryUtils.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/DirectoryUtils.h; sourceTree = SOURCE_ROOT; };
@@ -202,15 +196,6 @@
 			name = libs;
 			sourceTree = "<group>";
 		};
-		24f35c88602ce910a295277478c54b6e /* proof_of_concepts */ = {
-			isa = PBXGroup;
-			children = (
-				0c44ca8fd2d90cb611de5e238650156c /* mdc2250.cc */,
-				9b13627f6145b2d7f04b18a9b02e0e52 /* tokenizer.cc */,
-			);
-			name = proof_of_concepts;
-			sourceTree = "<group>";
-		};
 		3f13bf933566839ed4c7ccedeea89880 /* include */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,15 +264,6 @@
 				0b6179498d0110bd2e161373d141a6c9 /* DirectoryWatcherManager.cpp */,
 			);
 			name = src;
-			sourceTree = "<group>";
-		};
-		82f613a6a57053e3c32f7d570a010183 /* tests */ = {
-			isa = PBXGroup;
-			children = (
-				24f35c88602ce910a295277478c54b6e /* proof_of_concepts */,
-				b115dcc25453ade112d0ff1717544155 /* serial_tests.cc */,
-			);
-			name = tests;
 			sourceTree = "<group>";
 		};
 		8863e4609a0299cbae56bb7ae62bc283 /* src */ = {
@@ -429,7 +405,6 @@
 			children = (
 				b98b12b675c8d0f9fe8a8513da2fbe2d /* include */,
 				8c9a1e9fb4fa1857da84ca9fa6409b23 /* src */,
-				82f613a6a57053e3c32f7d570a010183 /* tests */,
 			);
 			name = serial;
 			sourceTree = "<group>";
@@ -644,9 +619,6 @@
 				dabeb23b35b4884860b1a8146c4be1af /* unix.cc in Sources */,
 				55de46182f529d5e0d756503bd8c50d7 /* win.cc in Sources */,
 				3336758d15fd0710326aac25b5ea3bd8 /* serial.cc in Sources */,
-				4c0a1b42bef6d9b53680d99a2612f865 /* mdc2250.cc in Sources */,
-				34c05a9786ca39a86d47f6899825af2f /* tokenizer.cc in Sources */,
-				594320e5e79c06f8065b833a6dfe4d56 /* serial_tests.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

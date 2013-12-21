@@ -30,7 +30,7 @@
 void ofApp::setup()
 {
 
-    std::vector<SerialDeviceInfo> devicesInfo = SerialDeviceUtils::getDevices("/dev/tty.PL2303.*");
+    std::vector<SerialDeviceInfo> devicesInfo = SerialDeviceUtils::getDevices("/dev/ttyUSB.*");
 
     devices = std::vector<SerialDevice>(devicesInfo.size());
 
@@ -73,54 +73,52 @@ void ofApp::update()
 //------------------------------------------------------------------------------
 void ofApp::draw()
 {
-    int xOffset = 20;
-    int yOffset = 20;
+    int xOffset = 200;
+    int yOffset = 100;
 
-    int tab = 20;
+    int x = 20;
+    int y = 20;
 
-//    for(std::size_t i = 0; i < devices.size(); ++i)
-//    {
-//        std::stringstream ss;
-//
-//        ss << std::setw(tab) << "NAME: " << devices[i].getPortName() << endl;
-//        ss << std::setw(tab) <<  "DSR: " << devices[i].isDataSetReady() << endl;
-//        ss << std::setw(tab) <<  "CTS: " << devices[i].isClearToSend() << endl;
-//        ss << std::setw(tab) <<  " CD: " << devices[i].isCarrierDetected() << endl;
-//        ss << std::setw(tab) <<  " RI: " << devices[i].isRingIndicated() << endl;
-//
-//        ofDrawBitmapStringHighlight(ss.str(), ofPoint(xOffset, yOffset));
-//
-//        if(yOffset > ofGetWidth() - 100)
-//        {
-//            xOffset = 0;
-//            yOffset += 100;
-//        }
-//    }
+    int tab = 8;
+
+   for(std::size_t i = 0; i < devices.size(); ++i)
+   {
+       std::stringstream ss;
+
+       ss << std::setw(tab) << "NAME: " << devices[i].getPortName() << endl;
+       ss << std::setw(tab) <<  "DSR: " << devices[i].isDataSetReady() << endl;
+       ss << std::setw(tab) <<  "CTS: " << devices[i].isClearToSend() << endl;
+       ss << std::setw(tab) <<  " CD: " << devices[i].isCarrierDetected() << endl;
+       ss << std::setw(tab) <<  " RI: " << devices[i].isRingIndicated();
+
+       ofDrawBitmapStringHighlight(ss.str(), ofVec2f(x, y));
+
+       if(yOffset > ofGetWidth() - 100)
+       {
+           x = 20;
+           y += yOffset;
+       }
+       else
+       {
+            x += xOffset;
+       }
+   }
 }
 
 //------------------------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
-//
-//    if('d' == key)
-//    {
-//        dtr = !dtr;
-//        device.setDataTerminalReady(dtr);
-//
-//    }
-//    else if('r' == key)
-//    {
-//        cout << "R IN HERE" << endl;
-//        rts = !rts;
-//        device.setRequestToSend(rts);
-//    }
-//
-//    if('h' == key)
-//    {
-//        cout << "h" << endl;
-//        device.writeBytes("Hello world\n\n\n\n\n");
-//    }
-//
+    if (' ' == key)
+    {
+       for(std::size_t i = 0; i < devices.size(); ++i)
+       {    
+            std::string message = "Testing device " + ofToString(i) + " " + devices[i].getPortName() + "\n";
+
+            devices[i].writeBytes((const uint8_t*)message.c_str(), message.length());
+       }
+    }
+
+
 //    if(' ' == key)
 //    {
 //        {

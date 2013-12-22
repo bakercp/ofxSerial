@@ -106,6 +106,7 @@ public:
     virtual std::size_t writeBytes(const uint8_t* buffer, std::size_t size);
     virtual std::size_t writeBytes(const std::vector<uint8_t>& buffer);
     virtual std::size_t writeBytes(const std::string& buffer);
+    virtual std::size_t writeBytes(const AbstractByteSource& buffer);
 
     std::string getPortName() const;
     uint32_t getBauds() const;

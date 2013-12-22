@@ -28,7 +28,6 @@
 
 #include "ofLog.h"
 #include "ofx/IO/AbstractTypes.h"
-#include "ofx/IO/BasicFileFilters.h"
 #include "ofx/IO/DirectoryUtils.h"
 
 
@@ -83,7 +82,7 @@ protected:
 inline std::ostream& operator << (std::ostream& os,
                                   const SerialDeviceInfo& deviceInfo)
 {
-    os << device._name << ", " << deviceInfo._path;
+    os << deviceInfo._name << ", " << deviceInfo._path;
     return os;
 }
 
@@ -91,8 +90,6 @@ inline std::ostream& operator << (std::ostream& os,
 class SerialDeviceUtils
 {
 public:
-
-
     static std::vector<SerialDeviceInfo> getDevices(const std::string& regexPattern = "",
                                                     int regexOptions = 0,
                                                     bool regexStudy = true);

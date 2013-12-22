@@ -231,7 +231,28 @@ std::size_t SerialDevice::writeBytes(const std::string& buffer)
         return 0;
     }
 }
-    
+
+
+std::size_t SerialDevice::writeBytes(const AbstractByteSource& buffer)
+{
+    if(confirmSetup())
+    {
+        try
+        {
+            return pSerial->write(buffer.readBytes());
+        }
+        catch (const std::exception& exc)
+        {
+            ofLogError("SerialDevice::writeBytes") << exc.what();
+            return 0;
+        }
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 
 std::string SerialDevice::getPortName() const
 {

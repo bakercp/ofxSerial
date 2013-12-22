@@ -23,7 +23,10 @@
 // =============================================================================
 
 
+#include "ofx/IO/DeviceFilter.h"
+#include "ofx/IO/RegexPathFilter.h"
 #include "ofx/IO/SerialDeviceUtils.h"
+#include "ofx/IO/PathFilterCollection.h"
 
 
 namespace ofx {
@@ -173,7 +176,7 @@ std::vector<SerialDeviceInfo> SerialDeviceUtils::getDevices(const std::string& r
 
     DeviceFilter deviceFilter;
     RegexPathFilter pathFilter(_regexPattern, regexOptions, regexStudy);
-    FileFilterCollection filters;
+    PathFilterCollection filters;
 
     filters.addFilter(&deviceFilter);
     filters.addFilter(&pathFilter);

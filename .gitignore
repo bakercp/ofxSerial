@@ -16,6 +16,7 @@ build
 
 # OSX
 .DS_Store
+.AppleDouble
 
 # codeblocks
 *.layout

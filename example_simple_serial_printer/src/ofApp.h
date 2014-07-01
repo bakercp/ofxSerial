@@ -30,9 +30,6 @@
 #include "ofxSerial.h"
 
 
-using namespace ofx::IO;
-
-
 class ofApp: public ofBaseApp
 {
 public:
@@ -42,6 +39,6 @@ public:
 
     void keyPressed(int key);
 
-    std::vector<SerialDevice> devices;
+    std::vector<ofx::IO::SerialDevice> devices;
 
 };

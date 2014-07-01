@@ -26,22 +26,20 @@
 #include "ofApp.h"
 
 
-//------------------------------------------------------------------------------
 void ofApp::setup()
 {
 
-    std::vector<SerialDeviceInfo> devicesInfo = SerialDeviceUtils::getDevices("/dev/ttyUSB.*");
+    std::vector<ofx::IO::SerialDeviceInfo> devicesInfo = ofx::IO::SerialDeviceUtils::getDevices("/dev/cu.NoZAP-PL2303.*");
 
-    devices = std::vector<SerialDevice>(devicesInfo.size());
+    devices = std::vector<ofx::IO::SerialDevice>(devicesInfo.size());
 
     for(std::size_t i = 0; i < devices.size(); ++i)
     {
         bool success = devices[i].setup(devicesInfo[i],
-                                        115200,
-                                        SerialDevice::DATA_BITS_EIGHT,
-                                        SerialDevice::PAR_NONE,
-                                        SerialDevice::STOP_ONE,
-                                        SerialDevice::FLOW_CTRL_HARDWARE);
+                                        38400,
+                                        ofx::IO::SerialDevice::DATA_BITS_EIGHT,
+                                        ofx::IO::SerialDevice::PAR_NONE,
+                                        ofx::IO::SerialDevice::STOP_ONE);
 
         if(success)
         {
@@ -54,23 +52,12 @@ void ofApp::setup()
     }
 }
 
-//------------------------------------------------------------------------------
+
 void ofApp::update()
 {
-//    while(device.available() > 0)
-//    {
-//        uint8_t array[1024];
-//
-//        std::size_t n = device.readBytes(array, 1024);
-//
-//        for(std::size_t i = 0; i < n; ++i)
-//        {
-//            cout << array[i];
-//        }
-//    }
 }
 
-//------------------------------------------------------------------------------
+
 void ofApp::draw()
 {
     int xOffset = 200;
@@ -81,31 +68,38 @@ void ofApp::draw()
 
     int tab = 8;
 
-   for(std::size_t i = 0; i < devices.size(); ++i)
-   {
-       std::stringstream ss;
+    if (!devices.empty())
+    {
+        for(std::size_t i = 0; i < devices.size(); ++i)
+        {
+            std::stringstream ss;
 
-       ss << std::setw(tab) << "NAME: " << devices[i].getPortName() << endl;
-       ss << std::setw(tab) <<  "DSR: " << devices[i].isDataSetReady() << endl;
-       ss << std::setw(tab) <<  "CTS: " << devices[i].isClearToSend() << endl;
-       ss << std::setw(tab) <<  " CD: " << devices[i].isCarrierDetected() << endl;
-       ss << std::setw(tab) <<  " RI: " << devices[i].isRingIndicated();
+            ss << std::setw(tab) << "NAME: " << devices[i].getPortName() << endl;
+            ss << std::setw(tab) <<  "DSR: " << devices[i].isDataSetReady() << endl;
+            ss << std::setw(tab) <<  "CTS: " << devices[i].isClearToSend() << endl;
+            ss << std::setw(tab) <<  " CD: " << devices[i].isCarrierDetected() << endl;
+            ss << std::setw(tab) <<  " RI: " << devices[i].isRingIndicated();
 
-       ofDrawBitmapStringHighlight(ss.str(), ofVec2f(x, y));
+            ofDrawBitmapStringHighlight(ss.str(), ofVec2f(x, y));
 
-       if(yOffset > ofGetWidth() - 100)
-       {
-           x = 20;
-           y += yOffset;
-       }
-       else
-       {
-            x += xOffset;
-       }
-   }
+            if(yOffset > ofGetWidth() - 100)
+            {
+                x = 20;
+                y += yOffset;
+            }
+            else
+            {
+                x += xOffset;
+            }
+        }
+    }
+    else
+    {
+        ofDrawBitmapStringHighlight("No printers connected.", ofVec2f(x, y));
+    }
 }
 
-//------------------------------------------------------------------------------
+
 void ofApp::keyPressed(int key)
 {
     if (' ' == key)
@@ -117,16 +111,4 @@ void ofApp::keyPressed(int key)
             devices[i].writeBytes((const uint8_t*)message.c_str(), message.length());
        }
     }
-
-
-//    if(' ' == key)
-//    {
-//        {
-//device.setDataTerminalReady(false);            
-//uint8_t command[3] = { 0x1d, 0x49, 0x44 };
-//            std::size_t numBytesWritten = device.writeBytes(command,3);
-//            cout << "BW = " << numBytesWritten << endl;
-//    device.setDataTerminalReady(true);
-//       }
-//    }
 }

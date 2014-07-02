@@ -158,7 +158,7 @@ std::vector<SerialDeviceInfo> SerialDeviceUtils::getDevices(const std::string& r
         {
             case OF_TARGET_OSX:
             case OF_TARGET_IOS:
-                _regexPattern = ".*/tty[.].*";
+                _regexPattern = ".*/cu[.].*";
                 break;
             case OF_TARGET_LINUX:
             case OF_TARGET_LINUX64:

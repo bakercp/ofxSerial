@@ -54,7 +54,7 @@ bool SerialDevice::setup(const SerialDeviceInfo& device,
                          FlowControl flowControl,
                          serial::Timeout timeout)
 {
-    return setup(device.getPath(),
+    return setup(device.getPort(),
                  bauds,
                  dataBits,
                  parity,

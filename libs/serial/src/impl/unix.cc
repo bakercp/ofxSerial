@@ -5,7 +5,6 @@
 
 #if !defined(_WIN32)
 
-#include <iostream>
 #include <stdio.h>
 #include <string.h>
 #include <sstream>
@@ -438,8 +437,14 @@ Serial::SerialImpl::close ()
 {
   if (is_open_ == true) {
     if (fd_ != -1) {
-      ::close (fd_); // Ignoring the outcome
-      fd_ = -1;
+      int retVal;
+      retVal=::close (fd_); 
+        if (retVal==0)
+          fd_ = -1;
+        else
+          {
+          THROW (IOException, errno);
+          }
     }
     is_open_ = false;
   }

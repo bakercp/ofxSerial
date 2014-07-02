@@ -38,43 +38,53 @@ namespace IO {
 class SerialDeviceInfo
 {
 public:
-    SerialDeviceInfo(std::string path):
-        _path(path),
-        _name(getNameFromPath(path))
+    SerialDeviceInfo(const std::string& port,
+                     const std::string& description,
+                     const std::string& hardwareId):
+        _port(port),
+        _description(description),
+        _hardwareId(hardwareId)
     {
     }
 
 
+    /// \brief Destroy the SerialDeviceInfo.
     virtual ~SerialDeviceInfo()
     {
     }
 
 
-    std::string getPath() const
+    /// \brief Get the address of the serial port.
+    ///
+    /// This can be passed to the constructor of ofxSerial.
+    ///
+    /// \returns the address of the serial port.
+    const std::string& getPort() const
     {
-        return _path;
+        return _port;
     }
 
 
-    std::string getName() const
+    const std::string& getDescription() const
     {
-        return _name;
+        return _description;
     }
+
+
+    const std::string& getHardwareId() const
+    {
+        return _hardwareId;
+    }
+
 
 
     friend std::ostream& operator << (std::ostream& os,
                                       const SerialDeviceInfo& deviceInfo);
 
 protected:
-    std::string _path;
-    std::string _name;
-
-    static std::string getNameFromPath(const std::string& path)
-    {
-        // this needs to be more sophisticated for dealing with Windows
-        // We may also want to chop of tty, etc.
-        return Poco::Path(path).getFileName();
-    }
+    std::string _port;
+    std::string _description;
+    std::string _hardwareId;
 
 };
 
@@ -82,7 +92,7 @@ protected:
 inline std::ostream& operator << (std::ostream& os,
                                   const SerialDeviceInfo& deviceInfo)
 {
-    os << deviceInfo._name << ", " << deviceInfo._path;
+    os << deviceInfo._port << ", " << deviceInfo._description << ", " << deviceInfo._hardwareId;
     return os;
 }
 
@@ -93,12 +103,6 @@ public:
     static std::vector<SerialDeviceInfo> getDevices(const std::string& regexPattern = "",
                                                     int regexOptions = 0,
                                                     bool regexStudy = true);
-
-protected:
-
-
-
-//    friend class Poco::SingletonHolder<SerialDeviceInfo>;
 
 };
 

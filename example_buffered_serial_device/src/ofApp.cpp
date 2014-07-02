@@ -37,7 +37,14 @@ void ofApp::setup()
 
     ofEnableAlphaBlending();
 
-    std::vector<ofx::IO::SerialDeviceInfo> devicesInfo = ofx::IO::SerialDeviceUtils::getDevices("/dev/.*usbmodem.*");
+    std::vector<ofx::IO::SerialDeviceInfo> devicesInfo = ofx::IO::SerialDeviceUtils::getDevices();
+
+    ofLogNotice("ofApp::setup") << "Connected Devices: ";
+
+    for (std::size_t i = 0; i < devicesInfo.size(); ++i)
+    {
+        ofLogNotice("ofApp::setup") << "\t" << devicesInfo[i];
+    }
 
     if (!devicesInfo.empty())
     {

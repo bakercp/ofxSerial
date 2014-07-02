@@ -72,249 +72,83 @@ bool SerialDevice::setup(const std::string& portName,
                          FlowControl flowControl,
                          serial::Timeout timeout)
 {
+    pSerial = SharedSerial(new serial::Serial(portName,
+                                              bauds,
+                                              timeout,
+                                              (serial::bytesize_t)dataBits,
+                                              (serial::parity_t)parity,
+                                              (serial::stopbits_t)stopBits,
+                                              (serial::flowcontrol_t)flowControl));
 
-    try
-    {
-        pSerial = SharedSerial(new serial::Serial(portName,
-                                                  bauds,
-                                                  timeout,
-                                                  (serial::bytesize_t)dataBits,
-                                                  (serial::parity_t)parity,
-                                                  (serial::stopbits_t)stopBits,
-                                                  (serial::flowcontrol_t)flowControl));
-    }
-    catch (const std::exception& exc)
-    {
-        ofLogError("SerialDevice::setup") << exc.what();
-    }
-
-    return confirmSetup();
+    return pSerial->isOpen();
 }
 
 
 std::size_t SerialDevice::readBytes(uint8_t* buffer, std::size_t size)
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            return pSerial->read(buffer, size);
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::readBytes") << exc.what();
-            return 0;
-        }
-    }
-    else
-    {
-        return 0;
-    }
+    return pSerial ? pSerial->read(buffer, size) : 0;
 }
 
 
 std::size_t SerialDevice::readByte(uint8_t& data)
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            return pSerial->read(&data,1);
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::readByte") << exc.what();
-            return 0;
-        }
-    }
-    else
-    {
-        return 0;
-    }
+    return pSerial ? pSerial->read(&data, 1) : 0;
 }
 
 
 std::size_t SerialDevice::available() const
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            return pSerial->available();
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::available") << exc.what();
-            return 0;
-        }
-    }
-    else
-    {
-        return 0;
-    }
+    return pSerial ? pSerial->available() : 0;
 }
 
 
 std::size_t SerialDevice::writeByte(uint8_t data)
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            return pSerial->write(&data,1);
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::writeByte") << exc.what();
-            return 0;
-        }
-    }
-    else
-    {
-        return 0;
-    }
+    return pSerial ? pSerial->write(&data, 1) : 0;
 }
 
     
 std::size_t SerialDevice::writeBytes(const uint8_t* buffer, std::size_t size)
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            return pSerial->write(buffer,size);
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::writeBytes") << exc.what();
-            return 0;
-        }
-    }
-    else
-    {
-        return 0;
-    }
+    return pSerial ? pSerial->write(buffer, size) : 0;
 }
 
 
 std::size_t SerialDevice::writeBytes(const std::vector<uint8_t>& buffer)
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            return pSerial->write(buffer);
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::writeBytes") << exc.what();
-            return 0;
-        }
-    }
-    else
-    {
-        return 0;
-    }
+    return pSerial ? pSerial->write(buffer) : 0;
 }
 
 
 std::size_t SerialDevice::writeBytes(const std::string& buffer)
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            return pSerial->write(buffer);
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::writeBytes") << exc.what();
-            return 0;
-        }
-    }
-    else
-    {
-        return 0;
-    }
+    return pSerial ? pSerial->write(buffer) : 0;
 }
 
 
 std::size_t SerialDevice::writeBytes(const AbstractByteSource& buffer)
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            return pSerial->write(buffer.readBytes());
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::writeBytes") << exc.what();
-            return 0;
-        }
-    }
-    else
-    {
-        return 0;
-    }
+    return pSerial ? pSerial->write(buffer.readBytes()) : 0;
 }
 
 
 std::string SerialDevice::getPortName() const
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            return pSerial->getPort();
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::getPortName") << exc.what();
-            return "";
-        }
-    }
-    else
-    {
-        return "";
-    }
+    return pSerial ? pSerial->getPort() : "";
 }
 
 
 uint32_t SerialDevice::getBauds() const
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            return pSerial->getBaudrate();
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::getBauds") << exc.what();
-            return 0;
-        }
-    }
-    else
-    {
-        return 0;
-    }
+    return pSerial ? pSerial->getBaudrate() : 0;
 }
 
 
 SerialDevice::DataBits SerialDevice::getDataBits() const
 {
-    if(confirmSetup())
+    if (pSerial)
     {
-        try
-        {
-            return (SerialDevice::DataBits)pSerial->getBytesize();
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::getDataBits") << exc.what();
-            return DATA_BITS_UNKNOWN;
-        }
+        return (SerialDevice::DataBits)pSerial->getBytesize();
     }
     else
     {
@@ -325,17 +159,9 @@ SerialDevice::DataBits SerialDevice::getDataBits() const
 
 SerialDevice::Parity SerialDevice::getParity() const
 {
-    if(confirmSetup())
+    if (pSerial)
     {
-        try
-        {
-            return (SerialDevice::Parity)pSerial->getParity();
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::getParity") << exc.what();
-            return PAR_UNKNOWN;
-        }
+        return (SerialDevice::Parity)pSerial->getParity();
     }
     else
     {
@@ -346,17 +172,9 @@ SerialDevice::Parity SerialDevice::getParity() const
 
 SerialDevice::StopBits SerialDevice::getStopBits() const
 {
-    if(confirmSetup())
+    if (pSerial)
     {
-        try
-        {
-            return (SerialDevice::StopBits)pSerial->getStopbits();
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::getStopBits") << exc.what();
-            return STOP_UNKNOWN;
-        }
+        return (SerialDevice::StopBits)pSerial->getStopbits();
     }
     else
     {
@@ -367,17 +185,9 @@ SerialDevice::StopBits SerialDevice::getStopBits() const
 
 SerialDevice::FlowControl SerialDevice::getFlowControl() const
 {
-    if(confirmSetup())
+    if (pSerial)
     {
-        try
-        {
-            return (SerialDevice::FlowControl)pSerial->getFlowcontrol();
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::getStopBits") << exc.what();
-            return FLOW_CTRL_UNKNOWN;
-        }
+        return (SerialDevice::FlowControl)pSerial->getFlowcontrol();
     }
     else
     {
@@ -388,17 +198,9 @@ SerialDevice::FlowControl SerialDevice::getFlowControl() const
 
 SerialDevice::Timeout SerialDevice::getTimeout() const
 {
-    if(confirmSetup())
+    if (pSerial)
     {
-        try
-        {
-            return pSerial->getTimeout();
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::getStopBits") << exc.what();
-            return Timeout();
-        }
+        return pSerial->getTimeout();
     }
     else
     {
@@ -409,211 +211,73 @@ SerialDevice::Timeout SerialDevice::getTimeout() const
 
 void SerialDevice::flush()
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            pSerial->flush();
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::flush") << exc.what();
-        }
-    }
+    if (pSerial) pSerial->flush();
 }
 
 
 void SerialDevice::flushInput()
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            pSerial->flushInput();
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::flushInput") << exc.what();
-        }
-    }
+    if (pSerial) pSerial->flushInput();
 }
 
 
 void SerialDevice::flushOutput()
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            pSerial->flushOutput();
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::flushOutput") << exc.what();
-        }
-    }
+    if (pSerial) pSerial->flushOutput();
 }
 
 
 void SerialDevice::sendBreak(int duration)
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            pSerial->sendBreak(duration);
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::sendBreak") << exc.what();
-        }
-    }
+    if (pSerial) pSerial->sendBreak(duration);
 }
 
 
 void SerialDevice::setBreak(bool level)
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            pSerial->setBreak(level);
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::setBreak") << exc.what();
-        }
-    }
+    if (pSerial) pSerial->setBreak(level);
 }
 
 
 void SerialDevice::setRequestToSend(bool level)
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            pSerial->setRTS(level);
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::setRTS") << exc.what();
-        }
-    }
+    if (pSerial) pSerial->setRTS(level);
 }
 
 
 void SerialDevice::setDataTerminalReady(bool level)
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            pSerial->setDTR(level);
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::setRTS") << exc.what();
-        }
-    }
+    if (pSerial) pSerial->setDTR(level);
 }
 
 
 bool SerialDevice::isClearToSend() const
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            return pSerial->getCTS();
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::getCTS") << exc.what();
-            return false;
-        }
-    }
-    else
-    {
-        return false;
-    }
+    return pSerial && pSerial->getCTS();
 }
 
 
 bool SerialDevice::isDataSetReady() const
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            return pSerial->getCTS();
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::getDSR") << exc.what();
-            return false;
-        }
-    }
-    else
-    {
-        return false;
-    }
+    return pSerial && pSerial->getCTS();
 }
 
 
 bool SerialDevice::isRingIndicated() const
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            return pSerial->getRI();
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::getRI") << exc.what();
-            return false;
-        }
-    }
-    else
-    {
-        return false;
-    }
+    return pSerial && pSerial->getRI();
 }
 
 
 bool SerialDevice::isCarrierDetected() const
 {
-    if(confirmSetup())
-    {
-        try
-        {
-            return pSerial->getCD();
-        }
-        catch (const std::exception& exc)
-        {
-            ofLogError("SerialDevice::getCD") << exc.what();
-            return false;
-        }
-    }
-    else
-    {
-        return false;
-    }
+    return pSerial && pSerial->getCD();
 }
 
 
-bool SerialDevice::confirmSetup() const
+bool SerialDevice::isOpen() const
 {
-    if(0 != pSerial)
-    {
-        return true;
-    }
-    else
-    {
-        ofLogError("SerialDevice::readBytes") << "Serial Device is not configured.  Call setup() first.";
-        return false;
-    }
+    return pSerial && pSerial->isOpen();
 }
 
 

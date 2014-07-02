@@ -92,7 +92,7 @@ std::size_t SerialDevice::readBytes(uint8_t* buffer, std::size_t size)
     {
         try
         {
-            return pSerial->read(buffer,size);
+            return pSerial->read(buffer, size);
         }
         catch (const std::exception& exc)
         {

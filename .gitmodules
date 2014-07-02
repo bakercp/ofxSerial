@@ -1,3 +1,0 @@
-[submodule "libs/serial"]
-	path = libs/serial
-	url = git://github.com/bakercp/serial.git

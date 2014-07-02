@@ -37,8 +37,6 @@ public:
     void update();
     void draw();
 
-    void keyPressed(int key);
-
-    std::vector<ofx::IO::SerialDevice> devices;
+    ofx::IO::SerialDevice device;
 
 };

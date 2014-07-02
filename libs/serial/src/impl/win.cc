@@ -260,7 +260,15 @@ Serial::SerialImpl::close ()
 {
   if (is_open_ == true) {
     if (fd_ != INVALID_HANDLE_VALUE) {
-      CloseHandle(fd_);
+      int retVal;
+      retVal=CloseHandle(fd_);
+      if (retVal==0)
+      {
+        stringstream ss;
+        ss << "Error while closing serial port: " << GetLastError();
+        THROW (IOException, ss.str().c_str());    
+      }
+      else
       fd_ = INVALID_HANDLE_VALUE;
     }
     is_open_ = false;
@@ -286,6 +294,19 @@ Serial::SerialImpl::available ()
     THROW (IOException, ss.str().c_str());
   }
   return static_cast<size_t>(cs.cbInQue);
+}
+
+bool
+Serial::SerialImpl::waitReadable (uint32_t timeout)
+{ 
+  THROW (IOException, "waitReadable is not implemented on Windows.");
+  return false;
+}
+
+void
+Serial::SerialImpl::waitByteTimes (size_t count)
+{
+  THROW (IOException, "waitByteTimes is not implemented on Windows.");
 }
 
 size_t

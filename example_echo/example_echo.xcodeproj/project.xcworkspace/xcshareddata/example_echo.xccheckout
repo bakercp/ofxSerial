@@ -5,9 +5,9 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>D4838B3A-F29A-413F-A7DA-299BBB3CF822</string>
+	<string>16147953-5D74-4FC8-AC59-504FB842F237</string>
 	<key>IDESourceControlProjectName</key>
-	<string>example_simple_serial_printer</string>
+	<string>example_echo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3B34514A-1075-456B-8AF0-DAEFD698200B</key>
@@ -18,7 +18,7 @@
 		<string>ssh://github.com/bakercp/ofxIO.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>addons/ofxSerial/example_simple_serial_printer/example_simple_serial_printer.xcodeproj/project.xcworkspace</string>
+	<string>addons/ofxSerial/example_echo/example_echo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3B34514A-1075-456B-8AF0-DAEFD698200B</key>

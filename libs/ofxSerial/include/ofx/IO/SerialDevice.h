@@ -79,6 +79,7 @@ public:
     };
 
     SerialDevice();
+
     virtual ~SerialDevice();
 
     bool setup(const SerialDeviceInfo& device,
@@ -87,8 +88,7 @@ public:
                Parity parity = PAR_NONE,
                StopBits stopBits = STOP_ONE,
                FlowControl flowControl = FLOW_CTRL_NONE,
-               Timeout timeout = Timeout());
-
+               Timeout timeout = DEFAULT_TIMEOUT);
 
     bool setup(const std::string& portName,
                uint32_t bauds = 9600,
@@ -96,9 +96,7 @@ public:
                Parity parity = PAR_NONE,
                StopBits stopBits = STOP_ONE,
                FlowControl flowControl = FLOW_CTRL_NONE,
-               Timeout timeout = Timeout());
-
-    std::size_t readBytes(ByteBuffer& buffer);
+               Timeout timeout = DEFAULT_TIMEOUT);
 
     std::size_t readBytes(uint8_t* buffer, std::size_t size);
     std::size_t readByte(uint8_t& data);
@@ -131,6 +129,18 @@ public:
     bool isDataSetReady() const;
     bool isRingIndicated() const;
     bool isCarrierDetected() const;
+
+    enum
+    {
+        /// \brief The default read timeout.  0 is a non-blocking timeout.
+        DEFAULT_READ_TIMEOUT_CONSTANT_MS = 0,
+        DEFAULT_READ_TIMEOUT_MULTIPLIER_MS = 0,
+        /// \brief The default write timeout constant.  This usually blocks for one or two milliseconds.
+        DEFAULT_WRITE_TIMEOUT_CONSTANT = 1000,
+        DEFAULT_WRITE_TIMEOUT_MULTIPLIER = 0
+    };
+
+    static const Timeout DEFAULT_TIMEOUT;
 
 protected:
     typedef std::shared_ptr<serial::Serial> SharedSerial;

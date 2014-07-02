@@ -27,5 +27,6 @@
 
 
 #include "serial/serial.h"
+#include "ofxIO.h"
 #include "ofx/IO/SerialDevice.h"
 #include "ofx/IO/SerialDeviceUtils.h"

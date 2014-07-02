@@ -30,6 +30,12 @@ namespace ofx {
 namespace IO {
 
 
+const SerialDevice::Timeout SerialDevice::DEFAULT_TIMEOUT(SerialDevice::Timeout::max(),
+                                                          SerialDevice::DEFAULT_READ_TIMEOUT_CONSTANT_MS,
+                                                          SerialDevice::DEFAULT_READ_TIMEOUT_MULTIPLIER_MS,
+                                                          SerialDevice::DEFAULT_WRITE_TIMEOUT_CONSTANT,
+                                                          SerialDevice::DEFAULT_WRITE_TIMEOUT_MULTIPLIER);
+
 SerialDevice::SerialDevice()
 {
 }

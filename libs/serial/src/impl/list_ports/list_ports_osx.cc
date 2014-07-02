@@ -1,4 +1,5 @@
-#if defined(_APPLE_)
+#if defined(__APPLE__)
+
 
 #include <sys/param.h>
 #include <stdint.h>

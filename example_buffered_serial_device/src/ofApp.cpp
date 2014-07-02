@@ -115,6 +115,9 @@ bool ofApp::onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args)
     SerialMessage message(args.getBuffer().toString(), "", 500);
 
     serialMessages.push_back(message);
+
+    // We handled it.
+    return true;
 }
 
 bool ofApp::onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args)
@@ -126,4 +129,7 @@ bool ofApp::onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args)
                           500);
 
     serialMessages.push_back(message);
+
+    // We handled it.
+    return true;
 }

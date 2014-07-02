@@ -98,15 +98,17 @@ public:
                FlowControl flowControl = FLOW_CTRL_NONE,
                Timeout timeout = Timeout());
 
-    virtual std::size_t readBytes(uint8_t* buffer, std::size_t size);
-    virtual std::size_t readByte(uint8_t& data);
-    virtual std::size_t available() const;
+    std::size_t readBytes(ByteBuffer& buffer);
 
-    virtual std::size_t writeByte(uint8_t data);
-    virtual std::size_t writeBytes(const uint8_t* buffer, std::size_t size);
-    virtual std::size_t writeBytes(const std::vector<uint8_t>& buffer);
-    virtual std::size_t writeBytes(const std::string& buffer);
-    virtual std::size_t writeBytes(const AbstractByteSource& buffer);
+    std::size_t readBytes(uint8_t* buffer, std::size_t size);
+    std::size_t readByte(uint8_t& data);
+    std::size_t available() const;
+
+    std::size_t writeByte(uint8_t data);
+    std::size_t writeBytes(const uint8_t* buffer, std::size_t size);
+    std::size_t writeBytes(const std::vector<uint8_t>& buffer);
+    std::size_t writeBytes(const std::string& buffer);
+    std::size_t writeBytes(const AbstractByteSource& buffer);
 
     std::string getPortName() const;
     uint32_t getBauds() const;

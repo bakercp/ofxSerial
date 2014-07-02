@@ -217,6 +217,20 @@ public:
   size_t
   available ();
 
+  /*! Block until there is serial data to read or read_timeout_constant
+   * number of milliseconds have elapsed. The return value is true when
+   * the function exits with the port in a readable state, false otherwise
+   * (due to timeout or select interruption). */
+  bool
+  waitReadable ();
+
+  /*! Block for a period of time corresponding to the transmission time of
+   * count characters at present serial settings. This may be used in con-
+   * junction with waitReadable to read larger blocks of data from the
+   * port. */
+  void
+  waitByteTimes (size_t count);
+
   /*! Read a given amount of bytes from the serial port into a given buffer.
    *
    * The read function will return in one of three cases:
@@ -650,7 +664,7 @@ public:
   explicit IOException (std::string file, int line, int errnum)
     : file_(file), line_(line), errno_(errnum) {
       std::stringstream ss;
-#if defined(_WIN32)
+#if defined(_WIN32) && !defined(__MINGW32__)
       char error_str [1024];
       strerror_s(error_str, 1024, errnum);
 #else
@@ -668,7 +682,7 @@ public:
       e_what_ = ss.str();
   }
   virtual ~IOException() throw() {}
-  IOException (const IOException& other) : e_what_(other.e_what_), line_(other.line_), errno_(other.errno_) {}
+  IOException (const IOException& other) : line_(other.line_), e_what_(other.e_what_), errno_(other.errno_) {}
 
   int getErrorNumber () { return errno_; }
 
@@ -694,6 +708,32 @@ public:
     return e_what_.c_str();
   }
 };
+
+/*!
+ * Structure that describes a serial device.
+ */
+struct PortInfo {
+
+  /*! Address of the serial port (this can be passed to the constructor of Serial). */
+  std::string port;
+
+  /*! Human readable description of serial device if available. */
+  std::string description;
+
+  /*! Hardware ID (e.g. VID:PID of USB serial devices) or "n/a" if not available. */
+  std::string hardware_id;
+
+};
+
+/* Lists the serial ports available on the system
+ *
+ * Returns a vector of available serial ports, each represented
+ * by a serial::PortInfo data structure:
+ *
+ * \return vector of serial::PortInfo.
+ */
+std::vector<PortInfo>
+list_ports();
 
 } // namespace serial
 

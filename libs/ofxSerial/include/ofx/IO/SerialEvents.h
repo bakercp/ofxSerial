@@ -26,9 +26,63 @@
 #pragma once
 
 
-#include "serial/serial.h"
-#include "ofxIO.h"
-#include "ofx/IO/SerialDevice.h"
+#include "ofEvents.h"
+#include "Poco/Exception.h"
+#include "ofx/IO/ByteBuffer.h"
 #include "ofx/IO/BufferedSerialDevice.h"
-#include "ofx/IO/SerialEvents.h"
-#include "ofx/IO/SerialDeviceUtils.h"
+
+
+namespace ofx {
+namespace IO {
+
+
+class SerialBufferEventArgs: public ofEventArgs
+{
+public:
+    SerialBufferEventArgs(const ByteBuffer& buffer):
+        _buffer(buffer)
+    {
+    }
+
+    const ByteBuffer& getBuffer() const
+    {
+        return _buffer;
+    }
+
+protected:
+    const ByteBuffer& _buffer;
+    
+};
+
+
+class SerialBufferErrorEventArgs: public SerialBufferEventArgs
+{
+public:
+    SerialBufferErrorEventArgs(const Poco::Exception& exception,
+                               const ByteBuffer& buffer = ByteBuffer()):
+        SerialBufferEventArgs(buffer),
+        _exception(exception)
+    {
+    }
+
+    const Poco::Exception& getException() const
+    {
+        return _exception;
+    }
+
+protected:
+    const Poco::Exception& _exception;
+
+};
+
+
+class SerialEvents
+{
+public:
+    ofEvent<const SerialBufferEventArgs> onSerialBuffer;
+    ofEvent<const SerialBufferErrorEventArgs> onSerialError;
+
+};
+
+
+} } // namespace ofx::IO

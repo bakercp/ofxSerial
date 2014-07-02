@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2010-2013 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2013 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,13 +22,19 @@
 //
 // =============================================================================
 
+void setup()
+{
+  Serial.begin(115200);
+}
 
-#pragma once
 
+void loop()
+{
+  while (Serial.available() > 0)
+  {
+      Serial.write(Serial.read());
+  }
+  
+  delay(10);
+}
 
-#include "serial/serial.h"
-#include "ofxIO.h"
-#include "ofx/IO/SerialDevice.h"
-#include "ofx/IO/BufferedSerialDevice.h"
-#include "ofx/IO/SerialEvents.h"
-#include "ofx/IO/SerialDeviceUtils.h"

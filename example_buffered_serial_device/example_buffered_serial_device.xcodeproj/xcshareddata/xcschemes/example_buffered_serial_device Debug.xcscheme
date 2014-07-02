@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-               BuildableName = "example_simple_serial_printer.app"
-               BlueprintName = "example_simple_serial_printer"
-               ReferencedContainer = "container:example_simple_serial_printer.xcodeproj">
+               BuildableName = "example_buffered_serial_device.app"
+               BlueprintName = "example_buffered_serial_device"
+               ReferencedContainer = "container:example_buffered_serial_device.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "example_simple_serial_printer.app"
-            BlueprintName = "example_simple_serial_printer"
-            ReferencedContainer = "container:example_simple_serial_printer.xcodeproj">
+            BuildableName = "example_buffered_serial_device.app"
+            BlueprintName = "example_buffered_serial_device"
+            ReferencedContainer = "container:example_buffered_serial_device.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "example_simple_serial_printer.app"
-            BlueprintName = "example_simple_serial_printer"
-            ReferencedContainer = "container:example_simple_serial_printer.xcodeproj">
+            BuildableName = "example_buffered_serial_device.app"
+            BlueprintName = "example_buffered_serial_device"
+            ReferencedContainer = "container:example_buffered_serial_device.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "example_simple_serial_printer.app"
-            BlueprintName = "example_simple_serial_printer"
-            ReferencedContainer = "container:example_simple_serial_printer.xcodeproj">
+            BuildableName = "example_buffered_serial_device.app"
+            BlueprintName = "example_buffered_serial_device"
+            ReferencedContainer = "container:example_buffered_serial_device.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

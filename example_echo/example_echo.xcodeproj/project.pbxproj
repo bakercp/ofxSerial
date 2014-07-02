@@ -53,10 +53,92 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>DABEB23B35B4884860B1A814</key>
+			<dict>
+				<key>fileRef</key>
+				<string>E4F6F31D084699BAD89878B9</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>E4F6F31D084699BAD89878B9</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>unix.cc</string>
+				<key>path</key>
+				<string>../../../addons/ofxSerial/libs/serial/src/impl/unix.cc</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>29BCD325C314242FECC8E5B7</key>
+			<dict>
+				<key>fileRef</key>
+				<string>79F1B32CBD205754ECBE956E</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>79F1B32CBD205754ECBE956E</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>list_ports_win.cc</string>
+				<key>path</key>
+				<string>../../../addons/ofxSerial/libs/serial/src/impl/list_ports/list_ports_win.cc</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>89D1BB84C86305D9A5C34DC4</key>
+			<dict>
+				<key>fileRef</key>
+				<string>857A942126908B1806B67CE6</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>857A942126908B1806B67CE6</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>list_ports_osx.cc</string>
+				<key>path</key>
+				<string>../../../addons/ofxSerial/libs/serial/src/impl/list_ports/list_ports_osx.cc</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>74E2D0CA86ACE812E0440D92</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>F0B7B8B3CBC6603E4EBB50CB</string>
+					<string>857A942126908B1806B67CE6</string>
+					<string>79F1B32CBD205754ECBE956E</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>list_ports</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
 			<key>EBDEF003D846994FE2BA8602</key>
 			<dict>
 				<key>children</key>
 				<array>
+					<string>74E2D0CA86ACE812E0440D92</string>
 					<string>E4F6F31D084699BAD89878B9</string>
 					<string>D1B098B33ACA6D5EF0DE53FB</string>
 				</array>
@@ -81,14 +163,14 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>DABEB23B35B4884860B1A814</key>
+			<key>7B750C170EB39967BA9AB0DA</key>
 			<dict>
 				<key>fileRef</key>
-				<string>E4F6F31D084699BAD89878B9</string>
+				<string>F0B7B8B3CBC6603E4EBB50CB</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>E4F6F31D084699BAD89878B9</key>
+			<key>F0B7B8B3CBC6603E4EBB50CB</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.cpp.cpp</string>
@@ -97,9 +179,9 @@
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>name</key>
-				<string>unix.cc</string>
+				<string>list_ports_linux.cc</string>
 				<key>path</key>
-				<string>../../../addons/ofxSerial/libs/serial/src/impl/unix.cc</string>
+				<string>../../../addons/ofxSerial/libs/serial/src/impl/list_ports/list_ports_linux.cc</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
@@ -241,20 +323,6 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>972457A92053E129B1C252D5</key>
-			<dict>
-				<key>children</key>
-				<array>
-					<string>7B8F262E90F842B6011F0935</string>
-					<string>A28F98E9F26E32A14FAE918C</string>
-				</array>
-				<key>isa</key>
-				<string>PBXGroup</string>
-				<key>name</key>
-				<string>src</string>
-				<key>sourceTree</key>
-				<string>&lt;group&gt;</string>
-			</dict>
 			<key>E47400D4565245776213FFD6</key>
 			<dict>
 				<key>fileRef</key>
@@ -277,6 +345,58 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>972457A92053E129B1C252D5</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>FDB137BD0187E28CD8B59874</string>
+					<string>7B8F262E90F842B6011F0935</string>
+					<string>A28F98E9F26E32A14FAE918C</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>src</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>199E20C3CE29DBDA5F9DA16C</key>
+			<dict>
+				<key>fileRef</key>
+				<string>FDB137BD0187E28CD8B59874</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>FDB137BD0187E28CD8B59874</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>BufferedSerialDevice.cpp</string>
+				<key>path</key>
+				<string>../../../addons/ofxSerial/libs/ofxSerial/src/BufferedSerialDevice.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>8CA7F50B0134479FADEBC335</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>SerialEvents.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxSerial/libs/ofxSerial/include/ofx/IO/SerialEvents.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>D2071B2317B3E021307099D0</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -292,12 +412,29 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>079299A87017EDB0524077EA</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>SerialDevice.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxSerial/libs/ofxSerial/include/ofx/IO/SerialDevice.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>15F500C5D0A99B5F06933A4B</key>
 			<dict>
 				<key>children</key>
 				<array>
+					<string>FB0997B62B97D7513CD396A2</string>
 					<string>079299A87017EDB0524077EA</string>
 					<string>D2071B2317B3E021307099D0</string>
+					<string>8CA7F50B0134479FADEBC335</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -360,7 +497,7 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>079299A87017EDB0524077EA</key>
+			<key>FB0997B62B97D7513CD396A2</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -369,9 +506,9 @@
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>name</key>
-				<string>SerialDevice.h</string>
+				<string>BufferedSerialDevice.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxSerial/libs/ofxSerial/include/ofx/IO/SerialDevice.h</string>
+				<string>../../../addons/ofxSerial/libs/ofxSerial/include/ofx/IO/BufferedSerialDevice.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
@@ -2275,8 +2412,12 @@
 					<string>D81A435CE7FDF51B41956210</string>
 					<string>1298066D39CE7EC3DA60256A</string>
 					<string>868BEDC19B53FD512D7E3100</string>
+					<string>199E20C3CE29DBDA5F9DA16C</string>
 					<string>E47400D4565245776213FFD6</string>
 					<string>DB1B6C56A8D6E1DF0AB8B5DA</string>
+					<string>7B750C170EB39967BA9AB0DA</string>
+					<string>89D1BB84C86305D9A5C34DC4</string>
+					<string>29BCD325C314242FECC8E5B7</string>
 					<string>DABEB23B35B4884860B1A814</string>
 					<string>55DE46182F529D5E0D756503</string>
 					<string>3336758D15FD0710326AAC25</string>
@@ -2334,7 +2475,7 @@
 				<key>isa</key>
 				<string>PBXNativeTarget</string>
 				<key>name</key>
-				<string>example_simple_serial_printer</string>
+				<string>example_echo</string>
 				<key>productName</key>
 				<string>myOFApp</string>
 				<key>productReference</key>
@@ -2351,7 +2492,7 @@
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>path</key>
-				<string>example_simple_serial_printerDebug.app</string>
+				<string>example_echoDebug.app</string>
 				<key>sourceTree</key>
 				<string>BUILT_PRODUCTS_DIR</string>
 			</dict>

@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2010-2013 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2013 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,13 +22,37 @@
 //
 // =============================================================================
 
+const int numLines = 3;
 
-#pragma once
+String haiku[] = {
+  "at the age old pond",
+  "a frog leaps into water",
+  "a deep resonance"
+};
+
+byte currentLine = 0;
+byte currentChar = 0;
+
+void setup()
+{
+  Serial.begin(115200);
+}
 
 
-#include "serial/serial.h"
-#include "ofxIO.h"
-#include "ofx/IO/SerialDevice.h"
-#include "ofx/IO/BufferedSerialDevice.h"
-#include "ofx/IO/SerialEvents.h"
-#include "ofx/IO/SerialDeviceUtils.h"
+void loop()
+{
+  if (currentChar < haiku[currentLine].length())
+  {
+    Serial.print(haiku[currentLine][currentChar]);
+    currentChar++;
+  }
+  else
+  {
+    Serial.println("");
+    currentChar = 0;
+    currentLine = random(0, numLines);
+  }
+
+  delay(random(250));
+}
+

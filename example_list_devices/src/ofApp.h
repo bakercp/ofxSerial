@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2010-2013 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2013 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,10 +26,13 @@
 #pragma once
 
 
-#include "serial/serial.h"
-#include "ofxIO.h"
-#include "ofx/IO/SerialDevice.h"
-#include "ofx/IO/BufferedSerialDevice.h"
-#include "ofx/IO/PacketSerialDevice.h"
-#include "ofx/IO/SerialEvents.h"
-#include "ofx/IO/SerialDeviceUtils.h"
+#include "ofMain.h"
+#include "ofxSerial.h"
+
+
+class ofApp: public ofBaseApp
+{
+public:
+    void setup();
+    void draw();
+};

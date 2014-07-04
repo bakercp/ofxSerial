@@ -34,6 +34,7 @@ namespace ofx {
 namespace IO {
 
 
+/// \brief A Serial Device that emits events when a buffer has been filled.
 class BufferedSerialDevice: public SerialDevice
 {
 public:
@@ -91,7 +92,6 @@ public:
     };
 
 protected:
-    virtual void decodeBuffer();
 
     char _marker;
 

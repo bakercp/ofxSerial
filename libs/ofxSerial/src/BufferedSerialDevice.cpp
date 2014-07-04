@@ -67,7 +67,7 @@ void BufferedSerialDevice::update(ofEventArgs& args)
                 if (buffer[i] == _marker)
                 {
                     // Decode the buffer if needed.
-                    decodeBuffer();
+                    //decodeBuffer();
 
                     // Send the buffer;
                     SerialBufferEventArgs args(_buffer);
@@ -107,7 +107,14 @@ void BufferedSerialDevice::update(ofEventArgs& args)
     }
     catch (const std::exception& exc)
     {
-        SerialBufferErrorEventArgs args(Poco::Exception(exc.what()));
+        Poco::Exception e(exc.what());
+        SerialBufferErrorEventArgs args(e);
+        ofNotifyEvent(events.onSerialError, args, this);
+    }
+    catch (...)
+    {
+        Poco::Exception exc("Unknown error.");
+        SerialBufferErrorEventArgs args(exc);
         ofNotifyEvent(events.onSerialError, args, this);
     }
 }
@@ -142,12 +149,6 @@ void BufferedSerialDevice::setMaximumBufferSize(std::size_t maxBufferSize)
     {
         _maxBufferSize = maxBufferSize;
     }
-}
-
-
-void BufferedSerialDevice::decodeBuffer()
-{
-    // NOOP
 }
 
 

@@ -103,6 +103,9 @@ public:
                                                     int regexOptions = 0,
                                                     bool regexStudy = true);
 
+    static bool sortDevices(const SerialDeviceInfo& device0,
+                            const SerialDeviceInfo& device1);
+
 };
 
 

@@ -34,7 +34,7 @@ namespace ofx {
 namespace IO {
 
 
-std::vector<SerialDeviceInfo> SerialDeviceUtils::getDevices(const std::string& regexPattern,
+SerialDeviceInfo::DeviceList SerialDeviceUtils::listDevices(const std::string& regexPattern,
                                                             int regexOptions,
                                                             bool regexStudy)
 {

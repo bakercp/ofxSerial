@@ -37,7 +37,7 @@ void ofApp::setup()
 
     ofEnableAlphaBlending();
 
-    std::vector<ofx::IO::SerialDeviceInfo> devicesInfo = ofx::IO::SerialDeviceUtils::getDevices();
+    std::vector<ofx::IO::SerialDeviceInfo> devicesInfo = ofx::IO::SerialDeviceUtils::listDevices();
 
     ofLogNotice("ofApp::setup") << "Connected Devices: ";
 
@@ -80,21 +80,26 @@ void ofApp::draw()
 
     ofSetColor(255);
 
-    ofDrawBitmapString("Connected to: " + device.getPortName(), ofVec2f(20, 20));
+    std::stringstream ss;
+
+    ss << "         FPS: " << ofGetFrameRate() << std::endl;
+    ss << "Connected to: " << device.getPortName();
+
+    ofDrawBitmapString(ss.str(), ofVec2f(20, 20));
 
     std::vector<SerialMessage>::iterator iter = serialMessages.begin();
 
     int x = 20;
-    int y = 40;
+    int y = 50;
     int height = 20;
 
     while (iter != serialMessages.end())
     {
-        iter->fade--;
-        
+        iter->fade -= 1;
+
         if (iter->fade < 0)
         {
-            serialMessages.erase(iter++);
+            iter = serialMessages.erase(iter);
         }
         else
         {
@@ -109,34 +114,24 @@ void ofApp::draw()
                 ofDrawBitmapString(iter->exception, ofVec2f(x + height, y));
                 y += height;
             }
-
+            
             ++iter;
         }
     }
 }
 
-bool ofApp::onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args)
+void ofApp::onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args)
 {
     // Buffers will show up here when the marker character is found.
-
     SerialMessage message(args.getBuffer().toString(), "", 500);
-
     serialMessages.push_back(message);
-
-    // We handled it.
-    return true;
 }
 
-bool ofApp::onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args)
+void ofApp::onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args)
 {
     // Errors and their corresponding buffer (if any) will show up here.
-
     SerialMessage message(args.getBuffer().toString(),
                           args.getException().displayText(),
                           500);
-
     serialMessages.push_back(message);
-
-    // We handled it.
-    return true;
 }

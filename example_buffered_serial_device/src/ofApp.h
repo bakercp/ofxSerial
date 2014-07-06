@@ -59,8 +59,8 @@ public:
     void draw();
     void exit();
 
-    bool onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args);
-    bool onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args);
+    void onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args);
+    void onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args);
 
     ofx::IO::BufferedSerialDevice device;
 

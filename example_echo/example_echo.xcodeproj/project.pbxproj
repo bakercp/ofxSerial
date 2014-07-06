@@ -427,11 +427,27 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>D2388420E859BBA28ED2B4EE</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>PacketSerialDevice.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxSerial/libs/ofxSerial/include/ofx/IO/PacketSerialDevice.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>15F500C5D0A99B5F06933A4B</key>
 			<dict>
 				<key>children</key>
 				<array>
 					<string>FB0997B62B97D7513CD396A2</string>
+					<string>D2388420E859BBA28ED2B4EE</string>
 					<string>079299A87017EDB0524077EA</string>
 					<string>D2071B2317B3E021307099D0</string>
 					<string>8CA7F50B0134479FADEBC335</string>
@@ -882,6 +898,28 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>F953E11952BFF8C207418550</key>
+			<dict>
+				<key>fileRef</key>
+				<string>22565CAF8FFEF25C805A438F</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>22565CAF8FFEF25C805A438F</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>HexBinaryEncoding.cpp</string>
+				<key>path</key>
+				<string>../../../addons/ofxIO/libs/ofxIO/src/HexBinaryEncoding.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>5BB82711925A3764235C2CEB</key>
 			<dict>
 				<key>fileRef</key>
@@ -901,28 +939,6 @@
 				<string>FileExtensionFilter.cpp</string>
 				<key>path</key>
 				<string>../../../addons/ofxIO/libs/ofxIO/src/FileExtensionFilter.cpp</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
-			<key>EE3A0581BC0ED0FB1041C3BE</key>
-			<dict>
-				<key>fileRef</key>
-				<string>362D5B0E0EBEC0DA6710A430</string>
-				<key>isa</key>
-				<string>PBXBuildFile</string>
-			</dict>
-			<key>362D5B0E0EBEC0DA6710A430</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.cpp.cpp</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>Encoding.cpp</string>
-				<key>path</key>
-				<string>../../../addons/ofxIO/libs/ofxIO/src/Encoding.cpp</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
@@ -1058,6 +1074,28 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>FE9170FE54D704DF97B0E5BD</key>
+			<dict>
+				<key>fileRef</key>
+				<string>4164C6C6CE5115889A99F42C</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>4164C6C6CE5115889A99F42C</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>COBSEncoding.cpp</string>
+				<key>path</key>
+				<string>../../../addons/ofxIO/libs/ofxIO/src/COBSEncoding.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>66A80FD312926DEB8C9FE7F6</key>
 			<dict>
 				<key>fileRef</key>
@@ -1080,35 +1118,6 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>827E879AF9EC79A81A74CC6F</key>
-			<dict>
-				<key>children</key>
-				<array>
-					<string>93384835C77BD4299F8A7F90</string>
-					<string>FE5B3B19544657B6F9CCCA03</string>
-					<string>2FC8E2266FE2F5545775A16D</string>
-					<string>00F3330A5DEBD082CEE0C12C</string>
-					<string>E362E12547978AB05ABA9C57</string>
-					<string>9A967D1FAFA98A7CBBFA4F55</string>
-					<string>12A42DF3BFDE28A4818C2EC4</string>
-					<string>0B6179498D0110BD2E161373</string>
-					<string>362D5B0E0EBEC0DA6710A430</string>
-					<string>6BD291FB03292C6D352C26FE</string>
-					<string>FCAF85B857266C511DB50341</string>
-					<string>370DA13018950E5BFF8CF171</string>
-					<string>5114D2AF276E4E6E9A67B342</string>
-					<string>E95C4518AEDCDBEA357754B0</string>
-					<string>F27637AABA89A235C5974D56</string>
-					<string>13D68F0C2CAE7809D621924C</string>
-					<string>8D76B424A6DF4D70AACCDBAE</string>
-				</array>
-				<key>isa</key>
-				<string>PBXGroup</string>
-				<key>name</key>
-				<string>src</string>
-				<key>sourceTree</key>
-				<string>&lt;group&gt;</string>
-			</dict>
 			<key>D932A5A24FCF08AE510A265D</key>
 			<dict>
 				<key>fileRef</key>
@@ -1128,6 +1137,59 @@
 				<string>ByteBuffer.cpp</string>
 				<key>path</key>
 				<string>../../../addons/ofxIO/libs/ofxIO/src/ByteBuffer.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>827E879AF9EC79A81A74CC6F</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>9D639BA31583580D80CFE15D</string>
+					<string>93384835C77BD4299F8A7F90</string>
+					<string>FE5B3B19544657B6F9CCCA03</string>
+					<string>4164C6C6CE5115889A99F42C</string>
+					<string>2FC8E2266FE2F5545775A16D</string>
+					<string>00F3330A5DEBD082CEE0C12C</string>
+					<string>E362E12547978AB05ABA9C57</string>
+					<string>9A967D1FAFA98A7CBBFA4F55</string>
+					<string>12A42DF3BFDE28A4818C2EC4</string>
+					<string>0B6179498D0110BD2E161373</string>
+					<string>6BD291FB03292C6D352C26FE</string>
+					<string>22565CAF8FFEF25C805A438F</string>
+					<string>FCAF85B857266C511DB50341</string>
+					<string>370DA13018950E5BFF8CF171</string>
+					<string>5114D2AF276E4E6E9A67B342</string>
+					<string>E95C4518AEDCDBEA357754B0</string>
+					<string>F27637AABA89A235C5974D56</string>
+					<string>13D68F0C2CAE7809D621924C</string>
+					<string>8D76B424A6DF4D70AACCDBAE</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>src</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>DFA0F30B1193D5DC1BB53E5E</key>
+			<dict>
+				<key>fileRef</key>
+				<string>9D639BA31583580D80CFE15D</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>9D639BA31583580D80CFE15D</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>Base64Encoding.cpp</string>
+				<key>path</key>
+				<string>../../../addons/ofxIO/libs/ofxIO/src/Base64Encoding.cpp</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
@@ -1326,6 +1388,21 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>4EAC68CB142D702F9E3FD73E</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>HexBinaryEncoding.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/HexBinaryEncoding.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>1C011DA756FF131FC46A2907</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -1338,21 +1415,6 @@
 				<string>FileExtensionFilter.h</string>
 				<key>path</key>
 				<string>../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/FileExtensionFilter.h</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
-			<key>290E7A250DC94D9ADB967FCC</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.c.h</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>Encoding.h</string>
-				<key>path</key>
-				<string>../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/Encoding.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
@@ -1431,6 +1493,21 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>BF0BB2F28A4522316B1563A5</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>COBSEncoding.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/COBSEncoding.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>5D4C9D17E0C3F84DDB888544</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -1461,6 +1538,21 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>64F728D0405D9777ECF43CD9</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>Base64Encoding.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/Base64Encoding.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>89B60FB247E1F64013C716DC</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -1482,15 +1574,17 @@
 				<array>
 					<string>F91843C45134FD7B696E0F13</string>
 					<string>89B60FB247E1F64013C716DC</string>
+					<string>64F728D0405D9777ECF43CD9</string>
 					<string>2D170F102215CF0511959D79</string>
 					<string>5D4C9D17E0C3F84DDB888544</string>
+					<string>BF0BB2F28A4522316B1563A5</string>
 					<string>C8F2762F4CCE12D7C1022DAA</string>
 					<string>557678EEFF0D0C6D692D0DEC</string>
 					<string>CECE089D24F272DB22504892</string>
 					<string>D1F82A94BD80BDC78E0B1922</string>
 					<string>BEFFAA5B8275E0AE066FC2E3</string>
-					<string>290E7A250DC94D9ADB967FCC</string>
 					<string>1C011DA756FF131FC46A2907</string>
+					<string>4EAC68CB142D702F9E3FD73E</string>
 					<string>57E858FCDF1AB73089F1A9F0</string>
 					<string>14290ED8DE68778AE3023FBC</string>
 					<string>0FC82546C315D104CC8178D7</string>
@@ -2392,16 +2486,18 @@
 					<string>E4B69E200A3A1BDC003C02F2</string>
 					<string>E4B69E210A3A1BDC003C02F2</string>
 					<string>3BFC7CF50BEB0307821B90A6</string>
+					<string>DFA0F30B1193D5DC1BB53E5E</string>
 					<string>D932A5A24FCF08AE510A265D</string>
 					<string>66A80FD312926DEB8C9FE7F6</string>
+					<string>FE9170FE54D704DF97B0E5BD</string>
 					<string>93640C223A2F5BEAD6DA2E35</string>
 					<string>CDB5B1D2D12F42502906F30F</string>
 					<string>84FED53B4CEB4C25C00E172B</string>
 					<string>CEFD3CCAB8B3251DFCAAA0EE</string>
 					<string>EB4F14C4AE3B3EFD04520383</string>
 					<string>BE177617474F11F05E9260FC</string>
-					<string>EE3A0581BC0ED0FB1041C3BE</string>
 					<string>5BB82711925A3764235C2CEB</string>
+					<string>F953E11952BFF8C207418550</string>
 					<string>B3E6D60405574847412D7441</string>
 					<string>86B56E23D787A5F24641398F</string>
 					<string>B7E0003B826CBA379A3F66E5</string>

@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2010-2013 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2010-2014 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -34,6 +34,7 @@ namespace ofx {
 namespace IO {
 
 
+/// \brief A Serial Device that emits events when a buffer has been filled.
 class BufferedSerialDevice: public SerialDevice
 {
 public:
@@ -91,7 +92,6 @@ public:
     };
 
 protected:
-    virtual void decodeBuffer();
 
     char _marker;
 

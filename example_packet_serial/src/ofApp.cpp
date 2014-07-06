@@ -28,11 +28,11 @@
 
 void ofApp::setup()
 {
-    // 1. Upload the HaikuGenerator.ino sketch (in this example's Arduino/
-    //    folder) to an Arduino board.
-    // 2. Check the "getDevices" call below to make sure the correct serial
-    //    device is connected.  This works with OSX but may require a different
-    //    port name for Linux or Windows.
+    // 1. Upload the PacketSerialReverseEcho.ino sketch (in this example's
+    //    Arduino/ folder) to an Arduino board.  This sketch requires
+    //    the Arduino PacketSerial library https://github.com/bakercp/PacketSerial.
+    // 2. Check the "listDevices" call below to make sure the correct serial
+    //    device is connected.
     // 3. Run this app.
 
     ofEnableAlphaBlending();
@@ -54,7 +54,6 @@ void ofApp::setup()
         if(success)
         {
             device.registerAllEvents(this);
-
             ofLogNotice("ofApp::setup") << "Successfully setup " << devicesInfo[0];
         }
         else
@@ -71,6 +70,18 @@ void ofApp::setup()
 void ofApp::exit()
 {
     device.unregisterAllEvents(this);
+}
+
+
+void ofApp::update()
+{
+    // Create a byte buffer.
+    ofx::IO::ByteBuffer buffer("Frame Number: " + ofToString(ofGetFrameNum()));
+
+    // Send the byte buffer.
+    // ofx::IO::PacketSerialDevice will encode the buffer, send it to the
+    // receiver, and send a packet marker.
+    device.send(buffer);
 }
 
 
@@ -95,8 +106,8 @@ void ofApp::draw()
 
     while (iter != serialMessages.end())
     {
-        iter->fade -= 1;
-
+        iter->fade -= 20;
+        
         if (iter->fade < 0)
         {
             iter = serialMessages.erase(iter);
@@ -114,18 +125,20 @@ void ofApp::draw()
                 ofDrawBitmapString(iter->exception, ofVec2f(x + height, y));
                 y += height;
             }
-            
+
             ++iter;
         }
     }
 }
 
+
 void ofApp::onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args)
 {
-    // Buffers will show up here when the marker character is found.
-    SerialMessage message(args.getBuffer().toString(), "", 500);
+    // Decoded serial packets will show up here.
+    SerialMessage message(args.getBuffer().toString(), "", 255);
     serialMessages.push_back(message);
 }
+
 
 void ofApp::onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args)
 {
@@ -133,5 +146,6 @@ void ofApp::onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args)
     SerialMessage message(args.getBuffer().toString(),
                           args.getException().displayText(),
                           500);
+
     serialMessages.push_back(message);
 }

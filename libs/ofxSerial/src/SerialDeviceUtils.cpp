@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2010-2013 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2010-2014 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -34,7 +34,7 @@ namespace ofx {
 namespace IO {
 
 
-std::vector<SerialDeviceInfo> SerialDeviceUtils::getDevices(const std::string& regexPattern,
+SerialDeviceInfo::DeviceList SerialDeviceUtils::listDevices(const std::string& regexPattern,
                                                             int regexOptions,
                                                             bool regexStudy)
 {
@@ -72,10 +72,42 @@ std::vector<SerialDeviceInfo> SerialDeviceUtils::getDevices(const std::string& r
         ++iter;
     }
 
+    std::sort(devices.begin(), devices.end(), sortDevices);
+
     return devices;
 }
 
 
+bool SerialDeviceUtils::sortDevices(const SerialDeviceInfo& device0,
+                                    const SerialDeviceInfo& device1)
+{
+    int score0 = 0;
+    int score1 = 0;
+
+    // Larger scores mean a given device will show up earlier in the list.
+
+    // Give points for not being Bluetooth ports.
+    score0 += !ofIsStringInString(device0.getPort(), "Bluetooth") ? 1 : 0;
+    score1 += !ofIsStringInString(device1.getPort(), "Bluetooth") ? 1 : 0;
+
+    // Give extra points to Arduino devices.
+    score0 += ofIsStringInString(device0.getPort(), "usbmodem") ? 1 : 0;
+    score1 += ofIsStringInString(device1.getPort(), "usbmodem") ? 1 : 0;
+
+    // Give extra points to Arduino devices.
+    score0 += ofIsStringInString(device0.getDescription(), "Arduino") ? 1 : 0;
+    score1 += ofIsStringInString(device1.getDescription(), "Arduino") ? 1 : 0;
+
+    // If the scores are equal in the end, use standard sorting on the port.
+    if (score0 == score1)
+    {
+        return device0.getPort() < device1.getPort();
+    }
+    else
+    {
+        return score0 > score1;
+    }
+}
 
 
 } } // namespace ofx::IO

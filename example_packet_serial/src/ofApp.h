@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2010-2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2014 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,10 +26,45 @@
 #pragma once
 
 
-#include "serial/serial.h"
-#include "ofxIO.h"
-#include "ofx/IO/SerialDevice.h"
-#include "ofx/IO/BufferedSerialDevice.h"
-#include "ofx/IO/PacketSerialDevice.h"
-#include "ofx/IO/SerialEvents.h"
-#include "ofx/IO/SerialDeviceUtils.h"
+#include "ofMain.h"
+#include "ofxSerial.h"
+
+
+class SerialMessage
+{
+public:
+    SerialMessage(): fade(0)
+    {
+    }
+    
+    SerialMessage(const std::string& _message,
+                  const std::string& _exception,
+                  int _fade):
+        message(_message),
+        exception(_exception),
+        fade(_fade)
+    {
+    }
+
+    std::string message;
+    std::string exception;
+    int fade;
+};
+
+
+class ofApp: public ofBaseApp
+{
+public:
+    void setup();
+    void update();
+    void draw();
+    void exit();
+
+    void onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args);
+    void onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args);
+
+    ofx::IO::PacketSerialDevice device;
+
+    std::vector<SerialMessage> serialMessages;
+
+};

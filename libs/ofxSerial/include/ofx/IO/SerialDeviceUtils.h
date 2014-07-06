@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2010-2013 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2010-2014 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,6 +26,7 @@
 #pragma once
 
 
+#include <vector>
 #include "ofLog.h"
 #include "ofx/IO/AbstractTypes.h"
 #include "ofx/IO/DirectoryUtils.h"
@@ -38,6 +39,8 @@ namespace IO {
 class SerialDeviceInfo
 {
 public:
+    typedef std::vector<SerialDeviceInfo> DeviceList;
+
     SerialDeviceInfo(const std::string& port,
                      const std::string& description,
                      const std::string& hardwareId):
@@ -77,6 +80,9 @@ public:
     }
 
 
+    
+
+
     friend std::ostream& operator << (std::ostream& os,
                                       const SerialDeviceInfo& deviceInfo);
 
@@ -99,9 +105,12 @@ inline std::ostream& operator << (std::ostream& os,
 class SerialDeviceUtils
 {
 public:
-    static std::vector<SerialDeviceInfo> getDevices(const std::string& regexPattern = "",
+    static SerialDeviceInfo::DeviceList listDevices(const std::string& regexPattern = "",
                                                     int regexOptions = 0,
                                                     bool regexStudy = true);
+
+    static bool sortDevices(const SerialDeviceInfo& device0,
+                            const SerialDeviceInfo& device1);
 
 };
 

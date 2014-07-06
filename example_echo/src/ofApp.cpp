@@ -29,12 +29,12 @@ void ofApp::setup()
 {
     // 1. Upload the Echo.ino sketch (in this example's Arduino/ folder) to
     //    an Arduino board.
-    // 2. Check the "getDevices" call below to make sure the correct serial
+    // 2. Check the "listDevices" call below to make sure the correct serial
     //    device is connected.  This works with OSX but may require a different
     //    port name for Linux or Windows.
     // 3. Run this app.
 
-    std::vector<ofx::IO::SerialDeviceInfo> devicesInfo = ofx::IO::SerialDeviceUtils::getDevices();
+    std::vector<ofx::IO::SerialDeviceInfo> devicesInfo = ofx::IO::SerialDeviceUtils::listDevices();
 
     ofLogNotice("ofApp::setup") << "Connected Devices: ";
 

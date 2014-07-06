@@ -24,22 +24,20 @@
 
 
 #include "ofApp.h"
-const std::string ofApp::LOREM_IPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et felis eros. Duis tempus lorem in elit facilisis egestas.";
 
 
 void ofApp::setup()
 {
-    // 1. Upload the COBSReverseEcho.ino sketch (in this example's Arduino/
-    //    folder) to an Arduino board.  This sketch requires
-    //    Arduino COBS https://github.com/bakercp/ArduinoCOBS.
-    // 2. Check the "getDevices" call below to make sure the correct serial
-    //    device is connected.  This works with OSX but may require a different
-    //    port name for Linux or Windows.
+    // 1. Upload the PacketSerialReverseEcho.ino sketch (in this example's
+    //    Arduino/ folder) to an Arduino board.  This sketch requires
+    //    the Arduino PacketSerial library https://github.com/bakercp/PacketSerial.
+    // 2. Check the "listDevices" call below to make sure the correct serial
+    //    device is connected.
     // 3. Run this app.
 
     ofEnableAlphaBlending();
 
-    std::vector<ofx::IO::SerialDeviceInfo> devicesInfo = ofx::IO::SerialDeviceUtils::getDevices(".*usb.*");
+    std::vector<ofx::IO::SerialDeviceInfo> devicesInfo = ofx::IO::SerialDeviceUtils::listDevices();
 
     ofLogNotice("ofApp::setup") << "Connected Devices: ";
 
@@ -77,7 +75,12 @@ void ofApp::exit()
 
 void ofApp::update()
 {
-    ofx::IO::ByteBuffer buffer(ofToString(ofGetFrameNum()) + " " + LOREM_IPSUM);
+    // Create a byte buffer.
+    ofx::IO::ByteBuffer buffer("Frame Number: " + ofToString(ofGetFrameNum()));
+
+    // Send the byte buffer.
+    // ofx::IO::PacketSerialDevice will encode the buffer, send it to the
+    // receiver, and send a packet marker.
     device.send(buffer);
 }
 
@@ -98,12 +101,12 @@ void ofApp::draw()
     std::vector<SerialMessage>::iterator iter = serialMessages.begin();
 
     int x = 20;
-    int y = 40;
+    int y = 50;
     int height = 20;
 
     while (iter != serialMessages.end())
     {
-        iter->fade-=20;
+        iter->fade -= 20;
         
         if (iter->fade < 0)
         {
@@ -128,11 +131,14 @@ void ofApp::draw()
     }
 }
 
+
 void ofApp::onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args)
 {
+    // Decoded serial packets will show up here.
     SerialMessage message(args.getBuffer().toString(), "", 255);
     serialMessages.push_back(message);
 }
+
 
 void ofApp::onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args)
 {

@@ -67,6 +67,4 @@ public:
 
     std::vector<SerialMessage> serialMessages;
 
-    static const std::string LOREM_IPSUM;
-
 };

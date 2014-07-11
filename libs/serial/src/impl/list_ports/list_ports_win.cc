@@ -8,6 +8,7 @@
  */
 
 #include "serial/serial.h"
+#include <tchar.h>
 #include <windows.h>
 #include <SetupAPI.h>
 #include <devguid.h>
@@ -21,11 +22,18 @@ static const DWORD port_name_max_length = 256;
 static const DWORD friendly_name_max_length = 256;
 static const DWORD hardware_id_max_length = 256;
 
+// Convert a wide Unicode string to an UTF8 string
+std::string utf8_encode(const std::wstring &wstr)
+{
+    int size_needed = WideCharToMultiByte(CP_UTF8, 0, &wstr[0], (int)wstr.size(), NULL, 0, NULL, NULL);
+    std::string strTo( size_needed, 0 );
+    WideCharToMultiByte                  (CP_UTF8, 0, &wstr[0], (int)wstr.size(), &strTo[0], size_needed, NULL, NULL);
+    return strTo;
+}
+
 vector<PortInfo>
 serial::list_ports()
 {
-//	decltype( serial::list_ports() ) devices_found;
-
     vector<PortInfo> devices_found;
 
 	HDEVINFO device_info_set = SetupDiGetClassDevs(
@@ -53,12 +61,12 @@ serial::list_ports()
 			DIREG_DEV,
 			KEY_READ);
 
-		char port_name[port_name_max_length];
+		TCHAR port_name[port_name_max_length];
 		DWORD port_name_length = port_name_max_length;
 
 		LONG return_code = RegQueryValueEx(
                     hkey,
-                    "PortName",
+                    _T("PortName"),
                     NULL,
 					NULL,
                     (LPBYTE)port_name,
@@ -76,12 +84,12 @@ serial::list_ports()
 
 		// Ignore parallel ports
 
-		if(strstr(port_name, "LPT") != NULL)
+		if(_tcsstr(port_name, _T("LPT")) != NULL)
 			continue;
 
 		// Get port friendly name
 
-		char friendly_name[friendly_name_max_length];
+		TCHAR friendly_name[friendly_name_max_length];
 		DWORD friendly_name_actual_length = 0;
 
 		BOOL got_friendly_name = SetupDiGetDeviceRegistryProperty(
@@ -100,7 +108,7 @@ serial::list_ports()
 
 		// Get hardware ID
 
-		char hardware_id[hardware_id_max_length];
+		TCHAR hardware_id[hardware_id_max_length];
 		DWORD hardware_id_actual_length = 0;
 
 		BOOL got_hardware_id = SetupDiGetDeviceRegistryProperty(
@@ -117,10 +125,20 @@ serial::list_ports()
 		else
 			hardware_id[0] = '\0';
 
+		#ifdef UNICODE
+			std::string portName = utf8_encode(port_name);
+			std::string friendlyName = utf8_encode(friendly_name);
+			std::string hardwareId = utf8_encode(hardware_id);
+		#else
+			std::string portName = port_name;
+			std::string friendlyName = friendly_name;
+			std::string hardwareId = hardware_id;
+		#endif // !UNICODE
+
 		PortInfo port_entry;
-		port_entry.port = port_name;
-		port_entry.description = friendly_name;
-		port_entry.hardware_id = hardware_id;
+		port_entry.port = portName;
+		port_entry.description = friendlyName;
+		port_entry.hardware_id = hardwareId;
 
 		devices_found.push_back(port_entry);
 	}

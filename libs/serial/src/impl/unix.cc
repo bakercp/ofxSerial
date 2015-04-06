@@ -27,6 +27,7 @@
 #include <sys/time.h>
 #include <time.h>
 #ifdef __MACH__
+#include <AvailabilityMacros.h>
 #include <mach/clock.h>
 #include <mach/mach.h>
 #endif
@@ -268,6 +269,9 @@ Serial::SerialImpl::reconfigurePort ()
 #ifdef B460800
   case 460800: baud = B460800; break;
 #endif
+#ifdef B576000
+  case 576000: baud = B576000; break;
+#endif
 #ifdef B921600
   case 921600: baud = B921600; break;
 #endif
@@ -368,7 +372,22 @@ Serial::SerialImpl::reconfigurePort ()
     options.c_cflag |=  (PARENB);
   } else if (parity_ == parity_odd) {
     options.c_cflag |=  (PARENB | PARODD);
-  } else {
+  }
+#ifdef CMSPAR
+  else if (parity_ == parity_mark) {
+    options.c_cflag |=  (PARENB | CMSPAR | PARODD);
+  }
+  else if (parity_ == parity_space) {
+    options.c_cflag |=  (PARENB | CMSPAR);
+    options.c_cflag &= (tcflag_t) ~(PARODD);
+  }
+#else
+  // CMSPAR is not defined on OSX. So do not support mark or space parity.
+  else if (parity_ == parity_mark || parity_ == parity_space) {
+    throw invalid_argument ("OS does not support mark or space parity");
+  }
+#endif  // ifdef CMSPAR
+  else {
     throw invalid_argument ("invalid parity");
   }
   // setup flow control
@@ -420,11 +439,11 @@ Serial::SerialImpl::reconfigurePort ()
 
   // activate settings
   ::tcsetattr (fd_, TCSANOW, &options);
-  
+
   // Update byte_time_ based on the new settings.
   uint32_t bit_time_ns = 1e9 / baudrate_;
   byte_time_ns_ = bit_time_ns * (1 + bytesize_ + parity_ + stopbits_);
-  
+
   // Compensate for the stopbits_one_point_five enum being equal to int 3,
   // and not 1.5.
   if (stopbits_ == stopbits_one_point_five) {
@@ -437,14 +456,13 @@ Serial::SerialImpl::close ()
 {
   if (is_open_ == true) {
     if (fd_ != -1) {
-      int retVal;
-      retVal=::close (fd_); 
-        if (retVal==0)
-          fd_ = -1;
-        else
-          {
-          THROW (IOException, errno);
-          }
+      int ret;
+      ret = ::close (fd_);
+      if (ret == 0) {
+        fd_ = -1;
+      } else {
+        THROW (IOException, errno);
+      }
     }
     is_open_ = false;
   }
@@ -488,7 +506,7 @@ Serial::SerialImpl::waitReadable (uint32_t timeout)
     // Otherwise there was some error
     THROW (IOException, errno);
   }
-  // Timeout occurred  
+  // Timeout occurred
   if (r == 0) {
     return false;
   }
@@ -504,7 +522,7 @@ Serial::SerialImpl::waitReadable (uint32_t timeout)
 void
 Serial::SerialImpl::waitByteTimes (size_t count)
 {
-  timespec wait_time = { 0, byte_time_ns_ * count };
+  timespec wait_time = { 0, static_cast<long>(byte_time_ns_ * count)};
   pselect (0, NULL, NULL, NULL, &wait_time, NULL);
 }
 
@@ -522,7 +540,7 @@ Serial::SerialImpl::read (uint8_t *buf, size_t size)
   total_timeout_ms += timeout_.read_timeout_multiplier * static_cast<long> (size);
   MillisecondTimer total_timeout(total_timeout_ms);
 
-  // Pre-fill buffer with available bytes 
+  // Pre-fill buffer with available bytes
   {
     ssize_t bytes_read_now = ::read (fd_, buf, size);
     if (bytes_read_now > 0) {
@@ -549,7 +567,7 @@ Serial::SerialImpl::read (uint8_t *buf, size_t size)
         size_t bytes_available = available();
         if (bytes_available + bytes_read < size) {
           waitByteTimes(size - (bytes_available + bytes_read));
-        } 
+        }
       }
       // This should be non-blocking returning only what is available now
       //  Then returning so that select can block again.

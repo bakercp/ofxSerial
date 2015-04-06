@@ -57,6 +57,8 @@
 		E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F985F515E0DE99003869B5 /* Accelerate.framework */; };
 		EB4F14C4AE3B3EFD04520383 /* DirectoryWatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12A42DF3BFDE28A4818C2EC4 /* DirectoryWatcher.cpp */; };
 		F953E11952BFF8C207418550 /* HexBinaryEncoding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22565CAF8FFEF25C805A438F /* HexBinaryEncoding.cpp */; };
+		FD3BFE1F196CC6ED006098C9 /* ByteBufferReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD3BFE1D196CC6ED006098C9 /* ByteBufferReader.cpp */; };
+		FD3BFE20196CC6ED006098C9 /* ByteBufferWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD3BFE1E196CC6ED006098C9 /* ByteBufferWriter.cpp */; };
 		FE9170FE54D704DF97B0E5BD /* COBSEncoding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4164C6C6CE5115889A99F42C /* COBSEncoding.cpp */; };
 /* End PBXBuildFile section */
 
@@ -190,10 +192,13 @@
 		F27637AABA89A235C5974D56 /* RecursiveDirectoryIteratorStategies.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = RecursiveDirectoryIteratorStategies.cpp; path = ../../../addons/ofxIO/libs/ofxIO/src/RecursiveDirectoryIteratorStategies.cpp; sourceTree = SOURCE_ROOT; };
 		F57139F864890F6358112C25 /* win.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = win.h; path = ../../../addons/ofxSerial/libs/serial/include/serial/impl/win.h; sourceTree = SOURCE_ROOT; };
 		F5E31A831B4A68051A87AB3F /* lz4.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = lz4.h; path = ../../../addons/ofxIO/libs/lz4/src/lz4.h; sourceTree = SOURCE_ROOT; };
-		F91843C45134FD7B696E0F13 /* AbstractDataView.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = AbstractDataView.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/AbstractDataView.h; sourceTree = SOURCE_ROOT; };
 		FB0997B62B97D7513CD396A2 /* BufferedSerialDevice.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BufferedSerialDevice.h; path = ../../../addons/ofxSerial/libs/ofxSerial/include/ofx/IO/BufferedSerialDevice.h; sourceTree = SOURCE_ROOT; };
 		FCAF85B857266C511DB50341 /* HiddenFileFilter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = HiddenFileFilter.cpp; path = ../../../addons/ofxIO/libs/ofxIO/src/HiddenFileFilter.cpp; sourceTree = SOURCE_ROOT; };
 		FD35DEC21FE06BF7F1516022 /* RegexPathFilter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = RegexPathFilter.h; path = ../../../addons/ofxIO/libs/ofxIO/include/ofx/IO/RegexPathFilter.h; sourceTree = SOURCE_ROOT; };
+		FD3BFE1B196CC6D0006098C9 /* ByteBufferReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ByteBufferReader.h; path = ../../ofxIO/libs/ofxIO/include/ofx/IO/ByteBufferReader.h; sourceTree = "<group>"; };
+		FD3BFE1C196CC6D0006098C9 /* ByteBufferWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ByteBufferWriter.h; path = ../../ofxIO/libs/ofxIO/include/ofx/IO/ByteBufferWriter.h; sourceTree = "<group>"; };
+		FD3BFE1D196CC6ED006098C9 /* ByteBufferReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ByteBufferReader.cpp; path = ../../ofxIO/libs/ofxIO/src/ByteBufferReader.cpp; sourceTree = "<group>"; };
+		FD3BFE1E196CC6ED006098C9 /* ByteBufferWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ByteBufferWriter.cpp; path = ../../ofxIO/libs/ofxIO/src/ByteBufferWriter.cpp; sourceTree = "<group>"; };
 		FDB137BD0187E28CD8B59874 /* BufferedSerialDevice.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = BufferedSerialDevice.cpp; path = ../../../addons/ofxSerial/libs/ofxSerial/src/BufferedSerialDevice.cpp; sourceTree = SOURCE_ROOT; };
 		FE5B3B19544657B6F9CCCA03 /* ByteBufferUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ByteBufferUtils.cpp; path = ../../../addons/ofxIO/libs/ofxIO/src/ByteBufferUtils.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -328,7 +333,8 @@
 		81B9E335116A816EA1D2A2FA /* IO */ = {
 			isa = PBXGroup;
 			children = (
-				F91843C45134FD7B696E0F13 /* AbstractDataView.h */,
+				FD3BFE1B196CC6D0006098C9 /* ByteBufferReader.h */,
+				FD3BFE1C196CC6D0006098C9 /* ByteBufferWriter.h */,
 				89B60FB247E1F64013C716DC /* AbstractTypes.h */,
 				64F728D0405D9777ECF43CD9 /* Base64Encoding.h */,
 				2D170F102215CF0511959D79 /* ByteBuffer.h */,
@@ -353,6 +359,8 @@
 		827E879AF9EC79A81A74CC6F /* src */ = {
 			isa = PBXGroup;
 			children = (
+				FD3BFE1D196CC6ED006098C9 /* ByteBufferReader.cpp */,
+				FD3BFE1E196CC6ED006098C9 /* ByteBufferWriter.cpp */,
 				9D639BA31583580D80CFE15D /* Base64Encoding.cpp */,
 				93384835C77BD4299F8A7F90 /* ByteBuffer.cpp */,
 				FE5B3B19544657B6F9CCCA03 /* ByteBufferUtils.cpp */,
@@ -715,6 +723,7 @@
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				3BFC7CF50BEB0307821B90A6 /* lz4.c in Sources */,
 				DFA0F30B1193D5DC1BB53E5E /* Base64Encoding.cpp in Sources */,
+				FD3BFE20196CC6ED006098C9 /* ByteBufferWriter.cpp in Sources */,
 				D932A5A24FCF08AE510A265D /* ByteBuffer.cpp in Sources */,
 				66A80FD312926DEB8C9FE7F6 /* ByteBufferUtils.cpp in Sources */,
 				FE9170FE54D704DF97B0E5BD /* COBSEncoding.cpp in Sources */,
@@ -741,6 +750,7 @@
 				DB1B6C56A8D6E1DF0AB8B5DA /* SerialDeviceUtils.cpp in Sources */,
 				7B750C170EB39967BA9AB0DA /* list_ports_linux.cc in Sources */,
 				89D1BB84C86305D9A5C34DC4 /* list_ports_osx.cc in Sources */,
+				FD3BFE1F196CC6ED006098C9 /* ByteBufferReader.cpp in Sources */,
 				29BCD325C314242FECC8E5B7 /* list_ports_win.cc in Sources */,
 				DABEB23B35B4884860B1A814 /* unix.cc in Sources */,
 				55DE46182F529D5E0D756503 /* win.cc in Sources */,

@@ -72,13 +72,21 @@ bool SerialDevice::setup(const std::string& portName,
                          FlowControl flowControl,
                          serial::Timeout timeout)
 {
-    pSerial = SharedSerial(new serial::Serial(portName,
-                                              bauds,
-                                              timeout,
-                                              (serial::bytesize_t)dataBits,
-                                              (serial::parity_t)parity,
-                                              (serial::stopbits_t)stopBits,
-                                              (serial::flowcontrol_t)flowControl));
+    try {
+        pSerial = SharedSerial(new serial::Serial(portName,
+                                                  bauds,
+                                                  timeout,
+                                                  (serial::bytesize_t)dataBits,
+                                                  (serial::parity_t)parity,
+                                                  (serial::stopbits_t)stopBits,
+                                                  (serial::flowcontrol_t)flowControl));
+
+    }
+    catch (const serial::IOException& exc)
+    {
+        ofLogError("SerialDevice::setup") << exc.what();
+        return false;
+    }
 
     return pSerial->isOpen();
 }

@@ -150,6 +150,11 @@ public:
 
     static const Timeout DEFAULT_TIMEOUT;
 
+    std::shared_ptr<serial::Serial> getSerial()
+    {
+        return pSerial;
+    }
+    
 protected:
     typedef std::shared_ptr<serial::Serial> SharedSerial;
 

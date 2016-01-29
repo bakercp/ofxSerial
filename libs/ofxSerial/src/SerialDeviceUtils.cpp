@@ -27,6 +27,7 @@
 #include "ofx/IO/RegexPathFilter.h"
 #include "ofx/IO/SerialDeviceUtils.h"
 #include "ofx/IO/PathFilterCollection.h"
+#include "Poco/Exception.h"
 #include "serial/serial.h"
 
 
@@ -48,7 +49,7 @@ SerialDeviceInfo::DeviceList SerialDeviceUtils::listDevices(const std::string& r
         {
             pRegex = std::shared_ptr<Poco::RegularExpression>(new Poco::RegularExpression(regexPattern));
         }
-        catch (Poco::RegularExpressionException& exception)
+        catch (const Poco::RegularExpressionException& exception)
         {
             ofLogError("SerialDeviceUtils::getDevices") << exception.displayText();
         }

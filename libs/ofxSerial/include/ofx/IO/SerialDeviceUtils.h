@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2010-2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2010-2016 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -79,16 +79,17 @@ public:
         return _hardwareId;
     }
 
-
-    
-
-
     friend std::ostream& operator << (std::ostream& os,
                                       const SerialDeviceInfo& deviceInfo);
 
 protected:
+    /// \brief The device's port name.
     std::string _port;
+
+    /// \brief The device's description.
     std::string _description;
+
+    /// \brief The device's hardware id.
     std::string _hardwareId;
 
 };

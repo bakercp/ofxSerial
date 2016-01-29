@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2010-2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2010-2016 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -164,10 +164,10 @@ public:
     /// \brief Unregister a class to receive notifications for all events.
     /// \param listener a pointer to the listener class.
     template<class ListenerClass>
-    void unregisterAllEvents(ListenerClass* listener)
+    void unregisterAllEvents(ListenerClass* listener, int order = OF_EVENT_ORDER_AFTER_APP)
     {
-        ofRemoveListener(packetEvents.onSerialBuffer, listener, &ListenerClass::onSerialBuffer);
-        ofRemoveListener(packetEvents.onSerialError, listener, &ListenerClass::onSerialError);
+        ofRemoveListener(packetEvents.onSerialBuffer, listener, &ListenerClass::onSerialBuffer, order);
+        ofRemoveListener(packetEvents.onSerialError, listener, &ListenerClass::onSerialError, order);
     }
 
     /// \brief The SerialEvents that the user can subscribe to.
@@ -176,9 +176,14 @@ public:
     void onSerialBuffer(const SerialBufferEventArgs& args)
     {
         ofx::IO::ByteBuffer decoded;
-        _encoder.decode(args.getBuffer(), decoded);
-        SerialBufferEventArgs evt(decoded);
-        ofNotifyEvent(packetEvents.onSerialBuffer, evt, this);
+
+        std::size_t size = _encoder.decode(args.getBuffer(), decoded);
+
+        if (size > 0)
+        {
+            SerialBufferEventArgs evt(decoded);
+            ofNotifyEvent(packetEvents.onSerialBuffer, evt, this);
+        }
     }
 
     void onSerialError(const SerialBufferErrorEventArgs& args)
@@ -188,12 +193,15 @@ public:
     }
 
 private:
+    /// \brief The encoder used to encode and decode byte buffers.
     Encoder _encoder;
 
 };
 
 
 typedef PacketSerialDevice_<COBSEncoding> PacketSerialDevice;
+typedef PacketSerialDevice_<COBSEncoding> COBSPacketSerialDevice;
+typedef PacketSerialDevice_<SLIPEncoding, SLIPEncoding::END> SLIPPacketSerialDevice;
 
 
 } } // namespace ofx::IO

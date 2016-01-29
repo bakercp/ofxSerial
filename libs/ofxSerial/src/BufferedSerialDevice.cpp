@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2010-2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2010-2016 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -34,7 +34,7 @@ namespace IO {
 const uint8_t BufferedSerialDevice::DEFAULT_MARKER = '\n';
 
 
-BufferedSerialDevice::BufferedSerialDevice(char marker,
+BufferedSerialDevice::BufferedSerialDevice(uint8_t marker,
                                            std::size_t maxBufferSize):
     _marker(marker),
     _maxBufferSize(maxBufferSize)
@@ -69,9 +69,12 @@ void BufferedSerialDevice::update(ofEventArgs& args)
                     // Decode the buffer if needed.
                     //decodeBuffer();
 
-                    // Send the buffer;
-                    SerialBufferEventArgs args(_buffer);
-                    ofNotifyEvent(events.onSerialBuffer, args, this);
+                    // Send the buffer if there are any bytes.
+                    if (buffer.size() > 0)
+                    {
+                        SerialBufferEventArgs args(_buffer);
+                        ofNotifyEvent(events.onSerialBuffer, args, this);
+                    }
 
                     _buffer.reserve(_maxBufferSize);
                     _buffer.clear();

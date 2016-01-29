@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2010-2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2010-2016 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -38,7 +38,7 @@ namespace IO {
 class BufferedSerialDevice: public SerialDevice
 {
 public:
-    BufferedSerialDevice(char marker = DEFAULT_MARKER,
+    BufferedSerialDevice(uint8_t marker = DEFAULT_MARKER,
                          std::size_t maxBufferSize = DEFAULT_MAX_BUFFER_SIZE);
 
     /// \Brief destroy the BufferedSerialDevice.
@@ -74,10 +74,10 @@ public:
     /// \brief Unregister a class to receive notifications for all events.
     /// \param listener a pointer to the listener class.
     template<class ListenerClass>
-    void unregisterAllEvents(ListenerClass* listener)
+    void unregisterAllEvents(ListenerClass* listener, int order = OF_EVENT_ORDER_AFTER_APP)
     {
-        ofRemoveListener(events.onSerialBuffer, listener, &ListenerClass::onSerialBuffer);
-        ofRemoveListener(events.onSerialError, listener, &ListenerClass::onSerialError);
+        ofRemoveListener(events.onSerialBuffer, listener, &ListenerClass::onSerialBuffer, order);
+        ofRemoveListener(events.onSerialError, listener, &ListenerClass::onSerialError, order);
     }
 
     /// \brief The SerialEvents that the user can subscribe to.
@@ -93,17 +93,19 @@ public:
 
 protected:
 
-    char _marker;
+    /// \brief The buffer boundary marker.
+    uint8_t _marker;
 
+    /// \brief The byte buffer.
     ByteBuffer _buffer;
 
+    /// \brief The maximum size of the boundary.
     std::size_t _maxBufferSize;
 
     enum
     {
         UPDATE_BUFFER_SIZE = 2048
     };
-
 
 };
 

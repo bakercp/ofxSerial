@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2010-2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2010-2016 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -98,15 +98,15 @@ public:
                FlowControl flowControl = FLOW_CTRL_NONE,
                Timeout timeout = DEFAULT_TIMEOUT);
 
-    std::size_t readBytes(uint8_t* buffer, std::size_t size);
-    std::size_t readByte(uint8_t& data);
-    std::size_t available() const;
+    std::size_t readBytes(uint8_t* buffer, std::size_t size) override;
+    std::size_t readByte(uint8_t& data) override;
+    std::size_t available() const override;
 
-    std::size_t writeByte(uint8_t data);
-    std::size_t writeBytes(const uint8_t* buffer, std::size_t size);
-    std::size_t writeBytes(const std::vector<uint8_t>& buffer);
-    std::size_t writeBytes(const std::string& buffer);
-    std::size_t writeBytes(const AbstractByteSource& buffer);
+    std::size_t writeByte(uint8_t data) override;
+    std::size_t writeBytes(const uint8_t* buffer, std::size_t size) override;
+    std::size_t writeBytes(const std::vector<uint8_t>& buffer) override;
+    std::size_t writeBytes(const std::string& buffer) override;
+    std::size_t writeBytes(const AbstractByteSource& buffer) override;
 
     std::string getPortName() const;
     uint32_t getBauds() const;

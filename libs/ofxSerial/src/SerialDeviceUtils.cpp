@@ -28,6 +28,7 @@
 #include "ofx/IO/SerialDeviceUtils.h"
 #include "ofx/IO/PathFilterCollection.h"
 #include "serial/serial.h"
+#include "Poco/Exception.h"
 
 
 namespace ofx {

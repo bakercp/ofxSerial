@@ -118,13 +118,41 @@ void ofApp::draw()
             ++iter;
         }
     }
+
+
+
+	ofPushMatrix();
+	ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
+
+	float angle;
+	ofVec3f vec;
+	quat.getRotate(angle, vec);
+	ofRotate(angle, vec.x, vec.y, vec.z);
+
+	ofDrawAxis(300);
+
+//	ofDrawBox(0, 0, 0, 100, 200, 300);
+
+
+	ofPopMatrix();
+
 }
 
 void ofApp::onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args)
 {
     // Buffers will show up here when the marker character is found.
     SerialMessage message(args.getBuffer().toString(), "", 500);
-    serialMessages.push_back(message);
+   // serialMessages.push_back(message);
+
+	std::vector<std::string> tokens = ofSplitString(args.getBuffer().toString(), ",", true);
+
+//	cout << ofToString(tokens) << endl;
+
+	if (tokens[0] == "q")
+	{
+		quat = ofQuaternion(ofToFloat(tokens[2]),ofToFloat(tokens[3]), ofToFloat(tokens[4]), ofToFloat(tokens[1]));
+	}
+
 }
 
 void ofApp::onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args)

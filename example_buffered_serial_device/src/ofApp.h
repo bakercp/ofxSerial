@@ -65,6 +65,4 @@ public:
     ofx::IO::BufferedSerialDevice device;
 
     std::vector<SerialMessage> serialMessages;
-
-	ofQuaternion quat;
 };

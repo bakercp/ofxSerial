@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2014-2015 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2014-2016 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -87,12 +87,13 @@ void ofApp::draw()
 
     ofDrawBitmapString(ss.str(), ofVec2f(20, 20));
 
-    std::vector<SerialMessage>::iterator iter = serialMessages.begin();
-
     int x = 20;
     int y = 50;
     int height = 20;
 
+    auto iter = serialMessages.begin();
+
+    // Cycle through each of our messages and delete those that have expired.
     while (iter != serialMessages.end())
     {
         iter->fade -= 1;
@@ -119,6 +120,7 @@ void ofApp::draw()
         }
     }
 }
+
 
 void ofApp::onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args)
 {

@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2014-2016 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -98,11 +98,11 @@ void ofApp::draw()
 
     ofDrawBitmapString(ss.str(), ofVec2f(20, 20));
 
-    std::vector<SerialMessage>::iterator iter = serialMessages.begin();
-
     int x = 20;
     int y = 50;
     int height = 20;
+
+    auto iter = serialMessages.begin();
 
     while (iter != serialMessages.end())
     {

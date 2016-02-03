@@ -4,6 +4,9 @@
  * listen on USB Serial for slip encoded OSC packet
  * to switch an LED on and off
  *
+ * Depends on [PacketSerial](https://github.com/bakercp/PacketSerial)
+ * and [OSC](https://github.com/CNMAT/OSC/) libraries.
+ *
  * Copyright Antoine Villeret - 2015
  *
  */
@@ -18,7 +21,7 @@ void LEDcontrol(OSCMessage &msg)
 {
   serial.setPacketHandler(&onPacket);
   serial.begin(115200);
-  
+
   if (msg.isInt(0))
   {
     digitalWrite(LEDPIN,msg.getInt(0));

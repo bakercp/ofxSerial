@@ -46,8 +46,21 @@ SerialDevice::~SerialDevice()
 }
 
 
+
+bool SerialDevice::setup(const Settings& settings)
+{
+    return setup(settings.portName,
+                 settings.baudRate,
+                 settings.dataBits,
+                 settings.parity,
+                 settings.stopBits,
+                 settings.flowControl,
+                 settings.timeout);
+}
+
+
 bool SerialDevice::setup(const SerialDeviceInfo& device,
-                         uint32_t bauds,
+                         uint32_t baudRate,
                          DataBits dataBits,
                          Parity parity,
                          StopBits stopBits,
@@ -55,7 +68,7 @@ bool SerialDevice::setup(const SerialDeviceInfo& device,
                          serial::Timeout timeout)
 {
     return setup(device.port(),
-                 bauds,
+                 baudRate,
                  dataBits,
                  parity,
                  stopBits,
@@ -65,7 +78,7 @@ bool SerialDevice::setup(const SerialDeviceInfo& device,
 
 
 bool SerialDevice::setup(const std::string& portName,
-                         uint32_t bauds,
+                         uint32_t baudRate,
                          DataBits dataBits,
                          Parity parity,
                          StopBits stopBits,
@@ -74,8 +87,8 @@ bool SerialDevice::setup(const std::string& portName,
 {
     try
     {
-        _serial = std::make_unique<serial::Serial>(portName,
-                                                   bauds,
+        _serial = std::make_shared<serial::Serial>(portName,
+                                                   baudRate,
                                                    timeout,
                                                    static_cast<serial::bytesize_t>(dataBits),
                                                    static_cast<serial::parity_t>(parity),
@@ -153,7 +166,7 @@ std::string SerialDevice::getPortName() const
 }
 
 
-uint32_t SerialDevice::speed() const
+uint32_t SerialDevice::baudRate() const
 {
     return _serial != nullptr ? _serial->getBaudrate() : 0;
 }
@@ -161,7 +174,7 @@ uint32_t SerialDevice::speed() const
 
 uint32_t SerialDevice::getBauds() const
 {
-    return speed();
+    return baudRate();
 }
 
 

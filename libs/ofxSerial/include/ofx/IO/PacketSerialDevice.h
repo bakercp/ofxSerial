@@ -98,9 +98,9 @@ public:
         return BufferedSerialDevice::port();
     }
 
-    uint32_t speed() const
+    uint32_t baudRate() const
     {
-        return BufferedSerialDevice::speed();
+        return BufferedSerialDevice::baudRate();
     }
 
     DataBits dataBits() const

@@ -43,18 +43,11 @@ public:
 
     SerialDeviceInfo(const std::string& port,
                      const std::string& description,
-                     const std::string& hardwareId):
-        _port(port),
-        _description(description),
-        _hardwareId(hardwareId)
-    {
-    }
+                     const std::string& hardwareId);
 
 
     /// \brief Destroy the SerialDeviceInfo.
-    virtual ~SerialDeviceInfo()
-    {
-    }
+    virtual ~SerialDeviceInfo();
 
 
     /// \brief Get the address of the serial port.
@@ -62,22 +55,17 @@ public:
     /// This can be passed to the constructor of ofxSerial.
     ///
     /// \returns the address of the serial port.
-    const std::string& getPort() const
-    {
-        return _port;
-    }
+    const std::string& port() const;
+    OF_DEPRECATED_MSG("Use port() instead", const std::string& getPort() const);
+
+    
+    const std::string& description() const;
+    OF_DEPRECATED_MSG("Use description() instead", const std::string& getDescription() const);
 
 
-    const std::string& getDescription() const
-    {
-        return _description;
-    }
+    const std::string& hardwareId() const;
+    OF_DEPRECATED_MSG("Use hardwareId() instead", const std::string& getHardwareId() const);
 
-
-    const std::string& getHardwareId() const
-    {
-        return _hardwareId;
-    }
 
     friend std::ostream& operator << (std::ostream& os,
                                       const SerialDeviceInfo& deviceInfo);

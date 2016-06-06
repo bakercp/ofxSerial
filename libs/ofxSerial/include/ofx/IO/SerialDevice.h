@@ -108,13 +108,28 @@ public:
     std::size_t writeBytes(const std::string& buffer) override;
     std::size_t writeBytes(const AbstractByteSource& buffer) override;
 
-    std::string getPortName() const;
-    uint32_t getBauds() const;
-    DataBits getDataBits() const;
-    Parity getParity() const;
-    StopBits getStopBits() const;
-    FlowControl getFlowControl() const;
-    Timeout getTimeout() const;
+
+    std::string port() const;
+    OF_DEPRECATED_MSG("Use port() instead", std::string getPortName() const);
+
+    uint32_t speed() const;
+    OF_DEPRECATED_MSG("Use speed() instead", uint32_t getBauds() const);
+
+    DataBits dataBits() const;
+    OF_DEPRECATED_MSG("Use dataBits() instead", DataBits getDataBits() const);
+
+    Parity parity() const;
+    OF_DEPRECATED_MSG("Use parity() instead", SerialDevice::Parity getParity() const);
+
+    StopBits stopBits() const;
+    OF_DEPRECATED_MSG("Use stopBits() instead", StopBits getStopBits() const);
+
+    FlowControl flowControl() const;
+    OF_DEPRECATED_MSG("Use flowControl() instead", FlowControl getFlowControl() const);
+
+    Timeout timeout() const;
+    OF_DEPRECATED_MSG("Use timeout() instead", Timeout getTimeout() const);
+
 
     void flush();
     void flushInput();
@@ -132,6 +147,9 @@ public:
 
     bool isOpen() const;
 
+    /// \returns the underlying serial::Serial object if valuid, or nullptr otherwise.
+    const serial::Serial* serial();
+
     enum
     {
         DEFAULT_BAUD_RATE = 9600
@@ -148,17 +166,12 @@ public:
         DEFAULT_WRITE_TIMEOUT_MULTIPLIER = 0
     };
 
+    /// \brief The default Serial read/write timeout.
     static const Timeout DEFAULT_TIMEOUT;
 
-    std::shared_ptr<serial::Serial> getSerial()
-    {
-        return pSerial;
-    }
-    
 protected:
-    typedef std::shared_ptr<serial::Serial> SharedSerial;
-
-    SharedSerial pSerial;
+    /// \brief A pointer to the underlying serial object.
+    std::unique_ptr<serial::Serial> _serial;
 
 };
 

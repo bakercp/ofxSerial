@@ -28,6 +28,8 @@
 
 #include "ofx/IO/SerialEvents.h"
 #include "ofx/IO/BufferedSerialDevice.h"
+#include "ofx/IO/COBSEncoding.h"
+#include "ofx/IO/SLIPEncoding.h"
 
 
 namespace ofx {
@@ -91,39 +93,39 @@ public:
         BufferedSerialDevice::writeByte(PacketMarker);
     }
 
-    std::string getPortName() const
+    std::string port() const
     {
-        return BufferedSerialDevice::getPortName();
+        return BufferedSerialDevice::port();
     }
 
-    uint32_t getBauds() const
+    uint32_t speed() const
     {
-        return BufferedSerialDevice::getBauds();
+        return BufferedSerialDevice::speed();
     }
 
-    DataBits getDataBits() const
+    DataBits dataBits() const
     {
-        return BufferedSerialDevice::getDataBits();
+        return BufferedSerialDevice::dataBits();
     }
 
-    Parity getParity() const
+    Parity parity() const
     {
-        return BufferedSerialDevice::getParity();
+        return BufferedSerialDevice::parity();
     }
 
-    StopBits getStopBits() const
+    StopBits stopBits() const
     {
-        return BufferedSerialDevice::getStopBits();
+        return BufferedSerialDevice::stopBits();
     }
 
-    FlowControl getFlowControl() const
+    FlowControl flowControl() const
     {
-        return BufferedSerialDevice::getFlowControl();
+        return BufferedSerialDevice::flowControl();
     }
 
-    Timeout getTimeout() const
+    Timeout timeout() const
     {
-        return BufferedSerialDevice::getTimeout();
+        return BufferedSerialDevice::timeout();
     }
 
     bool isClearToSend() const
@@ -177,11 +179,11 @@ public:
     {
         ofx::IO::ByteBuffer decoded;
 
-        std::size_t size = _encoder.decode(args.getBuffer(), decoded);
+        std::size_t size = _encoder.decode(args.buffer(), decoded);
 
         if (size > 0)
         {
-            SerialBufferEventArgs evt(decoded);
+            SerialBufferEventArgs evt(args.device(), decoded);
             ofNotifyEvent(packetEvents.onSerialBuffer, evt, this);
         }
     }

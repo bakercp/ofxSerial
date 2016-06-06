@@ -54,7 +54,7 @@ bool SerialDevice::setup(const SerialDeviceInfo& device,
                          FlowControl flowControl,
                          serial::Timeout timeout)
 {
-    return setup(device.getPort(),
+    return setup(device.port(),
                  bauds,
                  dataBits,
                  parity,
@@ -72,14 +72,15 @@ bool SerialDevice::setup(const std::string& portName,
                          FlowControl flowControl,
                          serial::Timeout timeout)
 {
-    try {
-        pSerial = SharedSerial(new serial::Serial(portName,
-                                                  bauds,
-                                                  timeout,
-                                                  (serial::bytesize_t)dataBits,
-                                                  (serial::parity_t)parity,
-                                                  (serial::stopbits_t)stopBits,
-                                                  (serial::flowcontrol_t)flowControl));
+    try
+    {
+        _serial = std::make_unique<serial::Serial>(portName,
+                                                   bauds,
+                                                   timeout,
+                                                   static_cast<serial::bytesize_t>(dataBits),
+                                                   static_cast<serial::parity_t>(parity),
+                                                   static_cast<serial::stopbits_t>(stopBits),
+                                                   static_cast<serial::flowcontrol_t>(flowControl));
 
     }
     catch (const serial::IOException& exc)
@@ -88,75 +89,87 @@ bool SerialDevice::setup(const std::string& portName,
         return false;
     }
 
-    return pSerial->isOpen();
+    return _serial->isOpen();
 }
 
 
 std::size_t SerialDevice::readBytes(uint8_t* buffer, std::size_t size)
 {
-    return pSerial ? pSerial->read(buffer, size) : 0;
+    return _serial != nullptr ? _serial->read(buffer, size) : 0;
 }
 
 
 std::size_t SerialDevice::readByte(uint8_t& data)
 {
-    return pSerial ? pSerial->read(&data, 1) : 0;
+    return _serial != nullptr ? _serial->read(&data, 1) : 0;
 }
 
 
 std::size_t SerialDevice::available() const
 {
-    return pSerial ? pSerial->available() : 0;
+    return _serial != nullptr ? _serial->available() : 0;
 }
 
 
 std::size_t SerialDevice::writeByte(uint8_t data)
 {
-    return pSerial ? pSerial->write(&data, 1) : 0;
+    return _serial != nullptr ? _serial->write(&data, 1) : 0;
 }
 
     
 std::size_t SerialDevice::writeBytes(const uint8_t* buffer, std::size_t size)
 {
-    return pSerial ? pSerial->write(buffer, size) : 0;
+    return _serial != nullptr ? _serial->write(buffer, size) : 0;
 }
 
 
 std::size_t SerialDevice::writeBytes(const std::vector<uint8_t>& buffer)
 {
-    return pSerial ? pSerial->write(buffer) : 0;
+    return _serial != nullptr ? _serial->write(buffer) : 0;
 }
 
 
 std::size_t SerialDevice::writeBytes(const std::string& buffer)
 {
-    return pSerial ? pSerial->write(buffer) : 0;
+    return _serial != nullptr ? _serial->write(buffer) : 0;
 }
 
 
 std::size_t SerialDevice::writeBytes(const AbstractByteSource& buffer)
 {
-    return pSerial ? pSerial->write(buffer.readBytes()) : 0;
+    return _serial != nullptr ? _serial->write(buffer.readBytes()) : 0;
+}
+
+
+std::string SerialDevice::port() const
+{
+    return _serial != nullptr ? _serial->getPort() : "";
 }
 
 
 std::string SerialDevice::getPortName() const
 {
-    return pSerial ? pSerial->getPort() : "";
+    return port();
+}
+
+
+uint32_t SerialDevice::speed() const
+{
+    return _serial != nullptr ? _serial->getBaudrate() : 0;
 }
 
 
 uint32_t SerialDevice::getBauds() const
 {
-    return pSerial ? pSerial->getBaudrate() : 0;
+    return speed();
 }
 
 
-SerialDevice::DataBits SerialDevice::getDataBits() const
+SerialDevice::DataBits SerialDevice::dataBits() const
 {
-    if (pSerial)
+    if (_serial != nullptr)
     {
-        return (SerialDevice::DataBits)pSerial->getBytesize();
+        return static_cast<SerialDevice::DataBits>(_serial->getBytesize());
     }
     else
     {
@@ -165,11 +178,18 @@ SerialDevice::DataBits SerialDevice::getDataBits() const
 }
 
 
-SerialDevice::Parity SerialDevice::getParity() const
+
+SerialDevice::DataBits SerialDevice::getDataBits() const
 {
-    if (pSerial)
+    return dataBits();
+}
+
+
+SerialDevice::Parity SerialDevice::parity() const
+{
+    if (_serial != nullptr)
     {
-        return (SerialDevice::Parity)pSerial->getParity();
+        return static_cast<SerialDevice::Parity>(_serial->getParity());
     }
     else
     {
@@ -178,11 +198,17 @@ SerialDevice::Parity SerialDevice::getParity() const
 }
 
 
-SerialDevice::StopBits SerialDevice::getStopBits() const
+SerialDevice::Parity SerialDevice::getParity() const
 {
-    if (pSerial)
+    return getParity();
+}
+
+
+SerialDevice::StopBits SerialDevice::stopBits() const
+{
+    if (_serial != nullptr)
     {
-        return (SerialDevice::StopBits)pSerial->getStopbits();
+        return static_cast<SerialDevice::StopBits>(_serial->getStopbits());
     }
     else
     {
@@ -191,11 +217,17 @@ SerialDevice::StopBits SerialDevice::getStopBits() const
 }
 
 
-SerialDevice::FlowControl SerialDevice::getFlowControl() const
+SerialDevice::StopBits SerialDevice::getStopBits() const
 {
-    if (pSerial)
+    return stopBits();
+}
+
+
+SerialDevice::FlowControl SerialDevice::flowControl() const
+{
+    if (_serial != nullptr)
     {
-        return (SerialDevice::FlowControl)pSerial->getFlowcontrol();
+        return static_cast<SerialDevice::FlowControl>(_serial->getFlowcontrol());
     }
     else
     {
@@ -204,11 +236,18 @@ SerialDevice::FlowControl SerialDevice::getFlowControl() const
 }
 
 
-SerialDevice::Timeout SerialDevice::getTimeout() const
+SerialDevice::FlowControl SerialDevice::getFlowControl() const
 {
-    if (pSerial)
+    return flowControl();
+}
+
+
+
+SerialDevice::Timeout SerialDevice::timeout() const
+{
+    if (_serial != nullptr)
     {
-        return pSerial->getTimeout();
+        return _serial->getTimeout();
     }
     else
     {
@@ -217,75 +256,87 @@ SerialDevice::Timeout SerialDevice::getTimeout() const
 }
 
 
+SerialDevice::Timeout SerialDevice::getTimeout() const
+{
+    return timeout();
+}
+
+
 void SerialDevice::flush()
 {
-    if (pSerial) pSerial->flush();
+    if (_serial != nullptr) _serial->flush();
 }
 
 
 void SerialDevice::flushInput()
 {
-    if (pSerial) pSerial->flushInput();
+    if (_serial != nullptr) _serial->flushInput();
 }
 
 
 void SerialDevice::flushOutput()
 {
-    if (pSerial) pSerial->flushOutput();
+    if (_serial != nullptr) _serial->flushOutput();
 }
 
 
 void SerialDevice::sendBreak(int duration)
 {
-    if (pSerial) pSerial->sendBreak(duration);
+    if (_serial != nullptr) _serial->sendBreak(duration);
 }
 
 
 void SerialDevice::setBreak(bool level)
 {
-    if (pSerial) pSerial->setBreak(level);
+    if (_serial != nullptr) _serial->setBreak(level);
 }
 
 
 void SerialDevice::setRequestToSend(bool level)
 {
-    if (pSerial) pSerial->setRTS(level);
+    if (_serial != nullptr) _serial->setRTS(level);
 }
 
 
 void SerialDevice::setDataTerminalReady(bool level)
 {
-    if (pSerial) pSerial->setDTR(level);
+    if (_serial != nullptr) _serial->setDTR(level);
 }
 
 
 bool SerialDevice::isClearToSend() const
 {
-    return pSerial && pSerial->getCTS();
+    return _serial != nullptr && _serial->getCTS();
 }
 
 
 bool SerialDevice::isDataSetReady() const
 {
-    return pSerial && pSerial->getCTS();
+    return _serial != nullptr && _serial->getCTS();
 }
 
 
 bool SerialDevice::isRingIndicated() const
 {
-    return pSerial && pSerial->getRI();
+    return _serial != nullptr && _serial->getRI();
 }
 
 
 bool SerialDevice::isCarrierDetected() const
 {
-    return pSerial && pSerial->getCD();
+    return _serial != nullptr && _serial->getCD();
 }
 
 
 bool SerialDevice::isOpen() const
 {
-    return pSerial && pSerial->isOpen();
+    return _serial != nullptr && _serial->isOpen();
+}
+
+
+const serial::Serial* SerialDevice::serial()
+{
+    return _serial.get();
 }
 
 

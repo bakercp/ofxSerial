@@ -23,63 +23,61 @@
 // =============================================================================
 
 
-#pragma once
-
-
-#include "ofEvents.h"
-#include "Poco/Exception.h"
-#include "ofx/IO/ByteBuffer.h"
+#include "ofx/IO/SerialEvents.h"
+#include "ofx/IO/BufferedSerialDevice.h"
 
 
 namespace ofx {
 namespace IO {
 
 
-class BufferedSerialDevice;
-
-
-class SerialBufferEventArgs: public ofEventArgs
+SerialBufferEventArgs::SerialBufferEventArgs(const BufferedSerialDevice& device,
+                                             const ByteBuffer& buffer):
+    _device(device),
+    _buffer(buffer)
 {
-public:
-    SerialBufferEventArgs(const BufferedSerialDevice& device,
-                          const ByteBuffer& buffer);
+}
 
-    const ByteBuffer& buffer() const;
-    OF_DEPRECATED_MSG("Use buffer() instead", const ByteBuffer& getBuffer() const);
 
-    const BufferedSerialDevice& device() const;
+const ByteBuffer& SerialBufferEventArgs::buffer() const
+{
+    return _buffer;
+}
 
-protected:
-    const ByteBuffer& _buffer;
-    const BufferedSerialDevice& _device;
+
+const ByteBuffer& SerialBufferEventArgs::getBuffer() const
+{
+    return buffer();
+}
+
     
-};
-
-
-class SerialBufferErrorEventArgs: public SerialBufferEventArgs
+const BufferedSerialDevice& SerialBufferEventArgs::device() const
 {
-public:
-    SerialBufferErrorEventArgs(const BufferedSerialDevice& device,
-                               const ByteBuffer& buffer,
-                               const Poco::Exception& exception);
-
-    const Poco::Exception& exception() const;
-    OF_DEPRECATED_MSG("Use exception() instead", const Poco::Exception& getException() const);
+    return _device;
+}
 
 
-protected:
-    const Poco::Exception& _exception;
-
-};
 
 
-class SerialEvents
+SerialBufferErrorEventArgs::SerialBufferErrorEventArgs(const BufferedSerialDevice& device,
+                                                       const ByteBuffer& buffer,
+                                                       const Poco::Exception& exception):
+    SerialBufferEventArgs(device, buffer),
+    _exception(exception)
 {
-public:
-    ofEvent<const SerialBufferEventArgs> onSerialBuffer;
-    ofEvent<const SerialBufferErrorEventArgs> onSerialError;
+}
 
-};
+
+const Poco::Exception& SerialBufferErrorEventArgs::exception() const
+{
+    return _exception;
+}
+
+
+const Poco::Exception& SerialBufferErrorEventArgs::getException() const
+{
+    return exception();
+}
 
 
 } } // namespace ofx::IO

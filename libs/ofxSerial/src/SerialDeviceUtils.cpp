@@ -34,6 +34,56 @@
 namespace ofx {
 namespace IO {
 
+SerialDeviceInfo::SerialDeviceInfo(const std::string& port,
+                                   const std::string& description,
+                                   const std::string& hardwareId):
+    _port(port),
+    _description(description),
+    _hardwareId(hardwareId)
+{
+}
+    
+    
+SerialDeviceInfo::~SerialDeviceInfo()
+{
+}
+    
+
+const std::string& SerialDeviceInfo::port() const
+{
+    return _port;
+}
+    
+
+const std::string& SerialDeviceInfo::getPort() const
+{
+    return _port;
+}
+    
+
+const std::string& SerialDeviceInfo::description() const
+{
+    return _description;
+}
+
+
+const std::string& SerialDeviceInfo::getDescription() const
+{
+    return _description;
+}
+
+    
+const std::string& SerialDeviceInfo::hardwareId() const
+{
+    return _hardwareId;
+}
+
+
+const std::string& SerialDeviceInfo::getHardwareId() const
+{
+    return _hardwareId;
+}
+
 
 SerialDeviceInfo::DeviceList SerialDeviceUtils::listDevices(const std::string& regexPattern,
                                                             int regexOptions,
@@ -41,13 +91,13 @@ SerialDeviceInfo::DeviceList SerialDeviceUtils::listDevices(const std::string& r
 {
     std::vector<SerialDeviceInfo> devices;
 
-    std::shared_ptr<Poco::RegularExpression> pRegex;
+    std::unique_ptr<Poco::RegularExpression> pRegex = nullptr;
 
     if (!regexPattern.empty())
     {
         try
         {
-            pRegex = std::shared_ptr<Poco::RegularExpression>(new Poco::RegularExpression(regexPattern));
+            pRegex = std::make_unique<Poco::RegularExpression>(regexPattern);
         }
         catch (const Poco::RegularExpressionException& exception)
         {
@@ -55,22 +105,16 @@ SerialDeviceInfo::DeviceList SerialDeviceUtils::listDevices(const std::string& r
         }
     }
 
-    std::vector<serial::PortInfo> ports = serial::list_ports();
+    auto ports = serial::list_ports();
 
-    std::vector<serial::PortInfo>::const_iterator iter = ports.begin();
-
-    while (iter != ports.end())
+    for (const auto& portInfo: serial::list_ports())
     {
-        const serial::PortInfo portInfo = *iter;
-
-        if (!pRegex || (pRegex && pRegex->match(portInfo.port)))
+        if (pRegex == nullptr || (pRegex != nullptr && pRegex->match(portInfo.port)))
         {
             devices.push_back(SerialDeviceInfo(portInfo.port,
                                                portInfo.description,
                                                portInfo.hardware_id));
         }
-
-        ++iter;
     }
 
     std::sort(devices.begin(), devices.end(), sortDevices);
@@ -88,21 +132,21 @@ bool SerialDeviceUtils::sortDevices(const SerialDeviceInfo& device0,
     // Larger scores mean a given device will show up earlier in the list.
 
     // Give points for not being Bluetooth ports.
-    score0 += !ofIsStringInString(device0.getPort(), "Bluetooth") ? 1 : 0;
-    score1 += !ofIsStringInString(device1.getPort(), "Bluetooth") ? 1 : 0;
+    score0 += !ofIsStringInString(device0.port(), "Bluetooth") ? 1 : 0;
+    score1 += !ofIsStringInString(device1.port(), "Bluetooth") ? 1 : 0;
 
     // Give extra points to Arduino devices.
-    score0 += ofIsStringInString(device0.getPort(), "usbmodem") ? 1 : 0;
-    score1 += ofIsStringInString(device1.getPort(), "usbmodem") ? 1 : 0;
+    score0 += ofIsStringInString(device0.port(), "usbmodem") ? 1 : 0;
+    score1 += ofIsStringInString(device1.port(), "usbmodem") ? 1 : 0;
 
     // Give extra points to Arduino devices.
-    score0 += ofIsStringInString(device0.getDescription(), "Arduino") ? 1 : 0;
-    score1 += ofIsStringInString(device1.getDescription(), "Arduino") ? 1 : 0;
+    score0 += ofIsStringInString(device0.description(), "Arduino") ? 1 : 0;
+    score1 += ofIsStringInString(device1.description(), "Arduino") ? 1 : 0;
 
     // If the scores are equal in the end, use standard sorting on the port.
     if (score0 == score1)
     {
-        return device0.getPort() < device1.getPort();
+        return device0.port() < device1.port();
     }
     else
     {

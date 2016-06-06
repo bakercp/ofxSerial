@@ -24,6 +24,7 @@
 
 
 #include "ofx/IO/BufferedSerialDevice.h"
+#include "ofx/IO/SerialEvents.h"
 #include "Poco/Buffer.h"
 
 
@@ -59,7 +60,7 @@ void BufferedSerialDevice::update(ofEventArgs& args)
     {
         while (available())
         {
-            std::size_t nBytes = pSerial->read(buffer.begin(),
+            std::size_t nBytes = _serial->read(buffer.begin(),
                                                UPDATE_BUFFER_SIZE);
 
             for (std::size_t i = 0; i < nBytes; ++i)
@@ -72,7 +73,7 @@ void BufferedSerialDevice::update(ofEventArgs& args)
                     // Send the buffer if there are any bytes.
                     if (buffer.size() > 0)
                     {
-                        SerialBufferEventArgs args(_buffer);
+                        SerialBufferEventArgs args(*this, _buffer);
                         ofNotifyEvent(events.onSerialBuffer, args, this);
                     }
 
@@ -89,8 +90,9 @@ void BufferedSerialDevice::update(ofEventArgs& args)
 
                         Poco::Exception exception(ss.str());
 
-                        SerialBufferErrorEventArgs args(exception,
-                                                        _buffer);
+                        SerialBufferErrorEventArgs args(*this,
+                                                        _buffer,
+                                                        exception);
 
                         ofNotifyEvent(events.onSerialError, args, this);
 
@@ -105,19 +107,19 @@ void BufferedSerialDevice::update(ofEventArgs& args)
     }
     catch (const Poco::Exception& exc)
     {
-        SerialBufferErrorEventArgs args(exc);
+        SerialBufferErrorEventArgs args(*this, _buffer, exc);
         ofNotifyEvent(events.onSerialError, args, this);
     }
     catch (const std::exception& exc)
     {
         Poco::Exception e(exc.what());
-        SerialBufferErrorEventArgs args(e);
+        SerialBufferErrorEventArgs args(*this, _buffer, e);
         ofNotifyEvent(events.onSerialError, args, this);
     }
     catch (...)
     {
         Poco::Exception exc("Unknown error.");
-        SerialBufferErrorEventArgs args(exc);
+        SerialBufferErrorEventArgs args(*this, _buffer, exc);
         ofNotifyEvent(events.onSerialError, args, this);
     }
 }

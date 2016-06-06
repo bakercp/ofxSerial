@@ -26,8 +26,9 @@
 #pragma once
 
 
-#include "ofx/IO/SerialEvents.h"
+#include "ofEvents.h"
 #include "ofx/IO/SerialDevice.h"
+#include "ofx/IO/SerialEvents.h"
 
 
 namespace ofx {

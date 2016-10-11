@@ -29,10 +29,10 @@
 #include <stdint.h>
 #include "Poco/Path.h"
 #include "serial/serial.h"
+#include "ofJson.h"
 #include "ofLog.h"
 #include "ofx/IO/AbstractTypes.h"
 #include "ofx/IO/SerialDeviceUtils.h"
-#include "Poco/UTF8String.h"
 
 
 namespace ofx {
@@ -121,23 +121,23 @@ public:
 
             std::string parity = json.value("parity", "none");
 
-            if (Poco::UTF8::icompare(parity, "none") == 0)
+            if (parity == "none")
             {
                 settings.parity = PAR_NONE;
             }
-            else if (Poco::UTF8::icompare(parity, "odd") == 0)
+            else if (parity == "odd")
             {
                 settings.parity = PAR_ODD;
             }
-            else if (Poco::UTF8::icompare(parity, "even") == 0)
+            else if (parity == "even")
             {
                 settings.parity = PAR_EVEN;
             }
-            else if (Poco::UTF8::icompare(parity, "mark") == 0)
+            else if (parity == "mark")
             {
                 settings.parity = PAR_MARK;
             }
-            else if (Poco::UTF8::icompare(parity, "space") == 0)
+            else if (parity == "space")
             {
                 settings.parity = PAR_SPACE;
             }
@@ -147,7 +147,7 @@ public:
                 settings.parity = PAR_NONE;
             }
 
-            float stopBits = json.value("stop_bits", 1.0);
+            float stopBits = json.value("stop_bits", 1.0f);
 
             if (ofIsFloatEqual(stopBits, 1.0f))
             {
@@ -168,15 +168,15 @@ public:
 
             std::string flowControl = json.value("flow_control", "none");
 
-            if (Poco::UTF8::icompare(flowControl, "none") == 0)
+            if (flowControl == "none")
             {
                 settings.flowControl = FLOW_CTRL_NONE;
             }
-            else if (Poco::UTF8::icompare(flowControl, "hardware") == 0)
+            else if (flowControl == "hardware")
             {
                 settings.flowControl = FLOW_CTRL_HARDWARE;
             }
-            else if (Poco::UTF8::icompare(flowControl, "software") == 0)
+            else if (flowControl == "software")
             {
                 settings.flowControl = FLOW_CTRL_SOFTWARE;
             }

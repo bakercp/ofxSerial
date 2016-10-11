@@ -1,3 +1,3 @@
 ofxIO
-ofxSerial
 ofxOsc
+ofxSerial

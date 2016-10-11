@@ -4,44 +4,25 @@
 #include "ofxSerial.h"
 #include "ofxOsc.h"
 
-class SerialMessage
+
+class ofApp : public ofBaseApp
 {
 public:
-    SerialMessage(): fade(0)
-    {
-    }
+    void setup();
+    void update();
+    void draw();
+    void exit();
 
-    SerialMessage(const std::string& _message,
-                  const std::string& _exception,
-                  int _fade):
-        message(_message),
-        exception(_exception),
-        fade(_fade)
-    {
-    }
+    void mousePressed(ofMouseEventArgs& mouse);
 
-    std::string message;
-    std::string exception;
-    int fade;
-};
+    int state = 0;
 
-class ofApp : public ofBaseApp{
+    void onSerialBuffer(const ofxIO::SerialBufferEventArgs& args);
+    void onSerialError(const ofxIO::SerialBufferErrorEventArgs& args);
 
-	public:
-		void setup();
-		void update();
-		void draw();
-        void exit();
+    ofxIO::SLIPPacketSerialDevice device;
 
-        void mousePressed(ofMouseEventArgs& mouse);
-        int state;
+private:
+    void appendMessage( ofxOscMessage& message, osc::OutboundPacketStream& p );
 
-        void onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args);
-        void onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args);
-
-        ofx::IO::SLIPPacketSerialDevice device;
-
-        std::vector<SerialMessage> serialMessages;
-    private:
-        void appendMessage( ofxOscMessage& message, osc::OutboundPacketStream& p );
 };

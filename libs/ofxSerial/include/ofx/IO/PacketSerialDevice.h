@@ -51,39 +51,7 @@ public:
         BufferedSerialDevice::unregisterAllEvents(this);
     }
 
-    bool setup(const SerialDeviceInfo& device,
-               uint32_t bauds = DEFAULT_BAUD_RATE,
-               DataBits dataBits = DATA_BITS_EIGHT,
-               Parity parity = PAR_NONE,
-               StopBits stopBits = STOP_ONE,
-               FlowControl flowControl = FLOW_CTRL_NONE,
-               Timeout timeout = DEFAULT_TIMEOUT)
-    {
-        return BufferedSerialDevice::setup(device,
-                                           bauds,
-                                           dataBits,
-                                           parity,
-                                           stopBits,
-                                           flowControl,
-                                           timeout);
-    }
-
-    bool setup(const std::string& portName,
-               uint32_t bauds = DEFAULT_BAUD_RATE,
-               DataBits dataBits = DATA_BITS_EIGHT,
-               Parity parity = PAR_NONE,
-               StopBits stopBits = STOP_ONE,
-               FlowControl flowControl = FLOW_CTRL_NONE,
-               Timeout timeout = DEFAULT_TIMEOUT)
-    {
-        return BufferedSerialDevice::setup(portName,
-                                           bauds,
-                                           dataBits,
-                                           parity,
-                                           stopBits,
-                                           flowControl,
-                                           timeout);
-    }
+    using BufferedSerialDevice::setup;
 
     void send(const ByteBuffer& buffer)
     {
@@ -93,65 +61,16 @@ public:
         BufferedSerialDevice::writeByte(PacketMarker);
     }
 
-    std::string port() const
-    {
-        return BufferedSerialDevice::port();
-    }
-
-    uint32_t baudRate() const
-    {
-        return BufferedSerialDevice::baudRate();
-    }
-
-    DataBits dataBits() const
-    {
-        return BufferedSerialDevice::dataBits();
-    }
-
-    Parity parity() const
-    {
-        return BufferedSerialDevice::parity();
-    }
-
-    StopBits stopBits() const
-    {
-        return BufferedSerialDevice::stopBits();
-    }
-
-    FlowControl flowControl() const
-    {
-        return BufferedSerialDevice::flowControl();
-    }
-
-    Timeout timeout() const
-    {
-        return BufferedSerialDevice::timeout();
-    }
-
-    bool isClearToSend() const
-    {
-        return BufferedSerialDevice::isClearToSend();
-    }
-
-    bool isDataSetReady() const
-    {
-        return BufferedSerialDevice::isDataSetReady();
-    }
-
-    bool isRingIndicated() const
-    {
-        return BufferedSerialDevice::isRingIndicated();
-    }
-
-    bool isCarrierDetected() const
-    {
-        return BufferedSerialDevice::isCarrierDetected();
-    }
-
-    bool isOpen() const
-    {
-        return BufferedSerialDevice::isOpen();
-    }
+    using BufferedSerialDevice::port;
+    using BufferedSerialDevice::baudRate;
+    using BufferedSerialDevice::dataBits;
+    using BufferedSerialDevice::stopBits;
+    using BufferedSerialDevice::timeout;
+    using BufferedSerialDevice::isClearToSend;
+    using BufferedSerialDevice::isDataSetReady;
+    using BufferedSerialDevice::isRingIndicated;
+    using BufferedSerialDevice::isCarrierDetected;
+    using BufferedSerialDevice::isOpen;
 
     /// \brief Register a class to receive notifications for all events.
     /// \param listener a pointer to the listener class.

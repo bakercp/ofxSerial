@@ -83,7 +83,7 @@ void ofApp::draw()
     std::stringstream ss;
 
     ss << "         FPS: " << ofGetFrameRate() << std::endl;
-    ss << "Connected to: " << device.getPortName();
+    ss << "Connected to: " << device.port();
 
     ofDrawBitmapString(ss.str(), ofVec2f(20, 20));
 
@@ -125,15 +125,15 @@ void ofApp::draw()
 void ofApp::onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args)
 {
     // Buffers will show up here when the marker character is found.
-    SerialMessage message(args.getBuffer().toString(), "", 500);
+    SerialMessage message(args.buffer().toString(), "", 500);
     serialMessages.push_back(message);
 }
 
 void ofApp::onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args)
 {
     // Errors and their corresponding buffer (if any) will show up here.
-    SerialMessage message(args.getBuffer().toString(),
-                          args.getException().displayText(),
+    SerialMessage message(args.buffer().toString(),
+                          args.exception().displayText(),
                           500);
     serialMessages.push_back(message);
 }

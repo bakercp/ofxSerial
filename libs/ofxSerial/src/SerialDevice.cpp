@@ -59,6 +59,32 @@ bool SerialDevice::setup(const Settings& settings)
 }
 
 
+bool SerialDevice::setup(uint32_t baudRate,
+                         DataBits dataBits,
+                         Parity parity,
+                         StopBits stopBits,
+                         FlowControl flowControl,
+                         serial::Timeout timeout)
+{
+    auto devices = SerialDeviceUtils::listDevices();
+
+    if (!devices.empty())
+    {
+        return setup(devices[0].port(),
+                     baudRate,
+                     dataBits,
+                     parity,
+                     stopBits,
+                     flowControl,
+                     timeout);
+    }
+    else
+    {
+        return false;
+    }
+}
+
+
 bool SerialDevice::setup(const SerialDeviceInfo& device,
                          uint32_t baudRate,
                          DataBits dataBits,
@@ -347,7 +373,13 @@ bool SerialDevice::isOpen() const
 }
 
 
-const serial::Serial* SerialDevice::serial()
+const serial::Serial* SerialDevice::serial() const
+{
+    return _serial.get();
+}
+
+
+serial::Serial* SerialDevice::serial()
 {
     return _serial.get();
 }

@@ -34,6 +34,7 @@
 namespace ofx {
 namespace IO {
 
+
 SerialDeviceInfo::SerialDeviceInfo(const std::string& port,
                                    const std::string& description,
                                    const std::string& hardwareId):
@@ -49,7 +50,7 @@ SerialDeviceInfo::~SerialDeviceInfo()
 }
     
 
-const std::string& SerialDeviceInfo::port() const
+std::string SerialDeviceInfo::port() const
 {
     return _port;
 }
@@ -61,7 +62,7 @@ const std::string& SerialDeviceInfo::getPort() const
 }
     
 
-const std::string& SerialDeviceInfo::description() const
+std::string SerialDeviceInfo::description() const
 {
     return _description;
 }
@@ -73,7 +74,7 @@ const std::string& SerialDeviceInfo::getDescription() const
 }
 
     
-const std::string& SerialDeviceInfo::hardwareId() const
+std::string SerialDeviceInfo::hardwareId() const
 {
     return _hardwareId;
 }
@@ -97,11 +98,13 @@ SerialDeviceInfo::DeviceList SerialDeviceUtils::listDevices(const std::string& r
     {
         try
         {
-            pRegex = std::make_unique<Poco::RegularExpression>(regexPattern);
+            pRegex = std::make_unique<Poco::RegularExpression>(regexPattern,
+                                                               regexOptions,
+                                                               regexStudy);
         }
         catch (const Poco::RegularExpressionException& exception)
         {
-            ofLogError("SerialDeviceUtils::getDevices") << exception.displayText();
+            ofLogError("SerialDeviceUtils::listDevices") << exception.displayText();
         }
     }
 
@@ -135,13 +138,17 @@ bool SerialDeviceUtils::sortDevices(const SerialDeviceInfo& device0,
     score0 += !ofIsStringInString(device0.port(), "Bluetooth") ? 1 : 0;
     score1 += !ofIsStringInString(device1.port(), "Bluetooth") ? 1 : 0;
 
-    // Give extra points to Arduino devices.
-    score0 += ofIsStringInString(device0.port(), "usbmodem") ? 1 : 0;
-    score1 += ofIsStringInString(device1.port(), "usbmodem") ? 1 : 0;
+    // Give extra points for being a 2303 driver.
+    score0 += ofIsStringInString(device0.port(), "2303") ? 1 : 0;
+    score1 += ofIsStringInString(device1.port(), "2303") ? 1 : 0;
 
     // Give extra points to Arduino devices.
-    score0 += ofIsStringInString(device0.description(), "Arduino") ? 1 : 0;
-    score1 += ofIsStringInString(device1.description(), "Arduino") ? 1 : 0;
+    score0 += ofIsStringInString(device0.port(), "usbmodem") ? 2 : 0;
+    score1 += ofIsStringInString(device1.port(), "usbmodem") ? 2 : 0;
+
+    // Give extra points to Arduino devices.
+    score0 += ofIsStringInString(device0.description(), "Arduino") ? 3 : 0;
+    score1 += ofIsStringInString(device1.description(), "Arduino") ? 3 : 0;
 
     // If the scores are equal in the end, use standard sorting on the port.
     if (score0 == score1)

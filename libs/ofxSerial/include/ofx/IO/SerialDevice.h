@@ -227,6 +227,14 @@ public:
 
     bool setup(const Settings& settings);
 
+    /// \brief Connect to the first listed device.
+    bool setup(uint32_t baudRate = DEFAULT_BAUD_RATE,
+               DataBits dataBits = DATA_BITS_EIGHT,
+               Parity parity = PAR_NONE,
+               StopBits stopBits = STOP_ONE,
+               FlowControl flowControl = FLOW_CTRL_NONE,
+               Timeout timeout = DEFAULT_TIMEOUT);
+
     bool setup(const SerialDeviceInfo& device,
                uint32_t baudRate = DEFAULT_BAUD_RATE,
                DataBits dataBits = DATA_BITS_EIGHT,
@@ -293,7 +301,9 @@ public:
     bool isOpen() const;
 
     /// \returns the underlying serial::Serial object if valuid, or nullptr otherwise.
-    const serial::Serial* serial();
+    const serial::Serial* serial() const;
+
+    serial::Serial* serial();
 
     enum
     {

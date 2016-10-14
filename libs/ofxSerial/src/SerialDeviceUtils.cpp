@@ -138,6 +138,10 @@ bool SerialDeviceUtils::sortDevices(const SerialDeviceInfo& device0,
     score0 += !ofIsStringInString(device0.port(), "Bluetooth") ? 1 : 0;
     score1 += !ofIsStringInString(device1.port(), "Bluetooth") ? 1 : 0;
 
+    // Give points for being a USB driver on Linux.
+    score0 += ofIsStringInString(device0.port(), "ttyUSB") ? 1 : 0;
+    score1 += ofIsStringInString(device1.port(), "ttyUSB") ? 1 : 0;
+
     // Give extra points for being a 2303 driver.
     score0 += ofIsStringInString(device0.port(), "2303") ? 1 : 0;
     score1 += ofIsStringInString(device1.port(), "2303") ? 1 : 0;

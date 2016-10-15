@@ -279,6 +279,7 @@ serial::list_ports(void)
         devices_found.push_back(port_info);
     }
 
+    IOObjectRelease(serial_port_iterator);
     return devices_found;
 }
 

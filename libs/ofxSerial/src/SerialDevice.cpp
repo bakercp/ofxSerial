@@ -24,6 +24,7 @@
 
 
 #include "ofx/IO/SerialDevice.h"
+#include <cerrno>
 
 
 namespace ofx {
@@ -80,6 +81,7 @@ bool SerialDevice::setup(uint32_t baudRate,
     }
     else
     {
+        ofLogVerbose("SerialDevice::setup") << "No available serial devices.";
         return false;
     }
 }
@@ -124,7 +126,15 @@ bool SerialDevice::setup(const std::string& portName,
     }
     catch (const serial::IOException& exc)
     {
-        ofLogError("SerialDevice::setup") << exc.what();
+        if (exc.getErrorNumber() == EBUSY)
+        {
+            ofLogError("SerialDevice::setup") << portName << " is busy -- is it in use by another application?";
+        }
+        else
+        {
+            ofLogError("SerialDevice::setup") << exc.what();
+        }
+
         return false;
     }
 

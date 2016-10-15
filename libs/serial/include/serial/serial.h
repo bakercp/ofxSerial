@@ -661,7 +661,7 @@ class IOException : public std::exception
   std::string e_what_;
   int errno_;
 public:
-  explicit IOException (std::string file, int line, int errnum)
+  explicit IOException (const std::string& file, int line, int errnum)
     : file_(file), line_(line), errno_(errnum) {
       std::stringstream ss;
 #if defined(_WIN32) && !defined(__MINGW32__)
@@ -674,7 +674,7 @@ public:
       ss << ", file " << file_ << ", line " << line_ << ".";
       e_what_ = ss.str();
   }
-  explicit IOException (std::string file, int line, const char * description)
+  explicit IOException (const std::string& file, int line, const char * description)
     : file_(file), line_(line), errno_(0) {
       std::stringstream ss;
       ss << "IO Exception: " << description;
@@ -684,7 +684,7 @@ public:
   virtual ~IOException() throw() {}
   IOException (const IOException& other) : line_(other.line_), e_what_(other.e_what_), errno_(other.errno_) {}
 
-  int getErrorNumber () { return errno_; }
+  int getErrorNumber() const { return errno_; }
 
   virtual const char* what () const throw () {
     return e_what_.c_str();

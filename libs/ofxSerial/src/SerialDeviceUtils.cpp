@@ -146,6 +146,14 @@ bool SerialDeviceUtils::sortDevices(const SerialDeviceInfo& device0,
     score0 += ofIsStringInString(device0.port(), "2303") ? 1 : 0;
     score1 += ofIsStringInString(device1.port(), "2303") ? 1 : 0;
 
+    // Give extra points for being an FTDI driver.
+    score0 += ofIsStringInString(device0.description(), "FTDI") ? 1 : 0;
+    score1 += ofIsStringInString(device1.description(), "FTDI") ? 1 : 0;
+
+    // Give extra points for being an FTDI driver.
+    score0 += ofIsStringInString(device0.port(), "usbserial") ? 1 : 0;
+    score1 += ofIsStringInString(device1.port(), "usbserial") ? 1 : 0;
+
     // Give extra points to Arduino devices.
     score0 += ofIsStringInString(device0.port(), "usbmodem") ? 2 : 0;
     score1 += ofIsStringInString(device1.port(), "usbmodem") ? 2 : 0;

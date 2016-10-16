@@ -35,35 +35,17 @@ void ofApp::setup()
     //    device is connected.
     // 3. Run this app.
 
-    ofEnableAlphaBlending();
+    // Connect to the first matching device.
+    bool success = device.setup(115200);
 
-    std::vector<ofx::IO::SerialDeviceInfo> devicesInfo = ofx::IO::SerialDeviceUtils::listDevices();
-
-    ofLogNotice("ofApp::setup") << "Connected Devices: ";
-
-    for (std::size_t i = 0; i < devicesInfo.size(); ++i)
+    if(success)
     {
-        ofLogNotice("ofApp::setup") << "\t" << devicesInfo[i];
-    }
-
-    if (!devicesInfo.empty())
-    {
-        // Connect to the first matching device.
-        bool success = device.setup(devicesInfo[0], 115200);
-
-        if(success)
-        {
-            device.registerAllEvents(this);
-            ofLogNotice("ofApp::setup") << "Successfully setup " << devicesInfo[0];
-        }
-        else
-        {
-            ofLogNotice("ofApp::setup") << "Unable to setup " << devicesInfo[0];
-        }
+        device.registerAllEvents(this);
+        ofLogNotice("ofApp::setup") << "Successfully setup " << device.port();
     }
     else
     {
-        ofLogNotice("ofApp::setup") << "No devices connected.";
+        ofLogNotice("ofApp::setup") << "Unable to setup " << device.port();
     }
 }
 
@@ -94,7 +76,7 @@ void ofApp::draw()
     std::stringstream ss;
 
     ss << "         FPS: " << ofGetFrameRate() << std::endl;
-    ss << "Connected to: " << device.getPortName();
+    ss << "Connected to: " << device.port();
 
     ofDrawBitmapString(ss.str(), ofVec2f(20, 20));
 
@@ -135,7 +117,7 @@ void ofApp::draw()
 void ofApp::onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args)
 {
     // Decoded serial packets will show up here.
-    SerialMessage message(args.getBuffer().toString(), "", 255);
+    SerialMessage message(args.buffer().toString(), "", 255);
     serialMessages.push_back(message);
 }
 
@@ -143,8 +125,8 @@ void ofApp::onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args)
 void ofApp::onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args)
 {
     // Errors and their corresponding buffer (if any) will show up here.
-    SerialMessage message(args.getBuffer().toString(),
-                          args.getException().displayText(),
+    SerialMessage message(args.buffer().toString(),
+                          args.exception().displayText(),
                           500);
 
     serialMessages.push_back(message);

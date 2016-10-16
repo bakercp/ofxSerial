@@ -86,7 +86,8 @@ void BufferedSerialDevice::update(ofEventArgs& args)
                     {
                         // Send the overflow;
                         std::stringstream ss;
-                        ss << "maxBufferSize exceeded: " << _maxBufferSize;
+                        ss << "maxBufferSize exceeded: ";
+                        ss << _maxBufferSize;
 
                         Poco::Exception exception(ss.str());
 

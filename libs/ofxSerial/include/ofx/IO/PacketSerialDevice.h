@@ -55,7 +55,7 @@ public:
 
     void send(const ByteBuffer& buffer)
     {
-        ofx::IO::ByteBuffer encoded;
+        ByteBuffer encoded;
         _encoder.encode(buffer, encoded);
         BufferedSerialDevice::writeBytes(encoded);
         BufferedSerialDevice::writeByte(PacketMarker);
@@ -96,7 +96,7 @@ public:
 
     void onSerialBuffer(const SerialBufferEventArgs& args)
     {
-        ofx::IO::ByteBuffer decoded;
+        ByteBuffer decoded;
 
         std::size_t size = _encoder.decode(args.buffer(), decoded);
 

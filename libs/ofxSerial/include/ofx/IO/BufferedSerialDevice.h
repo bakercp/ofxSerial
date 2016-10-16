@@ -95,13 +95,13 @@ public:
 protected:
 
     /// \brief The buffer boundary marker.
-    uint8_t _marker;
+    uint8_t _marker = DEFAULT_MARKER;
 
     /// \brief The byte buffer.
     ByteBuffer _buffer;
 
     /// \brief The maximum size of the boundary.
-    std::size_t _maxBufferSize;
+    std::size_t _maxBufferSize = DEFAULT_MAX_BUFFER_SIZE;
 
     enum
     {

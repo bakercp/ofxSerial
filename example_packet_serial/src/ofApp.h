@@ -16,7 +16,7 @@ struct SerialMessage
 {
     std::string message;
     std::string exception;
-    int fade = 0;
+    int fade = 255;
 };
 
 
@@ -28,10 +28,10 @@ public:
     void draw();
     void exit();
 
-    void onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args);
-    void onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args);
+    void onSerialBuffer(const ofxIO::SerialBufferEventArgs& args);
+    void onSerialError(const ofxIO::SerialBufferErrorEventArgs& args);
 
-    ofx::IO::PacketSerialDevice device;
+    ofxIO::PacketSerialDevice device;
 
     std::vector<SerialMessage> serialMessages;
 

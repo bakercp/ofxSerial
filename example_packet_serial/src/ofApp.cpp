@@ -10,24 +10,42 @@
 
 void ofApp::setup()
 {
-    // 1. Upload the PacketSerialReverseEcho.ino sketch (in this example's
+    // 1. Upload the SLIPPacketSerialReverseEcho.ino sketch (in this example's
     //    Arduino/ folder) to an Arduino board.  This sketch requires
     //    the Arduino PacketSerial library https://github.com/bakercp/PacketSerial.
     // 2. Check the "listDevices" call below to make sure the correct serial
     //    device is connected.
     // 3. Run this app.
-
-    // Connect to the first matching device.
-    bool success = device.setup(115200);
-
-    if(success)
+    
+    ofEnableAlphaBlending();
+    
+    std::vector<ofxIO::SerialDeviceInfo> devicesInfo = ofxIO::SerialDeviceUtils::listDevices();
+    
+    ofLogNotice("ofApp::setup") << "Connected Devices: ";
+    
+    for (std::size_t i = 0; i < devicesInfo.size(); ++i)
     {
-        device.registerAllEvents(this);
-        ofLogNotice("ofApp::setup") << "Successfully setup " << device.port();
+        ofLogNotice("ofApp::setup") << "\t" << devicesInfo[i];
+    }
+    
+    if (!devicesInfo.empty())
+    {
+        // Connect to the first matching device.
+        bool success = device.setup(devicesInfo[0], 115200);
+        
+        if(success)
+        {
+            device.registerAllEvents(this);
+            ofLogNotice("ofApp::setup") << "Successfully setup " << devicesInfo[0];
+        }
+        else
+        {
+            ofLogNotice("ofApp::setup") << "Unable to setup " << devicesInfo[0];
+        }
     }
     else
     {
-        ofLogNotice("ofApp::setup") << "Unable to setup " << device.port();
+        ofLogNotice("ofApp::setup") << "No devices connected.";
     }
 }
 
@@ -98,8 +116,12 @@ void ofApp::draw()
 
 void ofApp::onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args)
 {
+    std::cout << "args.buffer() = " << args.buffer().size() << std::endl;
     // Decoded serial packets will show up here.
-    SerialMessage message(args.buffer().toString(), "", 255);
+    SerialMessage message;
+    message.message = args.buffer().toString();
+    std::cout << args.buffer().toString() << std::endl;
+    
     serialMessages.push_back(message);
 }
 
@@ -107,9 +129,9 @@ void ofApp::onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args)
 void ofApp::onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args)
 {
     // Errors and their corresponding buffer (if any) will show up here.
-    SerialMessage message(args.buffer().toString(),
-                          args.exception().displayText(),
-                          500);
-
+    SerialMessage message;
+    message.message = args.buffer().toString();
+    message.exception = args.exception().displayText();
+    message.fade = 500;
     serialMessages.push_back(message);
 }

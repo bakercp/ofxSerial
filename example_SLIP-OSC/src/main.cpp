@@ -1,9 +1,15 @@
-#include "ofMain.h"
+//
+// Copyright (c) 2010 Christopher Baker <https://christopherbaker.net>
+//
+// SPDX-License-Identifier:    MIT
+//
+
+
 #include "ofApp.h"
 
 
 int main()
 {
-	ofSetupOpenGL(1024, 768, OF_WINDOW);
+    ofSetupOpenGL(1024, 768, OF_WINDOW);
     return ofRunApp(std::make_shared<ofApp>());
 }

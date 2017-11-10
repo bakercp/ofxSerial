@@ -16,23 +16,23 @@ void ofApp::setup()
     // 2. Check the "listDevices" call below to make sure the correct serial
     //    device is connected.
     // 3. Run this app.
-    
+
     ofEnableAlphaBlending();
-    
+
     std::vector<ofxIO::SerialDeviceInfo> devicesInfo = ofxIO::SerialDeviceUtils::listDevices();
-    
+
     ofLogNotice("ofApp::setup") << "Connected Devices: ";
-    
+
     for (std::size_t i = 0; i < devicesInfo.size(); ++i)
     {
         ofLogNotice("ofApp::setup") << "\t" << devicesInfo[i];
     }
-    
+
     if (!devicesInfo.empty())
     {
         // Connect to the first matching device.
         bool success = device.setup(devicesInfo[0], 115200);
-        
+
         if(success)
         {
             device.registerAllEvents(this);
@@ -89,7 +89,7 @@ void ofApp::draw()
     while (iter != serialMessages.end())
     {
         iter->fade -= 20;
-        
+
         if (iter->fade < 0)
         {
             iter = serialMessages.erase(iter);
@@ -116,12 +116,9 @@ void ofApp::draw()
 
 void ofApp::onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args)
 {
-    std::cout << "args.buffer() = " << args.buffer().size() << std::endl;
     // Decoded serial packets will show up here.
     SerialMessage message;
     message.message = args.buffer().toString();
-    std::cout << args.buffer().toString() << std::endl;
-    
     serialMessages.push_back(message);
 }
 

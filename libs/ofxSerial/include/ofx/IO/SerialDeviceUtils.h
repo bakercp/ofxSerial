@@ -27,7 +27,6 @@ public:
                      const std::string& description,
                      const std::string& hardwareId);
 
-
     /// \brief Destroy the SerialDeviceInfo.
     virtual ~SerialDeviceInfo();
 
@@ -78,8 +77,10 @@ class SerialDeviceUtils
 {
 public:
     /// \brief List the available devices.
-    /// \param the regular expression to search for (e.g. .*2303.* will limit the results to devices with 2303 in the name).
-    /// \param 
+    /// \param regexPattern the regular expression to search for (e.g. .*2303.* will limit the results to devices with 2303 in the name).
+    /// \param regexOptions See PCRE documentation for regex options.
+    /// \param regexStudy If study is true, the pattern is analyzed and optimized.
+    /// \returns a list of matching devices.
     static SerialDeviceInfo::DeviceList listDevices(const std::string& regexPattern = "",
                                                     int regexOptions = 0,
                                                     bool regexStudy = true);

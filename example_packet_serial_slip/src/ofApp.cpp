@@ -1,26 +1,8 @@
-// =============================================================================
 //
-// Copyright (c) 2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2014 Christopher Baker <https://christopherbaker.net>
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+// SPDX-License-Identifier:    MIT
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-//
-// =============================================================================
 
 
 #include "ofApp.h"
@@ -37,7 +19,7 @@ void ofApp::setup()
 
     ofEnableAlphaBlending();
 
-    std::vector<ofx::IO::SerialDeviceInfo> devicesInfo = ofx::IO::SerialDeviceUtils::listDevices();
+    std::vector<ofxIO::SerialDeviceInfo> devicesInfo = ofxIO::SerialDeviceUtils::listDevices();
 
     ofLogNotice("ofApp::setup") << "Connected Devices: ";
 
@@ -76,10 +58,10 @@ void ofApp::exit()
 void ofApp::update()
 {
     // Create a byte buffer.
-    ofx::IO::ByteBuffer buffer("Frame Number: " + ofToString(ofGetFrameNum()));
+    ofxIO::ByteBuffer buffer("Frame Number: " + ofToString(ofGetFrameNum()));
 
     // Send the byte buffer.
-    // ofx::IO::PacketSerialDevice will encode the buffer, send it to the
+    // ofxIO::PacketSerialDevice will encode the buffer, send it to the
     // receiver, and send a packet marker.
     device.send(buffer);
 
@@ -96,7 +78,7 @@ void ofApp::draw()
     std::stringstream ss;
 
     ss << "         FPS: " << ofGetFrameRate() << std::endl;
-    ss << "Connected to: " << device.getPortName();
+    ss << "Connected to: " << device.port();
 
     ofDrawBitmapString(ss.str(), ofVec2f(20, 20));
 
@@ -134,23 +116,25 @@ void ofApp::draw()
 }
 
 
-void ofApp::onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args)
+void ofApp::onSerialBuffer(const ofxIO::SerialBufferEventArgs& args)
 {
     // Decoded serial packets will show up here.
-    SerialMessage message(args.getBuffer().toString(), "", 255);
+    SerialMessage message;
+    message.message = args.buffer().toString();
     serialMessages.push_back(message);
 
     // ofLogNotice("onSerialBuffer") << "got serial buffer : " << message.message;
 }
 
 
-void ofApp::onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args)
+void ofApp::onSerialError(const ofxIO::SerialBufferErrorEventArgs& args)
 {
     // Errors and their corresponding buffer (if any) will show up here.
-    SerialMessage message(args.getBuffer().toString(),
-                          args.getException().displayText(),
-                          500);
-
+    SerialMessage message;
+    message.message = args.buffer().toString();
+    message.exception = args.exception().displayText();
+    message.fade = 500;
     serialMessages.push_back(message);
+
     ofLogNotice("onSerialError") << "got serial error : " << message.exception;
 }

@@ -49,9 +49,6 @@ void BufferedSerialDevice::update(ofEventArgs& args)
             {
                 if (buffer[i] == _marker)
                 {
-                    // Decode the buffer if needed.
-                    //decodeBuffer();
-
                     // Send the buffer if there are any bytes.
                     if (buffer.size() > 0)
                     {
@@ -82,7 +79,7 @@ void BufferedSerialDevice::update(ofEventArgs& args)
                         _buffer.reserve(_maxBufferSize);
                         _buffer.clear();
                     }
-
+                    
                     _buffer.writeByte(buffer[i]);
                 }
             }

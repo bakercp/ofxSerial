@@ -35,7 +35,7 @@ public:
 
     using BufferedSerialDevice::setup;
 
-    void send(const ByteBuffer& buffer) const
+    void send(const ByteBuffer& buffer)
     {
         ByteBuffer encoded;
         _encoder.encode(buffer, encoded);

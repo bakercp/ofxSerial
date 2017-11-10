@@ -144,8 +144,8 @@ void ofApp::appendMessage(ofxOscMessage& message, osc::OutboundPacketStream& p)
         else if ( message.getArgType( i ) == OFXOSC_TYPE_CHAR )
             p << message.getArgAsChar( i );
 
-        else if ( message.getArgType( i ) == OFXOSC_TYPE_MIDI_MESSAGE )
-            p << message.getArgAsMidiMessage( i );
+//        else if ( message.getArgType( i ) == OFXOSC_TYPE_MIDI_MESSAGE )
+//            p << message.getArgAsMidiMessage( i );
 
         else if ( message.getArgType( i ) == OFXOSC_TYPE_TRUE || message.getArgType( i ) == OFXOSC_TYPE_FALSE )
             p << message.getArgAsBool( i );

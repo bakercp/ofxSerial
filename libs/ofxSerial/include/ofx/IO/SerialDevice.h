@@ -13,6 +13,7 @@
 #include "serial/serial.h"
 #include "ofJson.h"
 #include "ofLog.h"
+#include "ofMath.h"
 #include "ofx/IO/AbstractTypes.h"
 #include "ofx/IO/SerialDeviceUtils.h"
 

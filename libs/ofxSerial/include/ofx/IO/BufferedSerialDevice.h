@@ -47,6 +47,7 @@ public:
     /// \brief Register a class to receive notifications for all events.
     /// \param listener a pointer to the listener class.
     /// \param order the event order.
+    /// \tparam ListenerClass The listener class type.
     template<class ListenerClass>
     void registerAllEvents(ListenerClass* listener, int order = OF_EVENT_ORDER_AFTER_APP)
     {
@@ -56,6 +57,8 @@ public:
 
     /// \brief Unregister a class to receive notifications for all events.
     /// \param listener a pointer to the listener class.
+    /// \param order the event order.
+    /// \tparam ListenerClass The listener class type.
     template<class ListenerClass>
     void unregisterAllEvents(ListenerClass* listener, int order = OF_EVENT_ORDER_AFTER_APP)
     {

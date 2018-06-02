@@ -30,8 +30,9 @@ Features
         -   Windows Codeblocks / MinGW / MSYS
         -   Linux
 -   Robust Cross-platform port listing.
-
 -   Arduino Examples for sanity testing.
+
+
 Required Addons
 ---------------
 

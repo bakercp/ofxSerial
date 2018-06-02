@@ -6,4 +6,4 @@ meta:
 	ADDON_URL = http://github.com/bakercp/ofxSerial
 
 common:
-	ADDON_DEPENDENCIES = ofxIO
+	ADDON_DEPENDENCIES = ofxPoco ofxIO

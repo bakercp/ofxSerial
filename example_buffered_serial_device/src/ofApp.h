@@ -36,14 +36,14 @@ public:
 class ofApp: public ofBaseApp
 {
 public:
-    void setup();
-    void draw();
-    void exit();
+    void setup() override;
+    void draw() override;
+    void exit() override;
 
-    void onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args);
-    void onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args);
+    void onSerialBuffer(const ofxIO::SerialBufferEventArgs& args);
+    void onSerialError(const ofxIO::SerialBufferErrorEventArgs& args);
 
-    ofx::IO::BufferedSerialDevice device;
+    ofxIO::BufferedSerialDevice device;
 
     std::vector<SerialMessage> serialMessages;
 

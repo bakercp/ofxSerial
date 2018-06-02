@@ -12,35 +12,36 @@ void ofApp::setup()
     // 1. Upload the HaikuGenerator.ino sketch (in this example's Arduino/
     //    folder) to an Arduino board.
     // 2. Check the "getDevices" call below to make sure the correct serial
-    //    device is connected.  This works with OSX but may require a different
+    //    device is connected. This works with OSX but may require a different
     //    port name for Linux or Windows.
     // 3. Run this app.
 
     ofEnableAlphaBlending();
 
-    std::vector<ofx::IO::SerialDeviceInfo> devicesInfo = ofx::IO::SerialDeviceUtils::listDevices();
+    auto deviceDescriptors = ofx::IO::SerialDeviceUtils::listDevices();
 
-    ofLogNotice("ofApp::setup") << "Connected Devices: ";
-
-    for (std::size_t i = 0; i < devicesInfo.size(); ++i)
+    if (!deviceDescriptors.empty())
     {
-        ofLogNotice("ofApp::setup") << "\t" << devicesInfo[i];
-    }
+        ofLogNotice("ofApp::setup") << "Connected Devices: ";
+        for (auto deviceDescriptor: deviceDescriptors)
+        {
+            ofLogNotice("ofApp::setup") << "\t" << deviceDescriptor;
+        }
 
-    if (!devicesInfo.empty())
-    {
+        // Choose a device.
+        auto deviceDescriptor = deviceDescriptors[0];
+        
         // Connect to the first matching device.
-        bool success = device.setup(devicesInfo[0], 115200);
+        bool success = device.setup(deviceDescriptor, 115200);
 
-        if(success)
+        if (success)
         {
             device.registerAllEvents(this);
-
-            ofLogNotice("ofApp::setup") << "Successfully setup " << devicesInfo[0];
+            ofLogNotice("ofApp::setup") << "Successfully setup " << deviceDescriptor;
         }
         else
         {
-            ofLogNotice("ofApp::setup") << "Unable to setup " << devicesInfo[0];
+            ofLogNotice("ofApp::setup") << "Unable to setup " << deviceDescriptor;
         }
     }
     else
@@ -103,14 +104,14 @@ void ofApp::draw()
 }
 
 
-void ofApp::onSerialBuffer(const ofx::IO::SerialBufferEventArgs& args)
+void ofApp::onSerialBuffer(const ofxIO::SerialBufferEventArgs& args)
 {
     // Buffers will show up here when the marker character is found.
     SerialMessage message(args.buffer().toString(), "", 500);
     serialMessages.push_back(message);
 }
 
-void ofApp::onSerialError(const ofx::IO::SerialBufferErrorEventArgs& args)
+void ofApp::onSerialError(const ofxIO::SerialBufferErrorEventArgs& args)
 {
     // Errors and their corresponding buffer (if any) will show up here.
     SerialMessage message(args.buffer().toString(),

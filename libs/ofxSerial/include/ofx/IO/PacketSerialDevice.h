@@ -53,6 +53,10 @@ public:
     using BufferedSerialDevice::isRingIndicated;
     using BufferedSerialDevice::isCarrierDetected;
     using BufferedSerialDevice::isOpen;
+	using BufferedSerialDevice::setDataTerminalReady;
+	using BufferedSerialDevice::getPortName;
+
+	
 
     /// \brief Register a class to receive notifications for all events.
     /// \param listener a pointer to the listener class.

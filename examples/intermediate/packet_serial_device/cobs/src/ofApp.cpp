@@ -10,9 +10,10 @@
 
 void ofApp::setup()
 {
-    // 1. Upload the SLIPPacketSerialReverseEcho.ino sketch (in this example's
-    //    Arduino/ folder) to an Arduino board.  This sketch requires
-    //    the Arduino PacketSerial library https://github.com/bakercp/PacketSerial.
+    // 1. Upload the `PacketSerialReverseEcho.ino` sketch to an Arduino board.
+    // This sketch requires the Arduino
+    // [PacketSerial library](https://github.com/bakercp/PacketSerial)
+    // and the example Arduino code can be found in that package.
     // 2. Check the "listDevices" call below to make sure the correct serial
     //    device is connected.
     // 3. Run this app.

@@ -1,3 +1,3 @@
 ofxIO
-ofxSerial
 ofxPoco
+ofxSerial

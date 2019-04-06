@@ -10,11 +10,12 @@
 
 void ofApp::setup()
 {
-    // 1. Upload the Echo.ino sketch (in this example's Arduino/ folder) to
-    //    an Arduino board.
-    // 2. Check the "listDevices" call below to make sure the correct serial
-    //    device is connected.  This works with OSX but may require a different
-    //    port name for Linux or Windows.
+    // 1. Upload the `Echo.ino` sketch (in this example's `Arduino/` folder) to
+    // an Arduino-compatible board.
+    //
+    // 2. Check the "listDevices" call in the `ofApp::setup()` function to make
+    // sure the correct serial device is connected.
+    //
     // 3. Run this app.
 
     std::vector<ofx::IO::SerialDeviceInfo> devicesInfo = ofx::IO::SerialDeviceUtils::listDevices();
@@ -31,7 +32,7 @@ void ofApp::setup()
         // Connect to the first matching device.
         bool success = device.setup(devicesInfo[0], 115200);
 
-        if(success)
+        if (success)
         {
             ofLogNotice("ofApp::setup") << "Successfully setup " << devicesInfo[0];
         }
@@ -83,6 +84,6 @@ void ofApp::update()
 void ofApp::draw()
 {
     ofBackgroundGradient(ofColor::white, ofColor::black);
-    ofDrawBitmapStringHighlight("Connected to " + device.getPortName(), ofVec2f(20, 20));
-    ofDrawBitmapStringHighlight("See Console.", ofVec2f(20, 45));
+    ofDrawBitmapStringHighlight("Connected to " + device.port(), 20, 20);
+    ofDrawBitmapStringHighlight("See Console.", 20, 45);
 }

@@ -4,17 +4,17 @@
 // SPDX-License-Identifier:    MIT
 //
 
+
 #include "ofApp.h"
 
 
 void ofApp::setup()
 {
-    // 1. Upload the HaikuGenerator.ino sketch (in this example's Arduino/
-    //    folder) to an Arduino board.
-    // 2. Check the "getDevices" call below to make sure the correct serial
-    //    device is connected. This works with OSX but may require a different
-    //    port name for Linux or Windows.
-    // 3. Run this app.
+    // 1.  Upload the `HaikuGenerator.ino` sketch (in this example's
+    // `Arduino/` folder) to an Arduino-compatible board.
+    // 2.  Check the "listDevices" call in the `ofApp::setup()` function to
+    // make sure the correct serial device is connected.
+    // 3.  Run this app.
 
     ofEnableAlphaBlending();
 

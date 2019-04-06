@@ -10,12 +10,15 @@
 
 void ofApp::setup()
 {
-    // 1. Upload the SLIPPacketSerialReverseEcho.ino sketch (in this example's
-    //    Arduino/ folder) to an Arduino board.  This sketch requires
-    //    the Arduino PacketSerial library https://github.com/bakercp/PacketSerial.
-    // 2. Check the "listDevices" call below to make sure the correct serial
-    //    device is connected.
-    // 3. Run this app.
+    // 1.  Upload the `PacketSerialReverseEchoSLIP.ino` sketch to an Arduino
+    // board. This sketch requires the Arduino
+    // [PacketSerial library](https://github.com/bakercp/PacketSerial) and the
+    // example Arduino code can be found in that package.
+    //
+    // 2.  Check the "listDevices" call below to make sure the correct serial
+    // device is connected.
+    //
+    // 3.  Run this app.
 
     ofEnableAlphaBlending();
 
@@ -62,10 +65,8 @@ void ofApp::update()
 
     // Send the byte buffer.
     // ofxIO::PacketSerialDevice will encode the buffer, send it to the
-    // receiver, and send a packet marker.
+    // receiver and send a packet marker.
     device.send(buffer);
-
-    // ofLogNotice("update") << "sending : " << buffer;
 }
 
 
@@ -80,7 +81,7 @@ void ofApp::draw()
     ss << "         FPS: " << ofGetFrameRate() << std::endl;
     ss << "Connected to: " << device.port();
 
-    ofDrawBitmapString(ss.str(), ofVec2f(20, 20));
+    ofDrawBitmapString(ss.str(), 20, 20);
 
     std::vector<SerialMessage>::iterator iter = serialMessages.begin();
 
@@ -122,8 +123,6 @@ void ofApp::onSerialBuffer(const ofxIO::SerialBufferEventArgs& args)
     SerialMessage message;
     message.message = args.buffer().toString();
     serialMessages.push_back(message);
-
-    // ofLogNotice("onSerialBuffer") << "got serial buffer : " << message.message;
 }
 
 

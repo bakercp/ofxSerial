@@ -1,4 +1,0 @@
-ofxIO
-ofxOsc
-ofxPoco
-ofxSerial

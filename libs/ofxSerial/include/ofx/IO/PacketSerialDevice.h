@@ -58,6 +58,10 @@ public:
 
 	
 
+    using BufferedSerialDevice::flush;
+    using BufferedSerialDevice::flushInput;
+    using BufferedSerialDevice::flushOutput;
+    
     /// \brief Register a class to receive notifications for all events.
     /// \param listener a pointer to the listener class.
     /// \param order the event order.

@@ -23,17 +23,16 @@ struct SerialMessage
 class ofApp: public ofBaseApp
 {
 public:
-    void setup();
-    void update();
-    void draw();
-    void exit();
-    
+    void setup() override;
+    void update() override;
+    void draw() override;
+    void exit() override;
+
     void onSerialBuffer(const ofxIO::SerialBufferEventArgs& args);
     void onSerialError(const ofxIO::SerialBufferErrorEventArgs& args);
-    
-    ofxIO::SLIPPacketSerialDevice device;
-    
-    std::vector<SerialMessage> serialMessages;
-    
-};
 
+    ofxIO::PacketSerialDevice device;
+
+    std::vector<SerialMessage> serialMessages;
+
+};

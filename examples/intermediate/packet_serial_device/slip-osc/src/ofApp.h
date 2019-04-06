@@ -9,10 +9,10 @@
 class ofApp : public ofBaseApp
 {
 public:
-    void setup();
-    void update();
-    void draw();
-    void exit();
+    void setup() override;
+    void update() override;
+    void draw() override;
+    void exit() override;
 
     void mousePressed(ofMouseEventArgs& mouse);
 

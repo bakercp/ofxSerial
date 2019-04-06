@@ -4,6 +4,7 @@
 // SPDX-License-Identifier:    MIT
 //
 
+
 #include "ofApp.h"
 
 
@@ -11,7 +12,7 @@ void ofApp::setup()
 {
     ofLogNotice("ofApp::setup") << "Connected Devices: ";
 
-    for (auto& device : ofx::IO::SerialDeviceUtils::listDevices())
+    for (auto& device: ofxIO::SerialDeviceUtils::listDevices())
     {
         ofLogNotice("ofApp::setup") << "\t" << device;
     }
@@ -21,5 +22,5 @@ void ofApp::setup()
 void ofApp::draw()
 {
     ofBackgroundGradient(ofColor::white, ofColor::black);
-    ofDrawBitmapStringHighlight("See Console.", ofVec2f(70, 30));
+    ofDrawBitmapStringHighlight("See Console.", glm::vec2(70, 30));
 }

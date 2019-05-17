@@ -147,7 +147,7 @@ std::size_t SerialDevice::writeByte(uint8_t data)
     return _serial != nullptr ? _serial->write(&data, 1) : 0;
 }
 
-    
+
 std::size_t SerialDevice::writeBytes(const uint8_t* buffer, std::size_t size)
 {
     return _serial != nullptr ? _serial->write(buffer, size) : 0;
@@ -231,7 +231,7 @@ SerialDevice::Parity SerialDevice::parity() const
 
 SerialDevice::Parity SerialDevice::getParity() const
 {
-    return getParity();
+    return parity();
 }
 
 

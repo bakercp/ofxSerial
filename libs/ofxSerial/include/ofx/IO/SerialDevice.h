@@ -11,7 +11,7 @@
 #include <stdint.h>
 #include "Poco/Path.h"
 #include "serial/serial.h"
-#include "ofJson.h"
+#include "json.hpp"
 #include "ofLog.h"
 #include "ofMath.h"
 #include "ofx/IO/AbstractTypes.h"
@@ -75,7 +75,7 @@ public:
         {
         }
 
-        static Settings fromJSON(const ofJson& json)
+        static Settings fromJSON(const nlohmann::json& json)
         {
             Settings settings;
 
@@ -295,7 +295,7 @@ public:
 
     enum
     {
-        /// \brief The default read timeout.  0 is a non-blocking timeout.
+        /// \brief The default read timeout. 0 is a non-blocking timeout.
         DEFAULT_READ_TIMEOUT_CONSTANT_MS = 0,
         DEFAULT_READ_TIMEOUT_MULTIPLIER_MS = 0,
         /// \brief The default write timeout constant.

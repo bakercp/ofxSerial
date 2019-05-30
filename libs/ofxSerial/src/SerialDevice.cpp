@@ -273,7 +273,6 @@ SerialDevice::FlowControl SerialDevice::getFlowControl() const
 }
 
 
-
 SerialDevice::Timeout SerialDevice::timeout() const
 {
     if (_serial != nullptr)

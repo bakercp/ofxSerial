@@ -207,6 +207,20 @@ public:
                FlowControl flowControl = FLOW_CTRL_NONE,
                Timeout timeout = DEFAULT_TIMEOUT);
 
+    /// \brief Read bytes until the end of line byte or until timeout.
+    /// \param eol The end of line character.
+    /// \param maxSize The maximum size to be read.
+    /// \returns a std::string of bytes that were read.
+    std::string readStringUntil(char eol = '\n',
+                                std::size_t maxSize = 65536);
+
+    /// \brief Read bytes until the end of line byte or until timeout.
+    /// \param eol The end of line character.
+    /// \param maxSize The maximum size to be read.
+    /// \returns a vector of bytes that were read.
+    std::vector<uint8_t> readBytesUntil(uint8_t eol = '\n',
+                                        std::size_t maxSize = 65536);
+
 
     std::size_t readBytes(uint8_t* buffer, std::size_t size) override;
     std::size_t readByte(uint8_t& data) override;

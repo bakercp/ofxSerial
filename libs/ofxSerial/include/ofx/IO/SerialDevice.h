@@ -215,6 +215,7 @@ public:
     std::size_t writeByte(uint8_t data) override;
     std::size_t writeBytes(const uint8_t* buffer, std::size_t size) override;
     std::size_t writeBytes(const std::vector<uint8_t>& buffer) override;
+    std::size_t writeBytes(std::initializer_list<uint8_t> bytes) override;
     std::size_t writeBytes(const std::string& buffer) override;
     std::size_t writeBytes(const AbstractByteSource& buffer) override;
 

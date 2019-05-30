@@ -160,6 +160,13 @@ std::size_t SerialDevice::writeBytes(const std::vector<uint8_t>& buffer)
 }
 
 
+std::size_t SerialDevice::writeBytes(std::initializer_list<uint8_t> bytes)
+{
+    std::vector<uint8_t> buffer = bytes;
+    return _serial != nullptr ? _serial->write(buffer) : 0;
+}
+
+
 std::size_t SerialDevice::writeBytes(const std::string& buffer)
 {
     return _serial != nullptr ? _serial->write(buffer) : 0;

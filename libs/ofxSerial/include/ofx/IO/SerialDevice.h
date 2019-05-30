@@ -9,7 +9,6 @@
 
 
 #include <stdint.h>
-#include "Poco/Path.h"
 #include "serial/serial.h"
 #include "ofJson.h"
 #include "ofLog.h"
@@ -105,25 +104,15 @@ public:
             std::string parity = json.value("parity", "none");
 
             if (parity == "none")
-            {
                 settings.parity = PAR_NONE;
-            }
             else if (parity == "odd")
-            {
                 settings.parity = PAR_ODD;
-            }
             else if (parity == "even")
-            {
                 settings.parity = PAR_EVEN;
-            }
             else if (parity == "mark")
-            {
                 settings.parity = PAR_MARK;
-            }
             else if (parity == "space")
-            {
                 settings.parity = PAR_SPACE;
-            }
             else
             {
                 ofLogWarning("Settings::fromJSON") << "Invalid parity: " << parity << ". Using default.";
@@ -133,40 +122,24 @@ public:
             float stopBits = json.value("stop_bits", 1.0f);
 
             if (ofIsFloatEqual(stopBits, 1.0f))
-            {
                 settings.stopBits = STOP_ONE;
-            }
             else if (ofIsFloatEqual(stopBits, 1.5f))
-            {
                 settings.stopBits = STOP_ONE_POINT_FIVE;
-            }
             else if (ofIsFloatEqual(stopBits, 2.0f))
-            {
                 settings.stopBits = STOP_TWO;
-            }
             else
-            {
                 ofLogWarning("Settings::fromJSON") << "Invalid stop bits: " << stopBits << ". Using default.";
-            }
 
             std::string flowControl = json.value("flow_control", "none");
 
             if (flowControl == "none")
-            {
                 settings.flowControl = FLOW_CTRL_NONE;
-            }
             else if (flowControl == "hardware")
-            {
                 settings.flowControl = FLOW_CTRL_HARDWARE;
-            }
             else if (flowControl == "software")
-            {
                 settings.flowControl = FLOW_CTRL_SOFTWARE;
-            }
             else
-            {
                 ofLogWarning("Settings::fromJSON") << "Invalid flow control: " << flowControl << ". Using default.";
-            }
 
 //            ofJson timeout = json["timeout"];
 //
@@ -265,7 +238,6 @@ public:
 
     Timeout timeout() const;
     OF_DEPRECATED_MSG("Use timeout() instead", Timeout getTimeout() const);
-
 
     void flush();
     void flushInput();

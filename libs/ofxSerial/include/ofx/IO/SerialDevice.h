@@ -283,7 +283,7 @@ public:
     enum
     {
         /// \brief The default read timeout.  0 is a non-blocking timeout.
-        DEFAULT_READ_TIMEOUT_CONSTANT_MS = 0,
+        DEFAULT_READ_TIMEOUT_CONSTANT_MS = 1000,
         DEFAULT_READ_TIMEOUT_MULTIPLIER_MS = 0,
         /// \brief The default write timeout constant.
         /// This usually blocks for one or two milliseconds.

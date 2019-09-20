@@ -124,6 +124,22 @@ bool SerialDevice::setup(const std::string& portName,
 }
 
 
+std::string SerialDevice::readStringUntil(char eol, std::size_t maxSize)
+{
+    std::string result;
+    if (_serial != nullptr)
+        _serial->readline(result, maxSize, std::string(1, eol));
+    return result;
+}
+
+
+std::vector<uint8_t> SerialDevice::readBytesUntil(uint8_t eol, std::size_t maxSize)
+{
+    auto result = readStringUntil(eol, maxSize);
+    return std::vector<uint8_t>(result.begin(), result.end());
+}
+
+
 std::size_t SerialDevice::readBytes(uint8_t* buffer, std::size_t size)
 {
     return _serial != nullptr ? _serial->read(buffer, size) : 0;
@@ -156,6 +172,13 @@ std::size_t SerialDevice::writeBytes(const uint8_t* buffer, std::size_t size)
 
 std::size_t SerialDevice::writeBytes(const std::vector<uint8_t>& buffer)
 {
+    return _serial != nullptr ? _serial->write(buffer) : 0;
+}
+
+
+std::size_t SerialDevice::writeBytes(std::initializer_list<uint8_t> bytes)
+{
+    std::vector<uint8_t> buffer = bytes;
     return _serial != nullptr ? _serial->write(buffer) : 0;
 }
 
@@ -271,7 +294,6 @@ SerialDevice::FlowControl SerialDevice::getFlowControl() const
 {
     return flowControl();
 }
-
 
 
 SerialDevice::Timeout SerialDevice::timeout() const

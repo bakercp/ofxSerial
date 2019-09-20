@@ -1,187 +1,282 @@
-docs/html
-docs/tagfile.xml
-docs/*.tag
+################################################################################
+# A .gitignore for openFrameworks addons.
+################################################################################
 
-raw/
+################################################################################
+# Intro
+################################################################################
 
-Project.xcconfig
-*.xcodeproj
-*.plist
+# We start by ignoring everything, then selectively make exceptions for items 
+# and structures that are part of the standard addon structure. Basically, if it
+# is not explicitly allowed or manually forced, it won't be tracked.
+# 
+# To do this, we we must first un-exclude parent directories
+#
+# !/docs
+#
+# then exclude their content
+#
+# /docs/*
+#
+# then unexclude specific items.
+# 
+# !/docs/Doxyfile
+# !/docs/*.md
+#
+# Items cannot be un-excluded using `!` unless the parent directory has been 
+# unexcluded.
 
-*.sln
-*.vcxproj
-*.vcxproj.filters
-icon.rc
+################################################################################
+# Basic
+################################################################################
 
-*.mode1v3
+# Ignore everything by default.
+/*
 
-# xcode
-*.pbxuser
-*.perspectivev3
-xcuserdata
-build
-*.app
-#*.a
+# Don't ignore the .git*.
+!.gitignore
+!.gitmodules
+
+!/.github
+/.github/*
+!/.github/ISSUE_TEMPLATE.md
+!/.github/PULL_REQUEST_TEMPLATE.md
+
+
+################################################################################
+# Documentation
+################################################################################
+
+# Doxygen-Related
+!/docs
+/docs/*
+
+# Don't ignore Doxygen configurations.
+!/docs/Doxyfile
+
+# Don't ignore markdown documentation files. Any images, etc must be 
+# added manually by force. This keeps the repository size smaller by default.
+!/docs/*.md
+
+################################################################################
+# Addon Metadata
+################################################################################
+
+!addon_config.mk
+!ofxaddons_thumbnail.png
+
+!*.md
+
+################################################################################
+# Addon Libraries and Source
+################################################################################
+
+# Exclude 3rd party libs by default.
+# They should be force-added or downloaded or compiled via scripts.
+!/libs
+/libs/*
+
+# Don't exclude ofx* prefixed libs by default.
+!/libs/ofx*/
+
+# We only allow source files in the src/ directory.
+!/src
+/src/*
+
+# Allow C/C++/Objective-C source files.
+!/src/**/*.h
+!/src/**/*.hpp
+!/src/**/*.c
+!/src/**/*.cpp
+!/src/**/*.m
+!/src/**/*.mm
+
+################################################################################
+# Examples
+################################################################################
+
+!/example*
+
+# Old-Style examples.
+/example*/*
+
+!/example*/**/src
+/example*/src/**/*
+!/example*/src/**/*.h
+!/example*/src/**/*.hpp
+!/example*/src/**/*.c
+!/example*/src/**/*.cpp
+!/example*/src/**/*.m
+!/example*/src/**/*.mm
+
+!/example*/addons.make
+!/example*/*.md
+
+!/example*/bin
+/example*/bin/*
+
+!/example*/bin/data
+/example*/bin/data/*
+
+!/example*/bin/data/data.txt
+!/example*/bin/data/*.md
+
+# Examples with categories.
+
+!/examples
+
+/examples/*/*/*
+
+!/examples/*
+!/examples/*/*
+!/examples/*/*/src
+!/examples/*/*/src/*.h
+!/examples/*/*/src/**/*.hpp
+!/examples/*/*/src/**/*.c
+!/examples/*/*/src/**/*.cpp
+!/examples/*/*/src/**/*.m
+!/examples/*/*/src/**/*.mm
+
+!/examples/*/*/addons.make
+!/examples/*/*/*.md
+
+!/examples/*/*/bin
+/examples/*/*/bin/*
+
+!/examples/*/*/bin/data
+/examples/*/*/bin/data/*
+
+!/examples/*/*/bin/data/data.txt
+!/examples/*/*/bin/data/*.md
+
+################################################################################
+# Tests
+################################################################################
+
+# Tests with categories.
+
+!/tests
+
+/tests/*/*/*
+!/tests/*/*/src
+!/tests/*/*/src/*.h
+!/tests/*/*/src/**/*.hpp
+!/tests/*/*/src/**/*.c
+!/tests/*/*/src/**/*.cpp
+!/tests/*/*/src/**/*.m
+!/tests/*/*/src/**/*.mm
+
+!/tests/*/*/addons.make
+!/tests/*/*/*.md
+
+!/tests/*/*/bin
+/tests/*/*/bin/*
+
+!/tests/*/*/bin/data
+/tests/*/*/bin/data/*
+
+!/tests/*/*/bin/data/data.txt
+!/tests/*/*/bin/data/*.md
+
+# ################################################################################
+# # Shared Data
+# ################################################################################
+
+!/shared
+/shared/*
+
+!/shared/data
+/shared/data/*
+
+!/shared/data/*.sh
+!/shared/data/*.md
+
+# ################################################################################
+# # Scripts
+# ################################################################################
+
+!/scripts
+/scripts/*
+
+# ofx submodule.
+!/scripts/ofx
+
+# Bootstrap script.
+!/scripts/bootstrap.sh
+
+# Continuous integration.
+!/scripts/ci
+/scripts/ci/*/*
+!/scripts/ci/**/*.sh
+!/scripts/ci/**/*.md
+
+!/scripts/formulas
+/scripts/forumulas/*
+!/scripts/formulas/*.sh
+!/scripts/formulas/*.md
+
+# Linux* scripts.
+!/scripts/linux*
+/scripts/linux*/*
+!/scripts/linux*/*.sh
+!/scripts/linux*/*.md
+
+# macOS scripts.
+!/scripts/osx
+/scripts/osx/*
+!/scripts/osx/*.sh
+!/scripts/osx/*.md
+
+# MSYS2 scripts.
+!/scripts/msys2
+/scripts/msys2/*
+!/scripts/msys2/*.sh
+!/scripts/msys2/*.md
+
+# Visual Studio scripts.
+!/scripts/vs
+/scripts/vs/*
+!/scripts/vs/*.sh
+!/scripts/vs/*.md
+
+# Android scripts.
+!/scripts/android
+/scripts/android/*
+!/scripts/android/*.sh
+!/scripts/android/*.md
+
+# iOS scripts.
+!/scripts/ios
+/scripts/ios/*
+!/scripts/ios/*.sh
+!/scripts/ios/*.md
+
+# tvOS scripts.
+!/scripts/tvos
+/scripts/tvos/*
+!/scripts/tvos/*.sh
+!/scripts/tvos/*.md
+
+# Emscripten scripts.
+!/scripts/emscripten
+/scripts/emscripten/*
+!/scripts/emscripten/*.sh
+!/scripts/emscripten/*.md
+
+################################################################################
+# Continuous Integration
+################################################################################
+
+!.appveyor.yml
+!.travis.yml
+
+################################################################################
+# Utility Stuff
+################################################################################
+
+# Temporary files.
+*.autosave
 
 # OSX
 .DS_Store
 .AppleDouble
-
-# codeblocks
-*.layout
-example/obj
-
-# Win
-*.exe
-*.dll
-## Ignore Visual Studio temporary files, build results, and
-## files generated by popular Visual Studio add-ons.
-
-# User-specific files
-*.suo
-*.user
-*.sln.docstates
-
-# Build results
-
-[Dd]ebug/
-[Rr]elease/
-x64/
-build/
-[Bb]in/
-[Oo]bj/
-
-# Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
-!packages/*/build/
-
-# MSTest test Results
-[Tt]est[Rr]esult*/
-[Bb]uild[Ll]og.*
-
-*_i.c
-*_p.c
-*.ilk
-*.meta
-*.obj
-*.pch
-*.pdb
-*.pgc
-*.pgd
-*.rsp
-*.sbr
-*.tlb
-*.tli
-*.tlh
-*.tmp
-*.tmp_proj
-*.log
-*.vspscc
-*.vssscc
-.builds
-*.pidb
-*.log
-*.scc
-
-# Visual C++ cache files
-ipch/
-*.aps
-*.ncb
-*.opensdf
-*.sdf
-*.cachefile
-
-# Visual Studio profiler
-*.psess
-*.vsp
-*.vspx
-
-# Guidance Automation Toolkit
-*.gpState
-
-# ReSharper is a .NET coding add-in
-_ReSharper*/
-*.[Rr]e[Ss]harper
-
-# TeamCity is a build add-in
-_TeamCity*
-
-# DotCover is a Code Coverage Tool
-*.dotCover
-
-# NCrunch
-*.ncrunch*
-.*crunch*.local.xml
-
-# Installshield output folder
-[Ee]xpress/
-
-# DocProject is a documentation generator add-in
-DocProject/buildhelp/
-DocProject/Help/*.HxT
-DocProject/Help/*.HxC
-DocProject/Help/*.hhc
-DocProject/Help/*.hhk
-DocProject/Help/*.hhp
-DocProject/Help/Html2
-DocProject/Help/html
-
-# Click-Once directory
-publish/
-
-# Publish Web Output
-*.Publish.xml
-*.pubxml
-
-# NuGet Packages Directory
-## TODO: If you have NuGet Package Restore enabled, uncomment the next line
-#packages/
-
-# Windows Azure Build Output
-csx
-*.build.csdef
-
-# Windows Store app package directory
-AppPackages/
-
-# Others
-sql/
-*.Cache
-ClientBin/
-[Ss]tyle[Cc]op.*
-~$*
-*~
-*.dbmdl
-*.[Pp]ublish.xml
-*.pfx
-*.publishsettings
-
-# RIA/Silverlight projects
-Generated_Code/
-
-# Backup & report files from converting an old project file to a newer
-# Visual Studio version. Backup files are not needed, because we have git ;-)
-_UpgradeReport_Files/
-Backup*/
-UpgradeLog*.XML
-UpgradeLog*.htm
-
-# SQL Server files
-App_Data/*.mdf
-App_Data/*.ldf
-
-# =========================
-# Windows detritus
-# =========================
-
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
-
-# Folder config file
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Mac crap
-.DS_Store
